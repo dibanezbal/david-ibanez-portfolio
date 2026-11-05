@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { formatPeriod } from '../lib/format';
+import { contextLabels, disciplineLabels } from '../lib/projects';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { id, data } = Astro.props.project;
+const caseUrl = `/proyectos/${id}`;
+
+const summaryRows = [
+	['Problema', data.problem],
+	['Solución', data.solution],
+	['Resultado', data.outcome],
+];
+---
+
+<article class="group relative grid gap-8 border-t border-ink py-10 lg:grid-cols-12 lg:gap-12 lg:py-14">
+	<div class="lg:col-span-7">
+		{
+			data.cover && (
+				<div class="overflow-hidden bg-line">
+					<Image
+						src={data.cover.src}
+						alt={data.cover.alt}
+						widths={[480, 800, 1200]}
+						sizes="(min-width: 1024px) 58vw, 100vw"
+						class="aspect-[24/13] w-full object-cover object-top transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.015]"
+					/>
+				</div>
+			)
+		}
+	</div>
+
+	<div class="lg:col-span-5">
+		<p class="font-mono text-xs tracking-wide text-accent-text">
+			{data.disciplines.map((discipline) => disciplineLabels[discipline]).join(' + ')}
+		</p>
+
+		<h3 class="mt-4 text-2xl font-bold leading-tight tracking-tight md:text-3xl">
+			<a href={caseUrl} class="underline-offset-4 after:absolute after:inset-0 group-hover:underline">
+				{data.title}
+			</a>
+		</h3>
+
+		<p class="mt-3 font-mono text-xs leading-relaxed text-muted">
+			{contextLabels[data.context]} · {formatPeriod(data)}
+		</p>
+		{data.recognition && <p class="mt-1 font-mono text-xs leading-relaxed text-muted">{data.recognition}</p>}
+
+		<dl class="mt-6 space-y-4 text-[0.95rem] leading-relaxed">
+			{
+				summaryRows.map(([label, text]) => (
+					<div>
+						<dt class="font-bold">{label}</dt>
+						<dd class="text-muted">{text}</dd>
+					</div>
+				))
+			}
+		</dl>
+
+		{
+			data.metrics.length > 0 && (
+				<ul class="mt-6 grid grid-cols-2 gap-4 border-t border-line pt-5">
+					{data.metrics.map((metric) => (
+						<li>
+							<span class="block text-2xl font-extrabold tracking-tight">{metric.value}</span>
+							<span class="mt-1 block text-xs leading-snug text-muted">{metric.label}</span>
+						</li>
+					))}
+				</ul>
+			)
+		}
+
+		<ul class="relative z-10 mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium">
+			<li>
+				<a
+					href={caseUrl}
+					class="inline-flex min-h-6 items-center gap-1 font-bold underline underline-offset-4 transition-colors hover:text-accent-text"
+				>
+					Leer el caso<span class="sr-only">: {data.title}</span>
+					<span aria-hidden="true">→</span>
+				</a>
+			</li>
+			{
+				data.links.map((link) => (
+					<li>
+						<a
+							href={link.url}
+							class="inline-flex min-h-6 items-center gap-1 text-accent-text underline underline-offset-4 transition-colors hover:text-ink"
+						>
+							{link.label}
+							<span aria-hidden="true">↗</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</article>

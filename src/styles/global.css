@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/* Tokens de la marca (public/brand) expresados en OKLCH */
+@theme static {
+	--color-ink: oklch(0.178 0 0);
+	--color-paper: oklch(0.969 0.004 106.5);
+	--color-muted: oklch(0.448 0.01 106.8);
+	--color-muted-on-ink: oklch(0.771 0.01 106.6);
+	--color-line: oklch(0.893 0.008 106.6);
+	/* Naranja de señal: formas y texto sobre tinta. No llega a AA sobre papel */
+	--color-accent: oklch(0.688 0.207 39.1);
+	/* Naranja quemado: texto y enlaces sobre papel */
+	--color-accent-text: oklch(0.553 0.174 38.4);
+
+	--font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+	--font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+@utility shell {
+	margin-inline: auto;
+	width: 100%;
+	max-width: 90rem;
+	padding-inline: 1.25rem;
+
+	@media (min-width: 48rem) {
+		padding-inline: 2.5rem;
+	}
+}
+
+/* Cuerpo en Markdown de los casos de estudio */
+@layer components {
+	.case-prose {
+		max-width: 46rem;
+		font-size: 1.0625rem;
+		line-height: 1.75;
+		color: var(--color-muted);
+
+		& > :first-child {
+			margin-top: 0;
+		}
+
+		& h2 {
+			margin-top: 3.5rem;
+			font-size: clamp(1.625rem, 3vw, 2.25rem);
+			font-weight: 800;
+			line-height: 1.15;
+			letter-spacing: -0.03em;
+			color: var(--color-ink);
+		}
+
+		& p,
+		& ul,
+		& ol,
+		& table {
+			margin-top: 1.25rem;
+		}
+
+		& ul,
+		& ol {
+			padding-left: 1.25rem;
+		}
+
+		& ul {
+			list-style: disc;
+		}
+
+		& ol {
+			list-style: decimal;
+		}
+
+		& li + li {
+			margin-top: 0.5rem;
+		}
+
+		& li::marker {
+			color: var(--color-accent-text);
+		}
+
+		& strong {
+			font-weight: 700;
+			color: var(--color-ink);
+		}
+
+		& em {
+			font-style: italic;
+		}
+
+		& a {
+			color: var(--color-accent-text);
+			text-decoration: underline;
+			text-underline-offset: 4px;
+		}
+
+		& a:hover {
+			color: var(--color-ink);
+		}
+
+		& hr {
+			margin-block: 3rem;
+			border-color: var(--color-line);
+		}
+
+		& table {
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 0.95rem;
+			line-height: 1.5;
+		}
+
+		& th,
+		& td {
+			padding: 0.75rem 1rem 0.75rem 0;
+			border-bottom: 1px solid var(--color-line);
+			text-align: left;
+			vertical-align: top;
+		}
+
+		& th {
+			border-bottom-color: var(--color-ink);
+			font-weight: 700;
+			color: var(--color-ink);
+		}
+	}
+}
+
+@layer base {
+	html {
+		background-color: var(--color-paper);
+		color: var(--color-ink);
+		font-family: var(--font-sans);
+		-webkit-font-smoothing: antialiased;
+	}
+
+	:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
+		border-radius: 2px;
+	}
+
+	::selection {
+		background-color: var(--color-accent);
+		color: var(--color-ink);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			scroll-behavior: smooth;
+		}
+	}
+}
