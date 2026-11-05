@@ -11,6 +11,25 @@ test('el enlace para saltar al contenido es el primer foco', async ({ page }) =>
 	await expect(skipLink).toBeVisible();
 });
 
+test('el retrato del hero carga optimizado y no hace saltar la página', async ({ page }) => {
+	const portrait = page.getByRole('img', { name: /^Retrato en blanco y negro de David Ibáñez/ });
+	await expect(portrait).toBeVisible();
+	await expect(portrait).toHaveJSProperty('complete', true);
+	await expect(portrait).toHaveAttribute('width', /\d+/);
+	await expect(portrait).toHaveAttribute('height', /\d+/);
+	await expect(portrait).toHaveAttribute('srcset', /\.webp/);
+	await expect(portrait).not.toHaveAttribute('loading', 'lazy');
+});
+
+test('el titular aparece antes que el retrato', async ({ page }) => {
+	const heading = await page.getByRole('heading', { level: 1 }).boundingBox();
+	const portrait = await page.getByRole('img', { name: /^Retrato/ }).boundingBox();
+	expect(heading!.y).toBeLessThan(portrait!.y + portrait!.height);
+	const isMobile = page.viewportSize()!.width < 1024;
+	if (isMobile) expect(heading!.y + heading!.height).toBeLessThanOrEqual(portrait!.y);
+	else expect(heading!.x + heading!.width).toBeLessThanOrEqual(portrait!.x);
+});
+
 test('los botones del hero llevan a sus secciones', async ({ page }) => {
 	await page.getByRole('link', { name: 'Ver proyectos' }).click();
 	await expect(page).toHaveURL(/#proyectos$/);
