@@ -10,7 +10,7 @@ hero:
   cta_primary: { label: "Ver proyectos", url: "#proyectos" }
   cta_secondary: { label: "Hablemos", url: "#contacto" }
   portrait:
-    src: "../../assets/img/IMG_6341.jpg"
+    src: "../../assets/img/david-ibanez-left.jpg"
     alt: "Retrato en blanco y negro de David Ibáñez, con gorra, gafas y chaqueta de cremallera, sonriendo y mirando hacia un lado."
 projects_intro: "Dos proyectos, dos puntos de partida distintos. Uno empieza en el diseño de una marca y acaba en una web en producción. El otro empieza en un flujo de usuario y acaba en una base de datos. En los dos, el diseño y el código van de la mano."
 skills:
