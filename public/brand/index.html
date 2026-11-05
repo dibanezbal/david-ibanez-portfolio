@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Ibáñez — Brand</title>
+<link rel="icon" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#111; --paper:#f5f5f2; --mid:#8a8a85; --accent:#ff5f1f; --accent-text:#c2410c; --brim:var(--accent); }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:"Plus Jakarta Sans",system-ui,sans-serif; background:var(--paper); color:var(--ink); padding:48px 16px 80px; }
+  main { max-width:1040px; margin:0 auto; }
+  .eyebrow { font:500 12px "JetBrains Mono",monospace; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); margin-bottom:12px; }
+  h1 { font-size:clamp(32px,5vw,52px); letter-spacing:-.04em; line-height:1; margin-bottom:40px; }
+  section { margin-bottom:56px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+  .tile { background:#fff; border-radius:20px; padding:32px; min-height:260px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; position:relative; }
+  .tile.ink { background:var(--ink); color:var(--paper); }
+  .tile.wide { grid-column:1/-1; }
+  .tile .cap { position:absolute; left:20px; bottom:16px; font:400 11px "JetBrains Mono",monospace; color:var(--mid); }
+  .mark { width:180px; height:180px; }
+  .hero .mark { width:min(340px,70vw); height:auto; }
+  .anatomy { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px; margin-top:24px; }
+  .anatomy b { display:block; font-size:15px; margin-bottom:4px; }
+  .anatomy p, .note { font-size:14px; line-height:1.5; color:#55554f; }
+  .lockup { display:flex; align-items:center; gap:18px; }
+  .lockup svg { width:64px; height:64px; }
+  .lockup .name { font-weight:700; font-size:32px; letter-spacing:-.035em; line-height:1; }
+  .lockup .role { font:400 13px "JetBrains Mono",monospace; letter-spacing:.04em; opacity:.6; margin-top:6px; }
+  .stack { flex-direction:column; text-align:center; gap:12px; }
+  .stack svg { width:96px; height:96px; }
+  .sizes { display:flex; align-items:flex-end; gap:24px; }
+  .swatches { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; }
+  .sw { border-radius:16px; padding:16px; height:140px; line-height:1.5; display:flex; flex-direction:column; justify-content:flex-end; font:400 12px "JetBrains Mono",monospace; }
+  .nav { width:100%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e5e5e0; padding-bottom:16px; }
+  .nav .name, .nav .links span { white-space:nowrap; }
+  .nav .links { display:flex; gap:14px; font-size:14px; align-items:center; }
+  .nav .links span:last-child { font:500 12px "JetBrains Mono",monospace; border:1px solid currentColor; border-radius:99px; padding:4px 10px; }
+  @media (max-width:560px){ .nav .links span:not(:last-child){ display:none; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="d" viewBox="32 20 160 160">
+    <path style="fill:var(--brim, currentColor)" d="M44 34 H128 C152 34 170 44 180 60 C165 57 150 56 134 56 H50 Q44 56 44 50 Z"/>
+    <path fill="currentColor" fill-rule="evenodd" d="M44 62 H88 C136 62 166 90 166 122 C166 154 138 176 98 176 H64 Q44 176 44 156 Z M66 84 H90 C122 84 144 100 144 119 C144 138 124 154 96 154 H66 Z"/>
+  </symbol>
+</svg>
+<main>
+  <p class="eyebrow">Brand identity · v1</p>
+  <h1>David Ibáñez — D / Cap</h1>
+
+  <section>
+    <div class="grid">
+      <div class="tile wide hero"><svg class="mark"><use href="#d"/></svg><span class="cap">Isotipo · primary mark</span></div>
+    </div>
+    <div class="anatomy">
+      <div><b>01 · Gorra calada</b><p>La gorra va baja y ajustada, justo por encima de las gafas. Por eso la D es plana arriba y la visera, corta y caída hacia delante, se apoya casi pegada a la letra.</p></div>
+      <div><b>02 · Cara redonda</b><p>De frente, tu cabeza es redonda y ancha de mejillas. La panza de la D es llena y amplia, no una D estrecha de imprenta.</p></div>
+      <div><b>03 · Trazo equilibrado</b><p>El trazo tiene el mismo grosor en todo el contorno y la curva es continua y llena, como la línea de la cara y la barba. Así es una D sólida, legible y tranquila, sin perder el carácter de la cabeza.</p></div>
+      <div><b>04 · Alto contraste</b><p>Las fotos son blanco y negro con grandes masas negras (gorra, barba, chaqueta). El isotipo es macizo y de un solo color, con el naranja solo en la visera.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Lockups</p>
+    <div class="grid">
+      <div class="tile"><div class="lockup"><svg><use href="#d"/></svg><div><div class="name">David Ibáñez</div><div class="role">Design &amp; Development</div></div></div><span class="cap">Horizontal</span></div>
+      <div class="tile ink"><div class="lockup"><svg><use href="#d"/></svg><div><div class="name">David Ibáñez</div><div class="role">Design &amp; Development</div></div></div><span class="cap">Horizontal · inverse</span></div>
+      <div class="tile" style="--brim:currentColor"><div class="lockup stack"><svg><use href="#d"/></svg><div><div class="name">David Ibáñez</div><div class="role">Design &amp; Development</div></div></div><span class="cap">Vertical · monocromo</span></div>
+    </div>
+    <p class="note" style="margin-top:16px">El descriptor funciona igual en EN y ES: <code>Design &amp; Development</code>. Así el logo no cambia entre idiomas: solo cambia el contenido de la web.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Aplicaciones</p>
+    <div class="grid">
+      <div class="tile"><div class="sizes"><img src="/favicon.svg" width="16"><img src="/favicon.svg" width="32"><img src="/favicon.svg" width="64"><img src="/favicon.svg" width="96"></div><span class="cap">Favicon · 16 / 32 / 64 / 96</span></div>
+      <div class="tile"><img src="d-avatar.svg" width="140"><span class="cap">Avatar · GitHub, LinkedIn, Dribbble</span></div>
+      <div class="tile"><div class="nav"><div class="lockup" style="gap:10px"><svg style="width:30px;height:30px"><use href="#d"/></svg><div class="name" style="font-size:17px">David Ibáñez</div></div><div class="links"><span>Work</span><span>EN / ES</span></div></div><span class="cap">Header</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Color &amp; type</p>
+    <div class="swatches">
+      <div class="sw" style="background:#111;color:#f5f5f2">Ink · #111111</div>
+      <div class="sw" style="background:#f5f5f2;color:#111;border:1px solid #e5e5e0">Paper · #F5F5F2</div>
+      <div class="sw" style="background:#8a8a85;color:#fff">Graphite · #8A8A85</div>
+      <div class="sw" style="background:#ff5f1f;color:#111">Signal Orange · #FF5F1F<br>acento · fondos y formas</div>
+      <div class="sw" style="background:#c2410c;color:#fff">Burnt Orange · #C2410C<br>texto y enlaces sobre claro</div>
+    </div>
+    <p class="note" style="margin-top:16px">Blanco y negro de alto contraste, como tus fotos, con <b style="color:var(--accent-text)">un único acento naranja</b> para la visera, los enlaces y los detalles de interacción. <code>#FF5F1F</code> llega a 6,2:1 sobre negro, pero solo a 2,8:1 sobre blanco roto; para texto sobre fondo claro se usa <code>#C2410C</code> (4,7:1, cumple AA). Tipografía: <b>Plus Jakarta Sans</b> para el nombre y los textos y <span style="font-family:'JetBrains Mono'">JetBrains Mono</span> para el rol (el guiño al código).</p>
+  </section>
+</main>
+</body>
+</html>

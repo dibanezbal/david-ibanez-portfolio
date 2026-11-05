@@ -1,0 +1,76 @@
+import { expect, test } from '@playwright/test';
+
+test('una tarjeta de la home lleva a su caso de estudio', async ({ page }) => {
+	await page.goto('/');
+	await page.getByRole('heading', { level: 3, name: /^LaButxaka/ }).getByRole('link').click();
+
+	await expect(page).toHaveURL(/\/proyectos\/labutxaka$/);
+	await expect(page.getByRole('heading', { level: 1 })).toHaveText(/^LaButxaka/);
+	await expect(page.getByRole('heading', { level: 2, name: 'Desarrollo' })).toBeVisible();
+});
+
+test('el enlace externo de la tarjeta no abre el caso', async ({ page }) => {
+	await page.goto('/');
+	const demo = page.getByRole('link', { name: 'Probar la demo' });
+	await expect(demo).toHaveAttribute('href', 'https://labutxaka-demo.netlify.app/#resumen');
+	// El clic de prueba falla si el enlace que cubre toda la tarjeta queda por encima
+	await demo.click({ trial: true, timeout: 3_000 });
+});
+
+test('el caso muestra su ficha, su contenido y sus enlaces', async ({ page }) => {
+	await page.goto('/proyectos/joan-pere-jove');
+	const facts = page.getByRole('complementary', { name: 'Ficha del proyecto' });
+
+	await expect(facts).toContainText('feb 2026 – jun 2026');
+	await expect(facts).toContainText('Matrícula de Honor');
+	await expect(facts.getByRole('link', { name: 'Ver la web publicada' })).toHaveAttribute(
+		'href',
+		'https://joanperejove.com/',
+	);
+	await expect(page.getByRole('table')).toContainText('Llegar a Filmografía');
+	await expect(page.getByRole('heading', { level: 2, name: 'De Figma a producción' })).toBeVisible();
+});
+
+test('se puede pasar de un caso al siguiente', async ({ page }) => {
+	await page.goto('/proyectos/joan-pere-jove');
+	await page.getByRole('navigation', { name: 'Siguiente proyecto' }).getByRole('link').click();
+	await expect(page).toHaveURL(/\/proyectos\/labutxaka$/);
+
+	await page.getByRole('navigation', { name: 'Siguiente proyecto' }).getByRole('link').click();
+	await expect(page).toHaveURL(/\/proyectos\/joan-pere-jove$/);
+});
+
+test('la navegación principal vuelve a la home desde un caso', async ({ page }) => {
+	await page.goto('/proyectos/labutxaka');
+	await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Experiencia' }).click();
+	await expect(page).toHaveURL(/\/#experiencia$/);
+	await expect(page.getByRole('heading', { level: 2, name: 'Experiencia' })).toBeInViewport();
+});
+
+test('el enlace de contacto funciona dentro del caso', async ({ page }) => {
+	await page.goto('/proyectos/labutxaka');
+	await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Contacto' }).click();
+	await expect(page).toHaveURL(/\/proyectos\/labutxaka#contacto$/);
+	await expect(page.getByRole('heading', { level: 2, name: 'Contacto' })).toBeInViewport();
+});
+
+for (const draft of ['unpispas', 'queer-as-book']) {
+	test(`el borrador ${draft} no genera página`, async ({ request }) => {
+		const response = await request.get(`/proyectos/${draft}`);
+		expect(response.status()).toBe(404);
+	});
+}
+
+for (const id of ['joan-pere-jove', 'labutxaka']) {
+	test(`${id} se mantiene igual visualmente`, async ({ page }) => {
+		await page.goto(`/proyectos/${id}`);
+		await page.evaluate(async () => {
+			await document.fonts.ready;
+			for (const image of document.images) {
+				image.loading = 'eager';
+				await image.decode();
+			}
+		});
+		await expect(page).toHaveScreenshot(`${id}.png`, { fullPage: true, maxDiffPixelRatio: 0.01 });
+	});
+}

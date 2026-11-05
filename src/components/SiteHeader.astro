@@ -1,0 +1,30 @@
+---
+import Logo from './Logo.astro';
+
+const nav = [
+	{ label: 'Proyectos', href: '/#proyectos' },
+	{ label: 'Experiencia', href: '/#experiencia' },
+	{ label: 'Sobre mí', href: '/#sobre-mi' },
+	{ label: 'Contacto', href: '#contacto' },
+];
+---
+
+<header class="shell flex flex-wrap items-center justify-between gap-x-8 gap-y-4 py-6">
+	<Logo />
+	<nav aria-label="Principal">
+		<ul class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium">
+			{
+				nav.map((item) => (
+					<li>
+						<a
+							href={item.href}
+							class="inline-block py-1 underline-offset-4 transition-colors hover:text-accent-text hover:underline"
+						>
+							{item.label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</header>
