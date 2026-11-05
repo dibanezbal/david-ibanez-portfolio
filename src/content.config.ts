@@ -70,28 +70,30 @@ const experience = defineCollection({
 // Textos generales: hero, sobre mí, habilidades, contacto
 const site = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/site' }),
-	schema: z.object({
-		title: z.string(),
-		seo_title: z.string(),
-		description: z.string().max(170),
-		hero: z.object({
-			eyebrow: z.string(),
-			headline: z.string(),
-			headline_accent: z.string(),
-			intro: z.string(),
-			cta_primary: link,
-			cta_secondary: link,
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			seo_title: z.string(),
+			description: z.string().max(170),
+			hero: z.object({
+				eyebrow: z.string(),
+				headline: z.string(),
+				headline_accent: z.string(),
+				intro: z.string(),
+				cta_primary: link,
+				cta_secondary: link,
+				portrait: z.object({ src: image(), alt: z.string().min(1) }),
+			}),
+			projects_intro: z.string(),
+			skills: z.array(z.object({ title: z.string(), items: z.array(z.string()) })),
+			tools: z.array(z.string()),
+			contact: z.object({
+				intro: z.string(),
+				email: z.email(),
+				linkedin: z.url({ protocol: /^https?$/ }),
+				github: z.url({ protocol: /^https?$/ }),
+			}),
 		}),
-		projects_intro: z.string(),
-		skills: z.array(z.object({ title: z.string(), items: z.array(z.string()) })),
-		tools: z.array(z.string()),
-		contact: z.object({
-			intro: z.string(),
-			email: z.email(),
-			linkedin: z.url({ protocol: /^https?$/ }),
-			github: z.url({ protocol: /^https?$/ }),
-		}),
-	}),
 });
 
 export const collections = { projects, experience, site };
