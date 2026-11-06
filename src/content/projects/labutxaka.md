@@ -156,7 +156,7 @@ Personalizar Shoelace fue una buena lección de design engineering: no basta con
 Una app no termina cuando funciona: alguien tiene que entender cómo usarla. Elegí dos formatos complementarios:
 
 - **Un vídeo** cercano y visual, que enseña lo que hace la app sin entrar en tecnicismos.
-- **[Un tutorial interactivo](https://view.genially.com/69595024e2e30838a607ee26)** al que el usuario puede volver cuando tenga dudas mientras la usa.
+- **<a href="https://view.genially.com/69595024e2e30838a607ee26" target="_blank" rel="noopener noreferrer">Un tutorial interactivo</a>** al que el usuario puede volver cuando tenga dudas mientras la usa.
 
 El vídeo orienta; el tutorial acompaña a largo plazo.
 

@@ -39,7 +39,7 @@ Joan Pere es mi marido, pero en este proyecto la relación fue de cliente.
 
 Así que el proyecto creció: identidad visual, manual de marca, prototipo web testeado con usuarios y, finalmente, la web en producción con un tema de WordPress hecho a medida.
 
-El punto de partida era una presencia digital dispersa, sin coherencia visual, en dos idiomas mezclados. Lo resolví con un sistema gráfico escalable (logo, tipografía, color, UI kit) aplicado a web, redes y papelería. El resultado es [joanperejove.com](https://joanperejove.com/), una web bilingüe catalán/inglés, publicada y en uso.
+El punto de partida era una presencia digital dispersa, sin coherencia visual, en dos idiomas mezclados. Lo resolví con un sistema gráfico escalable (logo, tipografía, color, UI kit) aplicado a web, redes y papelería. El resultado es <a href="https://joanperejove.com/" target="_blank" rel="noopener noreferrer">joanperejove.com</a>, una web bilingüe catalán/inglés, publicada y en uso.
 
 ---
 
