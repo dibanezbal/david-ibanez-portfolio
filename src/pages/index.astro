@@ -49,7 +49,34 @@ const jobs = (await getCollection('experience')).sort(
 						>
 							{hero.cta_secondary.label}
 						</a>
+						<a
+							href="/cv/David-Ibanez-CV-ES.pdf"
+							download
+							class="self-center py-3.5 underline underline-offset-4 transition-colors hover:text-accent-text"
+						>
+							Descargar CV
+						</a>
 					</div>
+					<ul class="mt-12 grid max-w-xl grid-cols-3 gap-3 md:gap-5" aria-label="Proyectos destacados">
+						{
+							projects.slice(0, 3).map((project) =>
+								project.data.cover && (
+									<li>
+										<a href={`/proyectos/${project.id}`} class="group block">
+											<Image
+												src={project.data.cover.src}
+												alt=""
+												widths={[400, 800]}
+												sizes="(min-width: 1024px) 160px, 30vw"
+												class="block aspect-[16/10] w-full border border-line bg-paper object-cover object-top"
+											/>
+											<span class="mt-2 block text-sm font-medium underline-offset-4 group-hover:underline">{project.data.title}</span>
+										</a>
+									</li>
+								),
+							)
+						}
+					</ul>
 				</div>
 				<div class="lg:col-span-5">
 					<!-- multiply funde el fondo de la foto con el papel; brightness lleva a blanco puro el fondo, que no lo es del todo. El recorte quita el aire sobrante de arriba -->
@@ -154,16 +181,16 @@ const jobs = (await getCollection('experience')).sort(
 					))
 				}
 			</div>
-		</section>
-
-		<section class="shell grid gap-8 py-16 md:grid-cols-12 md:py-24" aria-labelledby="sobre-mi">
-			<div class="md:col-span-5"><SectionHeading id="sobre-mi" title="Sobre mí" /></div>
-			<div
-				class="max-w-prose text-lg leading-relaxed text-muted md:col-span-7 [&_em]:italic [&_p+p]:mt-5 [&_strong]:font-bold [&_strong]:text-ink"
-			>
-				<About />
+			<div class="mt-20 grid gap-8 md:grid-cols-12">
+				<div class="md:col-span-5"><h3 class="text-sm font-medium">Sobre mí</h3></div>
+				<div
+					class="max-w-prose text-lg leading-relaxed text-muted md:col-span-7 [&_em]:italic [&_p+p]:mt-5 [&_strong]:font-bold [&_strong]:text-ink"
+				>
+					<About />
+				</div>
 			</div>
 		</section>
+
 	</main>
 
 	<SiteFooter />
