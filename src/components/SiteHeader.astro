@@ -5,6 +5,7 @@ const nav = [
 	{ label: 'Proyectos', href: '/#proyectos' },
 	{ label: 'Experiencia', href: '/#experiencia' },
 	{ label: 'Contacto', href: '#contacto' },
+	{ label: 'CV', href: '/cv/David-Ibanez-CV-ES.pdf', download: true },
 ];
 ---
 
@@ -18,9 +19,12 @@ const nav = [
 					<li>
 						<a
 							href={item.href}
+							download={item.download}
+							aria-label={item.download ? 'Descargar CV (PDF)' : undefined}
 							class="inline-block py-1 underline-offset-4 transition-colors hover:text-accent-text hover:underline aria-[current=true]:text-accent-text aria-[current=true]:underline"
 						>
 							{item.label}
+							{item.download && <span aria-hidden="true"> ↓</span>}
 						</a>
 					</li>
 				))

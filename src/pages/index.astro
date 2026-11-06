@@ -27,11 +27,11 @@ const jobs = (await getCollection('experience')).sort(
 	<SiteHeader />
 
 	<main id="contenido">
-		<section class="shell pt-6 md:pt-16">
+		<section class="shell pt-6 md:pt-10">
 			<div class="grid gap-10 border-b border-ink lg:grid-cols-12 lg:items-end lg:gap-8">
 				<div class="lg:col-span-7 lg:pb-16">
 					<h1
-						class="text-[clamp(2.5rem,5.7vw,5.75rem)] font-semibold leading-[1.02] tracking-[-0.02em]"
+						class="text-[clamp(2.25rem,4.6vw,4.5rem)] font-semibold leading-[1.04] tracking-[-0.02em]"
 					>
 						{hero.headline}
 					</h1>
@@ -43,26 +43,13 @@ const jobs = (await getCollection('experience')).sort(
 						>
 							{hero.cta_primary.label}
 						</a>
-						<a
-							href={hero.cta_secondary.url}
-							class="border border-ink px-6 py-3.5 font-medium transition-colors hover:bg-ink hover:text-paper"
-						>
-							{hero.cta_secondary.label}
-						</a>
-						<a
-							href="/cv/David-Ibanez-CV-ES.pdf"
-							download
-							class="self-center py-3.5 underline underline-offset-4 transition-colors hover:text-accent-text"
-						>
-							Descargar CV
-						</a>
 					</div>
-					<ul class="mt-12 grid max-w-xl grid-cols-3 gap-3 md:gap-5" aria-label="Proyectos destacados">
+					<ul class="mt-10 grid max-w-md grid-cols-3 gap-3 md:gap-4" aria-label="Proyectos destacados">
 						{
 							projects.slice(0, 3).map((project) =>
 								project.data.cover && (
 									<li>
-										<a href={`/proyectos/${project.id}`} class="group block">
+										<a href={`/proyectos/${project.id}`} class="group block" aria-label={project.data.title}>
 											<Image
 												src={project.data.cover.src}
 												alt=""
@@ -70,7 +57,6 @@ const jobs = (await getCollection('experience')).sort(
 												sizes="(min-width: 1024px) 160px, 30vw"
 												class="block aspect-[16/10] w-full border border-line bg-paper object-cover object-top"
 											/>
-											<span class="mt-2 block text-sm font-medium underline-offset-4 group-hover:underline">{project.data.title}</span>
 										</a>
 									</li>
 								),
@@ -87,7 +73,7 @@ const jobs = (await getCollection('experience')).sort(
 						widths={[480, 800, 1200]}
 						sizes="(min-width: 1440px) 560px, (min-width: 1024px) 40vw, 100vw"
 						priority
-						class="portrait aspect-[8/9] w-full object-cover object-bottom mix-blend-multiply brightness-[1.02]"
+						class="portrait aspect-[8/9] w-full object-cover object-bottom mix-blend-multiply brightness-[1.02] lg:ml-auto lg:max-w-[440px]"
 					/>
 				</div>
 			</div>
@@ -182,9 +168,9 @@ const jobs = (await getCollection('experience')).sort(
 				}
 			</div>
 			<div class="mt-20 grid gap-8 md:grid-cols-12">
-				<div class="md:col-span-5"><h3 class="text-sm font-medium">Sobre mí</h3></div>
+				<div class="md:col-span-5"><h3 class="text-[clamp(1.625rem,3vw,2.25rem)] font-semibold leading-tight tracking-[-0.02em]">Sobre mí</h3></div>
 				<div
-					class="max-w-prose text-lg leading-relaxed text-muted md:col-span-7 [&_em]:italic [&_p+p]:mt-5 [&_strong]:font-bold [&_strong]:text-ink"
+					class="max-w-prose text-xl leading-relaxed text-muted md:col-span-7 [&_em]:italic [&_p+p]:mt-5 [&_strong]:font-bold [&_strong]:text-ink"
 				>
 					<About />
 				</div>

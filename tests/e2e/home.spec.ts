@@ -34,9 +34,8 @@ test('los botones del hero llevan a sus secciones', async ({ page }) => {
 	await expect(page).toHaveURL(/#proyectos$/);
 	await expect(page.getByRole('heading', { level: 2, name: 'Proyectos' })).toBeInViewport();
 
-	await page.getByRole('link', { name: 'Hablemos' }).click();
-	await expect(page).toHaveURL(/#contacto$/);
-	await expect(page.getByRole('heading', { level: 2, name: 'Contacto' })).toBeInViewport();
+	if (await page.locator('#abrir-menu').isVisible()) await page.locator('#abrir-menu').click();
+	await expect(page.getByRole('link', { name: 'Descargar CV (PDF)' })).toHaveAttribute('href', '/cv/David-Ibanez-CV-ES.pdf');
 });
 
 test('muestra los proyectos publicados y oculta los borradores', async ({ page }) => {
