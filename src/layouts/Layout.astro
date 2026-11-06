@@ -1,5 +1,6 @@
 ---
 import { Font } from 'astro:assets';
+import { anchorMap, getAlternatePath, getLang, ui } from '../i18n/ui';
 import '../styles/global.css';
 
 interface Props {
@@ -7,9 +8,14 @@ interface Props {
 	description: string;
 	/** Imagen para redes sociales; por defecto, la genérica del sitio */
 	image?: string;
+	/** Página equivalente en el otro idioma, si no se deduce de la URL (la 404) */
+	alternate?: string;
 }
 
-const { title, description, image = '/og.png' } = Astro.props;
+const lang = getLang(Astro.currentLocale);
+const t = ui[lang];
+const { title, description, image = '/og.png', alternate = getAlternatePath(Astro.url.pathname) } = Astro.props;
+const isNotFound = Astro.url.pathname.replace(/\/$/, '').endsWith('/404');
 
 // Las URL absolutas requieren `site` en astro.config.mjs
 const canonical = Astro.site && new URL(Astro.url.pathname, Astro.site);
@@ -17,9 +23,30 @@ const ogImage = Astro.site && new URL(image, Astro.site);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
+		<!-- Idioma: español para el español y las demás lenguas de España, inglés para el resto. Manda la elección guardada. Sin JavaScript, cada URL muestra su idioma -->
+		<script is:inline define:vars={{ alternate, anchorMap }}>
+			(function () {
+				try {
+					var pageLang = document.documentElement.lang;
+					var wanted = null;
+					try { wanted = localStorage.getItem('idioma'); } catch (e) {}
+					if (wanted !== 'es' && wanted !== 'en') {
+						if (/bot|crawl|spider|slurp/i.test(navigator.userAgent)) return;
+						// Solo al llegar desde fuera: dentro del sitio se respeta el idioma en el que se navega
+						if (document.referrer && new URL(document.referrer).origin === location.origin) return;
+						var code = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().split('-')[0];
+						if (!code) return;
+						wanted = ['es', 'ca', 'gl', 'eu', 'ast', 'an', 'oc'].indexOf(code) > -1 ? 'es' : 'en';
+					}
+					if (wanted === pageLang) return;
+					var anchor = anchorMap[location.hash.slice(1)];
+					location.replace(alternate + location.search + (anchor ? '#' + anchor : ''));
+				} catch (e) {}
+			})();
+		</script>
 		<script is:inline>
 			try {
 				const tema = localStorage.getItem('tema');
@@ -34,9 +61,18 @@ const ogImage = Astro.site && new URL(image, Astro.site);
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		{canonical && <link rel="canonical" href={canonical} />}
+		{
+			Astro.site && !isNotFound && (
+				<>
+					<link rel="alternate" hreflang={lang} href={new URL(Astro.url.pathname, Astro.site)} />
+					<link rel="alternate" hreflang={lang === 'en' ? 'es' : 'en'} href={new URL(alternate, Astro.site)} />
+					<link rel="alternate" hreflang="x-default" href={new URL(lang === 'en' ? alternate : Astro.url.pathname, Astro.site)} />
+				</>
+			)
+		}
 
 		<meta property="og:type" content="website" />
-		<meta property="og:locale" content="es_ES" />
+		<meta property="og:locale" content={t.htmlLocale} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		{canonical && <meta property="og:url" content={canonical} />}
@@ -52,7 +88,7 @@ const ogImage = Astro.site && new URL(image, Astro.site);
 			href="#contenido"
 			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-20 focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
 		>
-			Saltar al contenido
+			{t.skip}
 		</a>
 		<slot />
 	</body>

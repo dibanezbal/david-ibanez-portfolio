@@ -12,6 +12,8 @@ export default defineConfig({
 	use: {
 		baseURL: `http://127.0.0.1:${PORT}`,
 		trace: 'retain-on-failure',
+		// El idioma del navegador decide la versión de la web: por defecto se prueba la española
+		locale: 'es-ES',
 	},
 	// Se prueba la salida de producción, no el servidor de desarrollo
 	webServer: {

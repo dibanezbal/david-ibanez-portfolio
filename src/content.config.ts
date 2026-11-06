@@ -1,4 +1,4 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, type SchemaContext } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
@@ -16,10 +16,8 @@ const metric = z.object({
 	label: z.string(),
 });
 
-// Casos de estudio del portfolio
-const projects = defineCollection({
-	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
-	schema: ({ image }) =>
+// Casos de estudio del portfolio: mismo esquema en los dos idiomas
+const projectSchema = ({ image }: SchemaContext) =>
 		z.object({
 			title: z.string(),
 			client: z.string(),
@@ -46,13 +44,20 @@ const projects = defineCollection({
 		}).refine((project) => project.draft || project.startDate, {
 			path: ['startDate'],
 			message: 'Un proyecto publicado necesita startDate; si aún no la sabes, usa draft: true',
-		}),
+		});
+
+const projects = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects' }),
+	schema: projectSchema,
 });
 
-// Trayectoria profesional: una entrada por puesto
-const experience = defineCollection({
-	loader: file('./src/data/experience.yaml'),
-	schema: z.object({
+const projectsEn = defineCollection({
+	loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/projects-en' }),
+	schema: projectSchema,
+});
+
+// Trayectoria profesional: una entrada por puesto, en los dos idiomas
+const experienceSchema = z.object({
 		role: z.string(),
 		company: z.string(),
 		via: z.string().optional(),
@@ -65,7 +70,16 @@ const experience = defineCollection({
 		highlights: z.array(z.string()),
 		metrics: z.array(metric).default([]),
 		stack: z.array(z.string()).default([]),
-	}),
+	});
+
+const experience = defineCollection({
+	loader: file('./src/data/experience.yaml'),
+	schema: experienceSchema,
+});
+
+const experienceEn = defineCollection({
+	loader: file('./src/data/experience.en.yaml'),
+	schema: experienceSchema,
 });
 
 // Textos generales: hero, sobre mí, habilidades, contacto
@@ -97,4 +111,4 @@ const site = defineCollection({
 		}),
 });
 
-export const collections = { projects, experience, site };
+export const collections = { projects, projectsEn, experience, experienceEn, site };

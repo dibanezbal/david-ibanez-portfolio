@@ -1,14 +1,17 @@
 ---
 import { getEntry } from 'astro:content';
+import { getLang, routes, ui } from '../i18n/ui';
 
-const home = await getEntry('site', 'home');
-if (!home) throw new Error('Falta src/content/site/home.md');
+const lang = getLang(Astro.currentLocale);
+const t = ui[lang];
+const home = await getEntry('site', lang === 'en' ? 'home-en' : 'home');
+if (!home) throw new Error('Falta el contenido de la portada');
 const { contact } = home.data;
 ---
 
-<footer id="contacto" class="bg-footer text-footer-text">
+<footer id={routes[lang].anchors.contact} class="bg-footer text-footer-text">
 	<div class="shell py-16 md:py-24">
-		<h2 class="sr-only">Contacto</h2>
+		<h2 class="sr-only">{t.navContact}</h2>
 		<p class="mt-6 max-w-[24ch] text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
 			{contact.intro}
 		</p>
@@ -30,8 +33,8 @@ const { contact } = home.data;
 				</a>
 			</li>
 			<li>
-				<a href="/cv/David-Ibanez-CV-ES.pdf" download class="inline-block py-1 underline underline-offset-4 transition-colors hover:opacity-70">
-					Descargar CV
+				<a href={t.cvFile} download class="inline-block py-1 underline underline-offset-4 transition-colors hover:opacity-70">
+					{t.cvDownload}
 				</a>
 			</li>
 		</ul>

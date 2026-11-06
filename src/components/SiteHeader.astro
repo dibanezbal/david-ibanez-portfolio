@@ -1,11 +1,22 @@
 ---
 import Logo from './Logo.astro';
+import { getAlternatePath, getLang, routes, ui } from '../i18n/ui';
 
+interface Props {
+	/** Página equivalente en el otro idioma, si no se deduce de la URL (la 404) */
+	alternate?: string;
+}
+
+const lang = getLang(Astro.currentLocale);
+const t = ui[lang];
+const route = routes[lang];
+const otherLang = lang === 'en' ? 'es' : 'en';
+const { alternate = getAlternatePath(Astro.url.pathname) } = Astro.props;
 const nav = [
-	{ label: 'Proyectos', href: '/#proyectos' },
-	{ label: 'Experiencia', href: '/#experiencia' },
-	{ label: 'Contacto', href: '#contacto' },
-	{ label: 'CV', href: '/cv/David-Ibanez-CV-ES.pdf', download: true },
+	{ label: t.navProjects, href: `${route.home}#${route.anchors.projects}` },
+	{ label: t.navExperience, href: `${route.home}#${route.anchors.experience}` },
+	{ label: t.navContact, href: `#${route.anchors.contact}`, contact: true },
+	{ label: 'CV', href: t.cvFile, download: true },
 ];
 ---
 
@@ -13,7 +24,7 @@ const nav = [
 	<div class="shell relative grid grid-cols-[1fr_auto] items-center gap-x-6 py-6 md:grid-cols-[1fr_auto_1fr]">
 	<Logo />
 
-	<nav id="menu-principal" aria-label="Principal" class="absolute inset-x-0 top-full z-50 hidden border-b border-ink bg-paper px-5 md:static md:col-span-1 md:block md:justify-self-center md:border-0 md:bg-transparent md:px-0">
+	<nav id="menu-principal" aria-label={t.navLabel} class="absolute inset-x-0 top-full z-50 hidden border-b border-ink bg-paper px-5 md:static md:col-span-1 md:block md:justify-self-center md:border-0 md:bg-transparent md:px-0">
 		<ul class="flex flex-col gap-1 py-4 text-base font-medium md:flex-row md:gap-x-6 md:py-0 md:text-sm">
 			{
 				nav.map((item) => (
@@ -21,7 +32,8 @@ const nav = [
 						<a
 							href={item.href}
 							download={item.download}
-							aria-label={item.download ? 'Descargar CV (PDF)' : undefined}
+							aria-label={item.download ? t.cvDownloadLabel : undefined}
+								data-contacto={item.contact ? '' : undefined}
 							class="inline-block py-1 underline-offset-4 transition-colors hover:text-accent-text hover:underline aria-[current=true]:text-accent-text aria-[current=true]:underline"
 						>
 							{item.label}
@@ -34,23 +46,27 @@ const nav = [
 	</nav>
 
 	<div class="flex items-center justify-end gap-1 md:justify-self-end">
-		<!-- Selector de idioma preparado: aún no cambia el idioma -->
-		<button
-			type="button"
-			disabled
-			aria-label="Idioma: ES (selector próximamente)"
-			class="flex h-9 cursor-not-allowed items-center gap-1.5 px-2 text-sm font-medium"
+		<!-- Selector de idioma: enlaza a esta misma página en el otro idioma y recuerda la elección -->
+		<a
+			href={alternate}
+			hreflang={otherLang}
+			lang={otherLang}
+			aria-label={t.langLabel}
+			data-idioma={otherLang}
+			class="flex h-9 items-center gap-1.5 px-2 text-sm font-medium transition-colors hover:text-accent-text"
 		>
 			<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
 				<circle cx="12" cy="12" r="9" />
 				<path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9s1.3-6.4 3.8-9z" />
 			</svg>
-			ES
-		</button>
+			{t.langShort}
+		</a>
 		<button
 			type="button"
 			id="cambiar-tema"
-			aria-label="Modo oscuro"
+			data-label-dark={t.themeDark}
+			data-label-light={t.themeLight}
+			aria-label={t.themeDark}
 			class="grid size-9 cursor-pointer place-items-center transition-colors hover:text-accent-text"
 		>
 			<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icono="luna">
@@ -68,7 +84,7 @@ const nav = [
 			aria-expanded="false"
 			class="grid size-9 cursor-pointer place-items-center transition-colors hover:text-accent-text md:hidden"
 		>
-			<span class="sr-only">Menú</span>
+			<span class="sr-only">{t.menu}</span>
 			<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
 				<path d="M4 7h16M4 12h16M4 17h16" />
 			</svg>
@@ -86,7 +102,7 @@ const nav = [
 	const renderTheme = () => {
 		if (!themeButton) return;
 		const dark = isDark();
-		themeButton.setAttribute('aria-label', dark ? 'Modo claro' : 'Modo oscuro');
+		themeButton.setAttribute('aria-label', (dark ? themeButton.dataset.labelLight : themeButton.dataset.labelDark) ?? '');
 		themeButton.querySelector('[data-icono="luna"]')?.classList.toggle('hidden', dark);
 		themeButton.querySelector('[data-icono="sol"]')?.classList.toggle('hidden', !dark);
 	};
@@ -99,6 +115,13 @@ const nav = [
 		renderTheme();
 	});
 	renderTheme();
+
+	// Al elegir idioma a mano, esa elección manda sobre el idioma del navegador
+	document.querySelector<HTMLElement>('[data-idioma]')?.addEventListener('click', (event) => {
+		try {
+			localStorage.setItem('idioma', (event.currentTarget as HTMLElement).dataset.idioma ?? '');
+		} catch {}
+	});
 
 	// Menú desplegable en móvil: se cierra con Escape, al elegir un apartado o al volver a pulsar
 	const menu = document.getElementById('menu-principal');
@@ -142,7 +165,7 @@ const nav = [
 		const alFinal = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
 		if (!alFinal) return;
 		links.forEach((link) => link.removeAttribute('aria-current'));
-		links.find((link) => link.hash === '#contacto')?.setAttribute('aria-current', 'true');
+		links.find((link) => link.hasAttribute('data-contacto'))?.setAttribute('aria-current', 'true');
 	};
 	window.addEventListener('scroll', marcarContactoAlFinal, { passive: true });
 

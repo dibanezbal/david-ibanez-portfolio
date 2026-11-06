@@ -1,22 +1,24 @@
 ---
 import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
 import Mockup from './Mockup.astro';
 import { formatPeriod } from '../lib/format';
-import { contextLabels, disciplineLabels } from '../lib/projects';
+import { getLang, routes, ui } from '../i18n/ui';
+import type { ProjectEntry } from '../lib/projects';
 
 interface Props {
-	project: CollectionEntry<'projects'>;
+	project: ProjectEntry;
 	/** Imagen a la derecha en escritorio, para alternar el ritmo de la lista */
 	reverse?: boolean;
 }
 
 const { project, reverse = false } = Astro.props;
 const { id, data } = project;
-const caseUrl = `/proyectos/${id}`;
+const lang = getLang(Astro.currentLocale);
+const t = ui[lang];
+const caseUrl = routes[lang].project(id);
 // El resto de enlaces se muestran en el caso de estudio
 const mainLink = data.links[0];
-const disciplines = data.disciplines.map((discipline) => disciplineLabels[discipline]).join(', ');
+const disciplines = data.disciplines.map((discipline) => t.disciplines[discipline]).join(', ');
 ---
 
 <article class="group relative grid gap-8 border-t border-ink py-10 lg:grid-cols-12 lg:gap-12 lg:py-16">
@@ -40,7 +42,7 @@ const disciplines = data.disciplines.map((discipline) => disciplineLabels[discip
 		<p class="mt-5 text-xl leading-snug">{data.hook}</p>
 
 		<p class="mt-5 text-sm leading-relaxed text-muted">
-			{disciplines} · {contextLabels[data.context]} · {formatPeriod(data)}
+			{disciplines} · {t.contexts[data.context]} · {formatPeriod(data, lang)}
 			{data.recognition && <span class="block">{data.recognition}</span>}
 		</p>
 
@@ -50,7 +52,7 @@ const disciplines = data.disciplines.map((discipline) => disciplineLabels[discip
 					href={caseUrl}
 					class="inline-flex min-h-6 items-center gap-1 text-accent-text underline underline-offset-4 transition-colors hover:text-ink"
 				>
-					Ver el caso<span class="sr-only">: {data.title}</span>
+					{t.seeCase}<span class="sr-only">: {data.title}</span>
 					<span aria-hidden="true">→</span>
 				</a>
 			</li>

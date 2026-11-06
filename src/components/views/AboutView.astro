@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import { getEntry, render } from 'astro:content';
+import { getLang, routes, ui } from '../../i18n/ui';
+import SiteFooter from '../SiteFooter.astro';
+import SiteHeader from '../SiteHeader.astro';
+import Layout from '../../layouts/Layout.astro';
+import portraitSide from '../../assets/img/david-ibanez-left.jpg';
+
+const lang = getLang(Astro.currentLocale);
+const t = ui[lang];
+const route = routes[lang];
+const home = await getEntry('site', lang === 'en' ? 'home-en' : 'home');
+if (!home) throw new Error('Falta el contenido de la portada');
+const { Content } = await render(home);
+---
+
+<Layout title={t.aboutTitle} description={t.aboutDescription}>
+	<SiteHeader />
+
+	<main id="contenido">
+		<article class="shell pb-16 pt-10 md:pb-24 md:pt-16">
+			<a
+				href={`${route.home}#${route.anchors.experience}`}
+				class="inline-block py-1 text-sm underline-offset-4 transition-colors hover:text-accent-text hover:underline"
+			>
+				<span aria-hidden="true">←</span> {t.aboutBack}
+			</a>
+			<h1 class="mt-10 text-[clamp(2.25rem,4.6vw,4.5rem)] font-semibold leading-[1.04] tracking-[-0.02em]">{t.about}</h1>
+			<div class="mt-10 grid gap-10 md:grid-cols-12 md:gap-8">
+				<div
+					class="max-w-prose text-xl leading-relaxed text-muted md:col-span-7 [&_em]:italic [&_p+p]:mt-5 [&_strong]:font-bold [&_strong]:text-ink"
+				>
+					<Content />
+				</div>
+				<figure class="m-0 md:col-span-5">
+					<Image
+						src={portraitSide}
+						alt={t.aboutAlt}
+						widths={[480, 800]}
+						sizes="(min-width: 768px) 40vw, 100vw"
+						class="block aspect-[4/5] w-full object-cover"
+					/>
+				</figure>
+			</div>
+		</article>
+	</main>
+
+	<SiteFooter />
+</Layout>

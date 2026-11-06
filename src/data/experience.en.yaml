@@ -1,0 +1,85 @@
+# Career history, from the most recent role to the oldest.
+
+- id: zurich-test-quality-lead
+  role: Test and Quality Lead
+  company: Zurich Insurance Group
+  location: Barcelona, Spain
+  startDate: 2025-06-01
+  summary: I work on the team that handles development, editing and quality for more than 50 websites.
+  highlights:
+    - "I designed and built an internal portal that brings together all our QA automation. Manual testing now takes 65% less time."
+    - "I define and supervise the user acceptance testing (UAT) strategy. In the first phase of migrating a 2,000-page site, we passed the quality gate with 98%, when 95% was required."
+    - "I extended visual regression testing with Percy to sites of more than 500 pages, and manual review time dropped by 60%."
+  metrics:
+    - { value: "65%", label: "less manual test execution time" }
+    - { value: "98%", label: "on the migration quality gate (95% required)" }
+    - { value: "60%", label: "less manual review time" }
+  stack: [Playwright, Percy, Azure DevOps, Low Code]
+
+- id: zurich-frontend-developer
+  role: Frontend Developer
+  company: Zurich Insurance Group
+  location: Barcelona, Spain
+  startDate: 2023-06-01
+  endDate: 2025-06-30
+  highlights:
+    - I developed reusable components in React, Next.js and TypeScript for the corporate websites, aligned with the Design System in Figma.
+    - "I worked with the UX/UI design team to evolve the Design System in Storybook and Figma, bringing design and code closer together."
+    - "I made 15+ web components accessible for people who use a screen reader or keyboard, following WCAG."
+    - "I introduced automated testing with Percy and CI/CD in Azure DevOps. That's where the quality area I now lead began."
+  metrics:
+    - { value: "15+", label: "web components adapted to WCAG" }
+  stack: [React, Next.js, TypeScript, Storybook, Figma, Percy, Azure DevOps]
+
+- id: zurich-web-editor
+  role: Web Editor / Web Specialist
+  company: Zurich Insurance Group
+  via: External via CORUS Consulting until May 2022
+  location: Barcelona, Spain
+  startDate: 2021-04-01
+  endDate: 2023-06-30
+  highlights:
+    - "I joined as an external contractor and, after a year on the team, became a Zurich employee."
+    - "I built pages in Sitecore from InVision designs, and worked with the design team to catch uncovered cases before publishing: responsive layouts, empty states, long content and component reuse."
+    - "I migrated JSS components to Next.js and TypeScript. That was my first step into frontend development."
+    - "I made sure the corporate website and blog looked consistent on desktop and mobile."
+  stack: [Sitecore, InVision, Next.js, TypeScript]
+
+- id: mediamarkt-web-developer
+  role: Web Developer & Publisher
+  company: MediaMarkt Iberia
+  via: Via ID-ENTITY
+  location: Barcelona, Spain
+  startDate: 2020-08-01
+  endDate: 2021-04-30
+  highlights:
+    - I designed landing page prototypes in Figma for campaigns and checked that the implementation matched the design.
+    - "After the move to a new CMS, I adapted banners and badges to the new formats to keep the visuals consistent."
+    - "I built HTML and CSS newsletters that reached more than 1M subscribers, and sent them with Emarsys."
+  metrics:
+    - { value: "1M+", label: "subscribers reached with newsletters" }
+  stack: [Figma, HTML, CSS, Emarsys]
+
+- id: liligo-content-marketing
+  role: Content Marketing Specialist
+  company: Liligo.com (eDreams ODIGEO)
+  location: Budapest, Hungary
+  startDate: 2017-01-01
+  endDate: 2019-12-31
+  datePrecision: year
+  highlights:
+    - "I localized the website and app microcopy (flows and error messages) for Spanish users, with a local tone and terminology."
+    - I optimized landing pages and designed infographics for SEO campaigns in Spain, Italy and France.
+    - "I coordinated content and off-site SEO campaigns in international media and blogs."
+    - "I wrote for the El Magazine del Viajero blog and ran its social media to grow the Spanish-speaking community."
+  stack: [SEMrush, Ahrefs, Screaming Frog, Google Analytics]
+
+- id: mustarhaz-voluntariado
+  role: European Volunteer
+  company: Mustarház
+  location: Nyíregyháza, Hungary
+  startDate: 2016-01-01
+  endDate: 2017-12-31
+  datePrecision: year
+  highlights:
+    - I brought English and Spanish to the local community through radio programs and language classes.

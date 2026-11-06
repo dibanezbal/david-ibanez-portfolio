@@ -1,0 +1,16 @@
+---
+import CaseView from '../../../components/views/CaseView.astro';
+import { getPublishedProjects, type ProjectEntry } from '../../../lib/projects';
+
+export async function getStaticPaths() {
+	const projects = await getPublishedProjects('en');
+	return projects.map((project, index) => ({
+		params: { id: project.id },
+		props: { project, next: projects[(index + 1) % projects.length] },
+	}));
+}
+
+const { project, next } = Astro.props as { project: ProjectEntry; next: ProjectEntry };
+---
+
+<CaseView {project} {next} />

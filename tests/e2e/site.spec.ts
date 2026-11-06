@@ -2,10 +2,23 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 // Añade aquí cada página nueva
-const ROUTES = ['/', '/proyectos/joan-pere-jove', '/proyectos/labutxaka', '/proyectos/unpispas'];
+const ROUTES = [
+	{ route: '/', lang: 'es' },
+	{ route: '/sobre-mi', lang: 'es' },
+	{ route: '/proyectos/joan-pere-jove', lang: 'es' },
+	{ route: '/proyectos/labutxaka', lang: 'es' },
+	{ route: '/proyectos/unpispas', lang: 'es' },
+	{ route: '/en/', lang: 'en' },
+	{ route: '/en/about', lang: 'en' },
+	{ route: '/en/projects/joan-pere-jove', lang: 'en' },
+	{ route: '/en/projects/labutxaka', lang: 'en' },
+	{ route: '/en/projects/unpispas', lang: 'en' },
+];
 
-for (const route of ROUTES) {
+for (const { route, lang } of ROUTES) {
 	test.describe(`Página ${route}`, () => {
+		test.use({ locale: lang === 'en' ? 'en-US' : 'es-ES' });
+
 		test('carga sin errores de consola ni recursos rotos', async ({ page, baseURL }) => {
 			const problems: string[] = [];
 			page.on('pageerror', (error) => problems.push(`JS: ${error.message}`));
@@ -24,9 +37,9 @@ for (const route of ROUTES) {
 			expect(problems).toEqual([]);
 		});
 
-		test('declara el español como idioma', async ({ page }) => {
+		test('declara su idioma', async ({ page }) => {
 			await page.goto(route);
-			await expect(page.locator('html')).toHaveAttribute('lang', 'es');
+			await expect(page.locator('html')).toHaveAttribute('lang', lang);
 		});
 
 		test('tiene título propio y metadescripción', async ({ page }) => {
@@ -61,6 +74,13 @@ for (const route of ROUTES) {
 				const response = await request.get(href);
 				expect(response.status(), href).toBeLessThan(400);
 			}
+		});
+
+		test('enlaza su versión en el otro idioma', async ({ page }) => {
+			await page.goto(route);
+			await expect(page.locator('link[rel="alternate"][hreflang="es"]')).toHaveCount(1);
+			await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveCount(1);
+			await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveCount(1);
 		});
 
 		test('no tiene infracciones WCAG A/AA detectables con axe', async ({ page }) => {

@@ -1,27 +1,5 @@
 ---
-import SiteFooter from '../components/SiteFooter.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import Layout from '../layouts/Layout.astro';
+import NotFoundView from '../components/views/NotFoundView.astro';
 ---
 
-<Layout title="Página no encontrada · David Ibáñez" description="Esta página no existe o se ha movido.">
-	<SiteHeader />
-
-	<main id="contenido">
-		<section class="shell py-24 md:py-36">
-			<p class="text-sm text-accent-text">Error 404</p>
-			<h1 class="mt-5 max-w-[18ch] text-[clamp(2.5rem,5.7vw,5.75rem)] font-semibold leading-[1.02] tracking-[-0.02em]">
-				Esta página no existe.
-			</h1>
-			<p class="mt-8 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">
-				Puede que la dirección esté mal escrita o que la página se haya movido. Desde aquí puedes volver a los proyectos o escribirme.
-			</p>
-			<div class="mt-10 flex flex-wrap gap-3">
-				<a href="/" class="border border-ink bg-ink px-6 py-3.5 font-medium text-paper transition-colors hover:border-accent-text hover:bg-accent-text">Volver al inicio</a>
-				<a href="/#proyectos" class="border border-ink px-6 py-3.5 font-medium transition-colors hover:bg-ink hover:text-paper">Ver proyectos</a>
-			</div>
-		</section>
-	</main>
-
-	<SiteFooter />
-</Layout>
+<NotFoundView />

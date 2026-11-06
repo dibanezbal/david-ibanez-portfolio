@@ -7,6 +7,12 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
 	// Activa la URL canónica y la imagen OpenGraph
 	site: 'https://davidib.com',
+	// Español en la raíz e inglés bajo /en/
+	i18n: {
+		locales: ['es', 'en'],
+		defaultLocale: 'es',
+		routing: { prefixDefaultLocale: false },
+	},
 	fonts: [
 		{
 			provider: fontProviders.fontsource(),

@@ -2,17 +2,20 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
 
-const PROJECTS_DIR = join(process.cwd(), 'src/content/projects');
+const PROJECTS_DIRS = ['projects', 'projects-en'].map((dir) => join(process.cwd(), 'src/content', dir));
 
 // Rechazan peticiones automáticas aunque el enlace funcione: revisar a mano
 const BLOCKS_BOTS = new Set(['www.behance.net']);
 
-const entries = readdirSync(PROJECTS_DIR)
-	.filter((name) => /\.mdx?$/.test(name))
-	.flatMap((name) => {
-		const [, frontmatter = ''] = readFileSync(join(PROJECTS_DIR, name), 'utf8').split('---');
-		return [...frontmatter.matchAll(/^\s*url:\s*"([^"]+)"/gm)].map((match) => ({ name, url: match[1] }));
-	});
+const entries = PROJECTS_DIRS.flatMap((dir) =>
+	readdirSync(dir)
+		.filter((name) => /\.mdx?$/.test(name))
+		.flatMap((name) => {
+			const [, frontmatter = ''] = readFileSync(join(dir, name), 'utf8').split('---');
+			const label = `${dir.split('/').pop()}/${name}`;
+			return [...frontmatter.matchAll(/^\s*url:\s*"([^"]+)"/gm)].map((match) => ({ name: label, url: match[1] }));
+		}),
+);
 
 for (const { name, url } of entries) {
 	test(`${name}: ${url}`, async ({ request }) => {
