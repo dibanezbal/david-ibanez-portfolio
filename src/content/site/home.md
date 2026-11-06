@@ -14,8 +14,8 @@ hero:
 projects_intro: "Dos proyectos de principio a fin y un trabajo de frontend sobre el diseño de otra persona."
 experience_intro: "De editor web a lead de calidad, pasando por el frontend."
 about_intro:
-  - "Desde pequeño me han apasionado la música y la tecnología. En Budapest, trabajando en marketing digital, descubrí el diseño de experiencias y los tests con usuarios."
-  - "Me gradué en Técnicas de Interacción Digital y Multimedia en la UOC. Hoy soy Test and Quality Lead en Zurich Insurance, y eso me enseñó a entender cómo se construye una interfaz, cómo se prueba y dónde suele romperse."
+  - "Desde pequeño me ha apasionado la música y la tecnología. Con 5 años empecé a tocar la guitarra. Más adelante estudié FP de Telecomunicaciones y Audiovisuales a raíz de ello, hice mis pinitos como técnico de radio en Italia, Perú y Hungría. En Budapest, trabajé en marketing digital para un buscador de viajes, y ahí empecé a oír hablar de conceptos como user experience, landing pages o test con usuarios."
+  - "Años después, ya en Barcelona y mientras trabajaba como editor web y luego frontend para Zurich Insurance, decidí graduarme en Técnicas de Interacción Digital y Multimedia en la UOC para agrupar mis conocimientos. Quería descubrir cómo se tomaban las decisiones de diseño UX/UI. Y ahí volví a conectarme con mi creatividad."
 skills:
   - title: "Entre medias"
     items:
@@ -44,10 +44,12 @@ contact:
   github: "https://github.com/dibanezbal"
 ---
 
-Desde pequeño me han apasionado dos cosas: la música y la tecnología. Estudié Telecomunicaciones y Audiovisuales, hice mis pinitos como técnico de radio en Italia, Perú y Hungría, y en Budapest, trabajando en marketing digital para un buscador de viajes, empecé a oír hablar de *user experience*, *landing pages* y test con usuarios.
+Bilbao, 1990.
 
-Años después, ya en Barcelona, me gradué en **Técnicas de Interacción Digital y Multimedia en la UOC**. Durante el grado volví a activar mi creatividad.
+Desde pequeño me ha apasionado la música y la tecnología. Con 5 años empecé a tocar la guitarra. Más adelante estudié FP de Telecomunicaciones y Audiovisuales a raíz de ello, hice mis pinitos como técnico de radio en Italia, Perú y Hungría. En Budapest, trabajé en marketing digital para un buscador de viajes, y ahí empecé a oír hablar de conceptos como *user experience*, *landing pages* o test con usuarios.
 
-Hoy soy Test and Quality Lead en Zurich Insurance, donde antes fui editor web y Frontend Developer. Esa experiencia me enseñó a entender cómo se construye una interfaz, cómo se prueba y dónde suele romperse.
+Años después, ya en Barcelona y mientras trabajaba como editor web y luego frontend para Zurich Insurance, decidí graduarme en Técnicas de Interacción Digital y Multimedia en la UOC para agrupar mis conocimientos. Quería descubrir cómo se tomaban las decisiones de diseño UX/UI. Y ahí volví a conectarme con mi creatividad.
 
-Soy curioso y constante. Le doy muchas vueltas a las cosas; cuando hay que resolver, voy al grano. Me gusta un buen concierto, una buena película y una tarde de terraza con amigos.
+En 2026 trabajo como Test and Quality Lead en el mismo equipo de Zurich Insurance, donde antes fui editor web y Frontend Developer. Esa experiencia me enseñó a entender cómo se construye una interfaz, cómo se prueba y dónde suele romperse.
+
+Me considero una persona curiosa y comprometida. Me preocupa la justicia social, en especial el colectivo LGBTQ+. Le doy muchas vueltas a las cosas, pero cuando hay que resolver algo, voy a lo más pragmático. Me encanta viajar, ir a conciertos, una buena película y una tarde de terraza con amistades.
