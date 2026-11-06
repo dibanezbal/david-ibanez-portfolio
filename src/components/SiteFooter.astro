@@ -6,9 +6,9 @@ if (!home) throw new Error('Falta src/content/site/home.md');
 const { contact } = home.data;
 ---
 
-<footer class="bg-footer text-footer-text">
+<footer id="contacto" class="bg-footer text-footer-text">
 	<div class="shell py-16 md:py-24">
-		<h2 id="contacto" class="sr-only">Contacto</h2>
+		<h2 class="sr-only">Contacto</h2>
 		<p class="mt-6 max-w-[24ch] text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
 			{contact.intro}
 		</p>

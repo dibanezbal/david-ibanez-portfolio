@@ -301,6 +301,11 @@
 			scroll-behavior: smooth;
 		}
 	}
+
+	/* La cabecera fija no tapa los destinos de los enlaces internos (siempre, también con movimiento reducido) */
+	html {
+		scroll-padding-top: 7rem;
+	}
 }
 
 /* Entrada del hero: sube y aparece con un pequeño desfase; solo si el usuario no pide menos movimiento */

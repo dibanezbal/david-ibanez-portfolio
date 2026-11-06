@@ -9,10 +9,11 @@ const nav = [
 ];
 ---
 
-<header class="shell grid grid-cols-[1fr_auto] items-center gap-x-6 py-6 md:grid-cols-[1fr_auto_1fr]">
+<header class="sticky top-0 z-40 bg-paper">
+	<div class="shell relative grid grid-cols-[1fr_auto] items-center gap-x-6 py-6 md:grid-cols-[1fr_auto_1fr]">
 	<Logo />
 
-	<nav id="menu-principal" aria-label="Principal" class="col-span-2 row-start-2 hidden md:col-span-1 md:row-start-auto md:block md:justify-self-center">
+	<nav id="menu-principal" aria-label="Principal" class="absolute inset-x-0 top-full z-50 hidden border-b border-ink bg-paper px-5 md:static md:col-span-1 md:block md:justify-self-center md:border-0 md:bg-transparent md:px-0">
 		<ul class="flex flex-col gap-1 py-4 text-base font-medium md:flex-row md:gap-x-6 md:py-0 md:text-sm">
 			{
 				nav.map((item) => (
@@ -72,6 +73,7 @@ const nav = [
 				<path d="M4 7h16M4 12h16M4 17h16" />
 			</svg>
 		</button>
+	</div>
 	</div>
 </header>
 
@@ -134,4 +136,13 @@ const nav = [
 	);
 
 	targets.forEach((target) => observer.observe(target));
+
+	// Al llegar al final de la página, el pie (contacto) queda marcado aunque no llegue a la franja superior
+	const marcarContactoAlFinal = () => {
+		const alFinal = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+		if (!alFinal) return;
+		links.forEach((link) => link.removeAttribute('aria-current'));
+		links.find((link) => link.hash === '#contacto')?.setAttribute('aria-current', 'true');
+	};
+	window.addEventListener('scroll', marcarContactoAlFinal, { passive: true });
 </script>
