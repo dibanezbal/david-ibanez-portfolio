@@ -5,7 +5,7 @@ description: "Portfolio de David Ibáñez, Design Engineer en Barcelona: identid
 hero:
   headline: "Diseño y desarrollo interfaces pensando en el después."
   headline_accent: ""
-  intro: "Soy David Ibáñez, Design Engineer. Diseño productos digitales y los construyo en código, con accesibilidad y pruebas desde el principio."
+  intro: "Soy David Ibáñez, Design Engineer. Diseño productos digitales y los construyo en código, con accesibilidad y pruebas antes de cada entrega."
   cta_primary: { label: "Ver proyectos", url: "#proyectos" }
   cta_secondary: { label: "Hablemos", url: "#contacto" }
   portrait:

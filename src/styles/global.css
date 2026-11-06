@@ -14,11 +14,23 @@
 	--font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* En oscuro, el retrato conserva su fondo blanco como una hoja de papel: multiply lo oscurecería */
-:root:not([data-theme="light"]) .portrait,
-:root[data-theme="dark"] .portrait {
-	mix-blend-mode: normal;
-	background-color: #ffffff;
+/* Retrato: en claro, la foto con multiply sobre el papel; en oscuro, el recorte de la persona sobre el fondo, sin hoja ni bloque detrás */
+.portrait-oscuro {
+	display: none;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) .portrait-claro {
+		display: none;
+	}
+	:root:not([data-theme="light"]) .portrait-oscuro {
+		display: block;
+	}
+}
+:root[data-theme="dark"] .portrait-claro {
+	display: none;
+}
+:root[data-theme="dark"] .portrait-oscuro {
+	display: block;
 }
 
 /* Modo oscuro: mismos roles, tonos ajustados para contraste. Carmín se aclara para texto y formas sobre fondo oscuro */
