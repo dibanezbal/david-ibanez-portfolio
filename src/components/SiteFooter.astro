@@ -8,28 +8,28 @@ const { contact } = home.data;
 
 <footer class="bg-ink text-paper">
 	<div class="shell py-16 md:py-24">
-		<h2 id="contacto" class="scroll-mt-8 font-mono text-sm text-accent">Contacto</h2>
-		<p class="mt-6 max-w-[24ch] text-3xl font-extrabold leading-tight tracking-tight md:text-5xl">
+		<h2 id="contacto" class="scroll-mt-8 text-sm text-muted-on-ink">Contacto</h2>
+		<p class="mt-6 max-w-[24ch] text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
 			{contact.intro}
 		</p>
 		<a
 			href={`mailto:${contact.email}`}
-			class="mt-10 inline-block break-all text-xl font-medium text-accent underline underline-offset-8 transition-colors hover:text-paper md:text-3xl"
+			class="mt-10 inline-block break-all text-xl font-medium text-paper underline underline-offset-8 transition-colors hover:text-muted-on-ink md:text-3xl"
 		>
 			{contact.email}
 		</a>
 		<ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-medium">
 			<li>
-				<a href={contact.linkedin} class="inline-block py-1 underline underline-offset-4 transition-colors hover:text-accent">
+				<a href={contact.linkedin} class="inline-block py-1 underline underline-offset-4 transition-colors hover:text-muted-on-ink">
 					LinkedIn <span aria-hidden="true">↗</span>
 				</a>
 			</li>
 			<li>
-				<a href={contact.github} class="inline-block py-1 underline underline-offset-4 transition-colors hover:text-accent">
+				<a href={contact.github} class="inline-block py-1 underline underline-offset-4 transition-colors hover:text-muted-on-ink">
 					GitHub <span aria-hidden="true">↗</span>
 				</a>
 			</li>
 		</ul>
-		<p class="mt-16 font-mono text-xs text-muted-on-ink">David Ibáñez · Barcelona</p>
+		<p class="mt-16 text-sm text-muted-on-ink">David Ibáñez · Barcelona</p>
 	</div>
 </footer>

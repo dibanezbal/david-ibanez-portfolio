@@ -1,17 +1,17 @@
 # Trayectoria profesional, del puesto más reciente al más antiguo.
-# Fuente: CV. Zurich es confidencial: aquí solo va lo que ya figura en el CV.
 
 - id: zurich-test-quality-lead
   role: Test and Quality Lead
   company: Zurich Insurance Group
   location: Barcelona
   startDate: 2025-06-01
+  summary: Trabajo en el equipo que gestiona el desarrollo, la edición y la calidad de más de 50 sitios web.
   highlights:
-    - Reduzco un 65 % el tiempo de ejecución manual de pruebas con un portal interno que he diseñado y desarrollado para centralizar todas las automatizaciones de QA.
-    - Detecto las regresiones antes de cada despliegue al integrar Playwright y Low Code en los pipelines CI/CD de Azure DevOps.
-    - Amplío la cobertura de pruebas a los edge cases que las herramientas automáticas no detectan combinando la validación manual de interacciones y estados con IA.
-    - Llevé la primera fase de la migración de un sitio de 2.000 páginas a superar el quality gate con un 98 %, tres puntos por encima del 95 % exigido, con la estrategia de UAT que defino y superviso.
-    - Recorté un 60 % el tiempo de revisión manual al extender la regresión visual con Percy a sitios de más de 500 páginas cada uno.
+    - "Diseñé y desarrollé un portal interno que reúne todas las automatizaciones de QA. Las pruebas manuales tardan ahora un 65 % menos."
+    - "Integré Playwright y Low Code en los pipelines de Azure DevOps para detectar regresiones antes de cada despliegue."
+    - "Reviso con ayuda de IA las interacciones y estados que las herramientas automáticas no detectan."
+    - "Defino y superviso la estrategia de pruebas de aceptación (UAT). En la primera fase de la migración de un sitio de 2.000 páginas, superamos el control de calidad con un 98 %, cuando se exigía un 95 %."
+    - "Extendí la regresión visual con Percy a sitios de más de 500 páginas, y el tiempo de revisión manual bajó un 60 %."
   metrics:
     - { value: "65 %", label: "menos tiempo de ejecución manual de pruebas" }
     - { value: "98 %", label: "en el quality gate de la migración (95 % exigido)" }
@@ -26,9 +26,9 @@
   endDate: 2025-06-30
   highlights:
     - Desarrollé componentes reutilizables en React, Next.js y TypeScript para los sitios corporativos, alineados con el Design System en Figma.
-    - Acorté la distancia entre diseño y código al impulsar, junto al equipo de diseño UX/UI, la evolución del Design System en Storybook y Figma.
-    - Hice accesibles +15 componentes web para usuarios de lectores de pantalla y teclado, adaptándolos a los estándares WCAG.
-    - Senté las bases del área de calidad que hoy lidero al introducir testing automatizado (Percy, CI/CD) en Azure DevOps.
+    - "Impulsé con el equipo de diseño UX/UI la evolución del Design System en Storybook y Figma, para acercar diseño y código."
+    - "Hice accesibles +15 componentes web para quienes usan lector de pantalla o teclado, siguiendo WCAG."
+    - "Introduje el testing automatizado con Percy y CI/CD en Azure DevOps. Ahí empezó el área de calidad que hoy lidero."
   metrics:
     - { value: "+15", label: "componentes web adaptados a WCAG" }
   stack: [React, Next.js, TypeScript, Storybook, Figma, Percy, Azure DevOps]
@@ -41,10 +41,10 @@
   startDate: 2021-04-01
   endDate: 2023-06-30
   highlights:
-    - Conseguí un puesto en la plantilla de Zurich tras un año como externo en el mismo equipo.
-    - Detecté con el equipo de diseño casos no contemplados antes de publicar (responsive, estados vacíos, contenido largo, reutilización de componentes) mientras construía páginas en Sitecore a partir de diseños en InVision.
-    - Modernicé el stack del equipo migrando componentes JSS a Next.js y TypeScript, mi primer paso hacia el desarrollo frontend.
-    - Aseguré una experiencia visual coherente en escritorio y móvil en la web y el blog corporativos.
+    - "Entré como externo y, tras un año en el equipo, pasé a la plantilla de Zurich."
+    - "Construía páginas en Sitecore a partir de diseños en InVision, y con el equipo de diseño detectaba antes de publicar los casos no contemplados: responsive, estados vacíos, contenido largo o reutilización de componentes."
+    - "Migré componentes JSS a Next.js y TypeScript. Fue mi primer paso hacia el desarrollo frontend."
+    - "Cuidé que la web y el blog corporativos se vieran coherentes en escritorio y móvil."
   stack: [Sitecore, InVision, Next.js, TypeScript]
 
 - id: mediamarkt-web-developer
@@ -56,8 +56,8 @@
   endDate: 2021-04-30
   highlights:
     - Diseñé en Figma prototipos de landing pages para campañas y revisé que la implementación respetara el diseño.
-    - Mantuve la coherencia visual tras la migración a un nuevo CMS, adaptando banners y badges a los nuevos formatos.
-    - Llegué a una base de más de 1M de suscriptores con newsletters que maqueté en HTML y CSS y envié con Emarsys.
+    - "Tras la migración a un nuevo CMS, adapté banners y badges a los nuevos formatos para mantener la coherencia visual."
+    - "Maqueté en HTML y CSS newsletters que llegaban a más de 1M de suscriptores, y las enviaba con Emarsys."
   metrics:
     - { value: "+1M", label: "suscriptores alcanzados con newsletters" }
   stack: [Figma, HTML, CSS, Emarsys]
@@ -70,10 +70,10 @@
   endDate: 2019-12-31
   datePrecision: year
   highlights:
-    - Adapté la experiencia de búsqueda y reserva al usuario español localizando el microcopy de la web y la app móvil (flujos, mensajes de error) con tono y terminología locales.
+    - "Localicé para el público español el microcopy de la web y la app (flujos y mensajes de error), con tono y terminología de aquí."
     - Optimicé landing pages y diseñé infografías para campañas SEO en España, Italia y Francia.
-    - Coordiné campañas de contenidos y SEO off-site en medios y blogs internacionales (SEMrush, Ahrefs, Screaming Frog, Google Analytics).
-    - Hice crecer la comunidad hispanohablante de la marca escribiendo para el blog El Magazine del Viajero y dinamizando sus redes sociales.
+    - "Coordiné campañas de contenidos y SEO off-site en medios y blogs internacionales."
+    - "Escribía para el blog El Magazine del Viajero y dinamizaba las redes para hacer crecer la comunidad hispanohablante."
   stack: [SEMrush, Ahrefs, Screaming Frog, Google Analytics]
 
 - id: mustarhaz-voluntariado

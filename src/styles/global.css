@@ -1,19 +1,17 @@
 @import "tailwindcss";
 
-/* Tokens de la marca (public/brand) expresados en OKLCH */
+/* Tokens de la marca (paleta Carmín, sacada de las fotos de David) expresados en OKLCH */
 @theme static {
-	--color-ink: oklch(0.178 0 0);
-	--color-paper: oklch(0.969 0.004 106.5);
-	--color-muted: oklch(0.448 0.01 106.8);
-	--color-muted-on-ink: oklch(0.771 0.01 106.6);
-	--color-line: oklch(0.893 0.008 106.6);
-	/* Naranja de señal: formas y texto sobre tinta. No llega a AA sobre papel */
-	--color-accent: oklch(0.688 0.207 39.1);
-	/* Naranja quemado: texto y enlaces sobre papel */
-	--color-accent-text: oklch(0.553 0.174 38.4);
+	--color-ink: oklch(0.22 0.009 351.7);
+	--color-paper: oklch(1 0 0);
+	--color-muted: oklch(0.449 0.014 357.5);
+	--color-muted-on-ink: oklch(0.835 0.011 355);
+	--color-line: oklch(0.922 0.008 357.8);
+	/* Carmín: formas, texto y enlaces sobre papel (7,2:1) */
+	--color-accent: oklch(0.483 0.19 16.2);
+	--color-accent-text: var(--color-accent);
 
-	--font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-	--font-mono: var(--font-jetbrains), ui-monospace, monospace;
+	--font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
 }
 
 @utility shell {
@@ -30,10 +28,123 @@
 /* Cuerpo en Markdown de los casos de estudio */
 @layer components {
 	.case-prose {
-		max-width: 46rem;
 		font-size: 1.0625rem;
 		line-height: 1.75;
 		color: var(--color-muted);
+
+		/* El texto mantiene una medida cómoda; las figuras usan toda la columna */
+		& > :not(figure) {
+			max-width: 36rem;
+		}
+
+		& figure {
+			margin-block: 2.5rem;
+		}
+
+		& figure p {
+			margin: 0;
+		}
+
+		& figure:not(.figure-pair, .figure-versions) p + p {
+			margin-top: 0.75rem;
+		}
+
+		& figure img,
+		& figure video {
+			display: block;
+			width: 100%;
+			height: auto;
+			background-color: var(--color-line);
+		}
+
+		& figcaption {
+			margin-top: 0.75rem;
+			font-size: 0.875rem;
+			line-height: 1.5;
+		}
+
+		& .figure-pair,
+		& .figure-video {
+			display: grid;
+			gap: 0.75rem 1rem;
+			align-items: start;
+		}
+
+		& .figure-pair figcaption,
+		& .figure-video figcaption {
+			grid-column: 1 / -1;
+			margin-top: 0;
+		}
+
+		& .figure-stack p + p img {
+			max-width: 28rem;
+		}
+
+		& .figure-grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem 1rem;
+			align-items: center;
+		}
+
+		& .figure-grid img {
+			background-color: transparent;
+			width: 100%;
+		}
+
+		& .figure-grid figcaption {
+			grid-column: 1 / -1;
+			margin-top: 0;
+		}
+
+		@media (min-width: 40rem) {
+			& .figure-grid {
+				grid-template-columns: repeat(4, 1fr);
+			}
+		}
+
+		& .figure-versions {
+			display: grid;
+			gap: 1rem;
+			align-items: start;
+		}
+
+		& .figure-versions figcaption {
+			grid-column: 1 / -1;
+			margin-top: 0;
+		}
+
+		& .figure-versions img {
+			max-width: 20rem;
+			background-color: transparent;
+		}
+
+		& .figure-video video:nth-of-type(2) {
+			max-width: 16rem;
+		}
+
+		@media (min-width: 40rem) {
+			& .figure-pair {
+				grid-template-columns: 1fr 1fr;
+			}
+
+			& .figure-versions {
+				grid-template-columns: 2fr 1fr 1fr;
+			}
+
+			& .figure-versions img {
+				max-width: none;
+			}
+
+			/* Misma altura: 16:9 junto a 9:16 */
+			& .figure-video {
+				grid-template-columns: 3.16fr 1fr;
+			}
+
+			& .figure-video video:nth-of-type(2) {
+				max-width: none;
+			}
+		}
 
 		& > :first-child {
 			margin-top: 0;
@@ -42,9 +153,9 @@
 		& h2 {
 			margin-top: 3.5rem;
 			font-size: clamp(1.625rem, 3vw, 2.25rem);
-			font-weight: 800;
+			font-weight: 600;
 			line-height: 1.15;
-			letter-spacing: -0.03em;
+			letter-spacing: -0.02em;
 			color: var(--color-ink);
 		}
 
@@ -103,7 +214,7 @@
 		& table {
 			width: 100%;
 			border-collapse: collapse;
-			font-size: 0.95rem;
+			font-size: 0.875rem;
 			line-height: 1.5;
 		}
 
@@ -134,12 +245,16 @@
 	:focus-visible {
 		outline: 2px solid currentColor;
 		outline-offset: 3px;
-		border-radius: 2px;
+	}
+
+	video:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
 	}
 
 	::selection {
 		background-color: var(--color-accent);
-		color: var(--color-ink);
+		color: var(--color-paper);
 	}
 
 	@media (prefers-reduced-motion: no-preference) {

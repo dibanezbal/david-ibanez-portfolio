@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 
 export const disciplineLabels = { design: 'Diseño', code: 'Código', quality: 'Calidad' };
-export const contextLabels = { professional: 'Profesional', academic: 'Académico', personal: 'Personal' };
+export const contextLabels = { professional: 'Profesional', freelance: 'Freelance', academic: 'Académico', personal: 'Personal' };
 
 // Lo que se muestra en la web: los borradores no aparecen ni generan página
 export async function getPublishedProjects() {

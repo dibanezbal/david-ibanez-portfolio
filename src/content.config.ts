@@ -26,17 +26,16 @@ const projects = defineCollection({
 			summary: z.string().max(240),
 			// Qué partes del perfil demuestra
 			disciplines: z.array(z.enum(['design', 'code', 'quality'])).min(1),
-			context: z.enum(['professional', 'academic', 'personal']),
+			context: z.enum(['professional', 'freelance', 'academic', 'personal']),
 			startDate: z.coerce.date().optional(), // obligatoria al publicar
 			endDate: z.coerce.date().optional(),
 			recognition: z.string().optional(),
 			role: z.array(z.string()).min(1),
 			tools: z.array(z.string()),
 			tags: z.array(z.string()),
-			// Resumen para las tarjetas; la narrativa va en el cuerpo
-			problem: z.string(),
-			solution: z.string(),
-			outcome: z.string(),
+			// Tarjeta y cabecera del caso: la idea del proyecto y qué hice; la narrativa va en el cuerpo
+			hook: z.string(),
+			detail: z.string(),
 			metrics: z.array(metric).default([]),
 			cover: z.object({ src: image(), alt: z.string() }).optional(),
 			links: z.array(projectLink).default([]),
@@ -61,6 +60,7 @@ const experience = defineCollection({
 		endDate: z.coerce.date().optional(), // sin fecha = actualidad
 		// Si la fuente solo da años, no se muestra un mes inventado
 		datePrecision: z.enum(['month', 'year']).default('month'),
+		summary: z.string().optional(),
 		highlights: z.array(z.string()),
 		metrics: z.array(metric).default([]),
 		stack: z.array(z.string()).default([]),
@@ -76,15 +76,14 @@ const site = defineCollection({
 			seo_title: z.string(),
 			description: z.string().max(170),
 			hero: z.object({
-				eyebrow: z.string(),
 				headline: z.string(),
-				headline_accent: z.string(),
 				intro: z.string(),
 				cta_primary: link,
 				cta_secondary: link,
 				portrait: z.object({ src: image(), alt: z.string().min(1) }),
 			}),
 			projects_intro: z.string(),
+			experience_intro: z.string(),
 			skills: z.array(z.object({ title: z.string(), items: z.array(z.string()) })),
 			tools: z.array(z.string()),
 			contact: z.object({

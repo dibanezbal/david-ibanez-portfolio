@@ -35,3 +35,13 @@ playwright-report/
 .claude/skills/ui-styling/
 .claude/skills/banner-design/
 .claude/skills/slides/
+
+# skill y agentes de Impeccable (se reinstalan con `npx impeccable install -y --providers=claude --scope=project --no-hooks`)
+.claude/skills/impeccable/
+.claude/agents/impeccable-*.md
+
+# material interno de trabajo: no se publica
+PRODUCT.md
+DESIGN.md
+.impeccable/
+.claude/
