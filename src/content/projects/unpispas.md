@@ -41,7 +41,7 @@ Dejé la web preparada para seis idiomas, con el contenido de cada uno inyectado
 
 Durante el desarrollo, de enero a mayo de 2026, estuve en contacto con el cliente y con la diseñadora. Los principales cambios que pedí a diseño fueron de accesibilidad. En todo lo demás respeté lo que estaba en Figma.
 
-Por ejemplo, el texto amarillo del botón marcado no pasaba el contraste sobre el fondo blanco: daba 1,53:1. Se confirmó mantener el texto en negro.
+Por ejemplo, el texto amarillo del botón marcado no pasaba el contraste sobre el fondo blanco: daba 1,53:1. Hablé con la diseñadora sobre el problema de accesibilidad: sugirió cambiar el texto a negro, y el cliente lo confirmó.
 
 <figure class="figure-stack">
 
@@ -55,4 +55,4 @@ Por ejemplo, el texto amarillo del botón marcado no pasaba el contraste sobre e
 
 ## Hasta dónde llegó mi trabajo
 
-Terminó con la entrega del repositorio y de una URL de demo de la maquetación. La web se publicó en octubre de 2026, y en esa publicación no estuve implicado.
+Mi parte terminó con el envío del repositorio, la URL de test, una auditoría de accesibilidad completa y la documentación para modificar y ejecutar el scaffold. El cliente publicó la web en octubre de 2026.

@@ -10,6 +10,8 @@
 	/* Carmín: formas, texto y enlaces sobre papel (7,2:1) */
 	--color-accent: oklch(0.483 0.19 16.2);
 	--color-accent-text: var(--color-accent);
+	/* Hoja del retrato: blanco fijo también en oscuro, para que la foto conserve su papel */
+	--color-sheet: #ffffff;
 
 	--font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
 }
@@ -18,7 +20,7 @@
 :root:not([data-theme="light"]) .portrait,
 :root[data-theme="dark"] .portrait {
 	mix-blend-mode: normal;
-	background-color: #ffffff;
+	background-color: var(--color-sheet);
 }
 
 /* Modo oscuro: mismos roles, tonos ajustados para contraste. Carmín se aclara para texto y formas sobre fondo oscuro */

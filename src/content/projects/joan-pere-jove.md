@@ -40,7 +40,7 @@ Joan Pere lleva más de diez años componiendo y tres dirigiendo cortometrajes. 
 
 Joan Pere es mi marido, pero en este proyecto la relación fue de cliente.
 
-Así que el proyecto creció: identidad visual, manual de marca, prototipo web testeado con usuarios y, finalmente, la web en producción con un tema de WordPress hecho a medida.
+Así que el proyecto creció: identidad visual, manual de marca, prototipo web testeado con usuarios y, por último, la web en producción con un tema de WordPress hecho a medida.
 
 El punto de partida era una presencia digital dispersa, sin coherencia visual, en dos idiomas mezclados. Lo resolví con un sistema gráfico escalable (logo, tipografía, color, UI kit) aplicado a web, redes y papelería. El resultado es <a href="https://joanperejove.com/" target="_blank" rel="noopener noreferrer">joanperejove.com</a>, una web bilingüe catalán/inglés, publicada y en uso.
 
@@ -50,15 +50,15 @@ El punto de partida era una presencia digital dispersa, sin coherencia visual, e
 
 La web era una plantilla de WordPress sin personalizar. El catalán y el inglés convivían en las mismas páginas, el menú no tenía una estructura clara y, en la portada, no quedaba claro quién era ni a qué se dedicaba. Las redes funcionaban como un catálogo sin estética común y la tarjeta de visita era, literalmente, un trozo de papel con su contacto.
 
-Mi hipótesis era sencilla: si todo habla el mismo idioma visual, la percepción profesional mejora.
+Mi hipótesis: si todas las piezas comparten el mismo lenguaje visual, la marca se percibe más profesional.
 
 Trabajé con él como con cualquier cliente, con reuniones de revisión en cada fase y decisiones tomadas juntos. Me apoyé en **Design Thinking y codiseño**, porque al final quien tiene que sentirse identificado con la marca es él.
 
 ## Descubrir: qué hacen los demás y quién va a entrar
 
-**Benchmarking.** Analicé ocho compositores y compositoras (de Barcelona y alrededores, con equilibrio de género, y Hans Zimmer como referencia internacional). Miré logotipo, paleta, tipografía y coherencia entre web y redes. La conclusión fue útil: casi todos usan la web como catálogo, pero muy pocos cuidan la consistencia visual. Ahí había hueco para diferenciarse.
+**Benchmarking.** Analicé ocho compositores y compositoras (de Barcelona y alrededores, con equilibrio de género, y Hans Zimmer como referencia internacional). Miré logotipo, paleta, tipografía y coherencia entre web y redes. Casi todos usan la web como catálogo y pocos cuidan la coherencia visual. Ese era el hueco.
 
-**Dos personas, dos objetivos muy distintos:**
+Definí dos personas:
 
 - **Paula, 37, productora audiovisual.** Busca compositor para un documental y quiere contactar rápido. Le frustran las webs desactualizadas.
 - **Jorge, 26, estudiante de pedagogía musical.** Quiere descubrir música nueva desde el móvil, en el transporte. Le frustra no encontrar dónde darle al play.
@@ -67,9 +67,9 @@ Estas dos personas acabaron definiendo los dos flujos principales: contacto en d
 
 ## Definir la identidad
 
-**Moodboard.** Joan Pere lo tenía claro: nada de fondos oscuros ni de estética corporativa. Quería calma, Mediterráneo, azules, aguamarina, arena. Mi miedo era otro: que con esas palabras clave acabara pareciendo la web de un estudio de yoga o de un resort. Ese equilibrio guió muchas decisiones posteriores.
+**Moodboard.** Joan Pere lo tenía claro: nada de fondos oscuros ni de estética corporativa. Quería calma, Mediterráneo, azules, aguamarina, arena. Mi miedo era otro: que con esas palabras clave acabara pareciendo la web de un estudio de yoga o de un resort. Para equilibrarlo, contrasté los azules del mar con los tonos arena, y así la paleta quedó más personal.
 
-**Logotipo.** Al principio él no quería un isotipo con sus iniciales. Probé con figuras musicales hasta que juntando un **pentagrama y un vinilo** salió una J. Girándola 180º, aparecía la P. Le enseñé un boceto rápido, le encantó y a partir de ahí todo fluyó. Después vinieron las versiones horizontal, vertical y en negativo.
+**Logotipo.** Al principio él no quería un isotipo con sus iniciales. Probé con figuras musicales hasta que juntando un **pentagrama y un vinilo** salió una J. Girándola 180º, aparecía la P. Le enseñé un boceto rápido y le gustó. Desde ahí hicimos las versiones horizontal, vertical y en negativo.
 
 <figure>
 
@@ -126,7 +126,7 @@ Hice inventario de la web existente y lo reorganicé con prioridades. Joan Pere 
 
 La portada tenía que responder a dos preguntas sin hacer scroll: *¿quién es?* y *¿qué hace?* Como dice Steve Krug, no leemos las páginas, las escaneamos.
 
-Y los idiomas: catalán como principal, inglés como secundario, pero **cada uno en sus propias páginas**. Mejor para el usuario, mejor para el SEO y preparado para añadir más idiomas.
+Catalán como principal e inglés como secundario, pero **cada uno en sus propias páginas**. Ayuda al usuario, al SEO y deja la puerta abierta a más idiomas.
 
 ## Prototipar
 
@@ -164,7 +164,7 @@ Las tarjetas de la filmografía fueron lo que más me costó. Pasaron por varias
 
 ## Validar: IA con espíritu crítico y usuarios reales
 
-**Análisis heurístico con Claude.** Conecté Figma con Claude y le pedí un análisis según las heurísticas de Nielsen. Me sirvió para ir rápido y detectar mejoras (filtros, paginación futura, iconos del footer), pero también **se equivocó**: vio una tipografía serif que no existía y señaló un "Dossier" que no estaba en el prototipo. La lección: la IA agiliza, pero hay que revisar cada conclusión. Lo complementé con un análisis propio basado en principios de la Gestalt.
+**Análisis heurístico con Claude.** Conecté Figma con Claude y le pedí un análisis según las heurísticas de Nielsen. Me sirvió para ir rápido y detectar mejoras (filtros, paginación futura, iconos del footer), pero también **se equivocó**: vio una tipografía serif que no existía y señaló un "Dossier" que no estaba en el prototipo. La IA acelera el trabajo; cada conclusión hay que revisarla. Lo complementé con un análisis propio basado en principios de la Gestalt.
 
 **Test con usuarios en Maze.** Seis participantes: una diseñadora UX/UI senior, un productor audiovisual, tres personas con perfiles distintos y el propio cliente. Cuatro tareas basadas en el flujo de Paula:
 
@@ -209,4 +209,4 @@ Para mí esta es la parte que mejor resume lo que hago: diseñar pensando en có
 - **Un buen sistema de color es un sistema de tokens.** Definir la paleta por luminosidad me facilitó mucho el paso a CSS.
 - **La IA acelera la revisión.** Útil para ir rápido, pero cada cosa que propone hay que contrastarla.
 - **Mi UI kit no estaba listo para un handoff.** Quedó como un cajón desastre y le faltaban los estados del formulario. Hoy lo organizaría como una librería de componentes con variantes y estados desde el primer día.
-- **Separar lo personal de lo profesional.** Joan Pere es también mi marido, así que tuve que aprender cuándo estaba diseñando y cuándo estaba conviviendo. Ver al cliente contento con el resultado fue la mejor parte.
+- **Separar lo personal de lo profesional.** Joan Pere es también mi marido, pero pude separar cuándo estaba diseñando y cuándo estaba conviviendo. Ver al cliente contento con el resultado fue la mejor parte.

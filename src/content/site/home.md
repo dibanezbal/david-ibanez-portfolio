@@ -3,7 +3,7 @@ title: "Inicio"
 seo_title: "David Ibáñez · Design Engineer"
 description: "Portfolio de David Ibáñez, Design Engineer en Barcelona: identidad visual, UX/UI, prototipos, test con usuarios y código."
 hero:
-  headline: "Diseño y desarrollo interfaces pensando en el después."
+  headline: "Diseño interfaces que se pueden construir y probar."
   headline_accent: ""
   intro: "Soy David Ibáñez, Design Engineer. Diseño productos digitales y los construyo en código, con accesibilidad y pruebas antes de cada entrega."
   cta_primary: { label: "Ver proyectos", url: "#proyectos" }
@@ -11,8 +11,8 @@ hero:
   portrait:
     src: "../../assets/img/david-ibanez-front.jpg"
     alt: "Retrato en blanco y negro de David Ibáñez, con gorra, gafas y chaqueta de cremallera, sonriendo y mirando de frente."
-projects_intro: "Dos proyectos de principio a fin, del primer boceto al código, y uno de frontend a partir del diseño de otra persona."
-experience_intro: "Empecé editando contenido, pasé por el frontend y acabé en calidad. Por el camino aprendí qué hace falta para que un diseño llegue entero a producción."
+projects_intro: "Dos proyectos de principio a fin y un trabajo de frontend sobre el diseño de otra persona."
+experience_intro: "Empecé editando contenido, pasé al frontend y ahora lidero calidad. Aprendí qué hace falta para que un diseño llegue entero a producción."
 skills:
   - title: "Entre medias"
     items:
@@ -40,10 +40,10 @@ contact:
   github: "https://github.com/dibanezbal"
 ---
 
-Desde pequeño me han apasionado dos cosas: la música y la tecnología. Estudié Telecomunicaciones y Audiovisuales, hice mis pinitos como técnico de radio en Italia, Perú y Hungría, y en Budapest, trabajando en marketing digital para un buscador de viajes, empecé a oír hablar de *user experience*, *landing pages* y test con usuarios. Ahí se me quedó la espinita.
+Desde pequeño me han apasionado dos cosas: la música y la tecnología. Estudié Telecomunicaciones y Audiovisuales, hice mis pinitos como técnico de radio en Italia, Perú y Hungría, y en Budapest, trabajando en marketing digital para un buscador de viajes, empecé a oír hablar de *user experience*, *landing pages* y test con usuarios.
 
-Años después, ya en Barcelona, me gradué en **Técnicas de Interacción Digital y Multimedia en la UOC**. Durante el grado redescubrí algo que había dejado de creer: que soy una persona creativa.
+Años después, ya en Barcelona, me gradué en **Técnicas de Interacción Digital y Multimedia en la UOC**. Durante el grado volví a activar mi creatividad.
 
-Hoy soy Test and Quality Lead en Zurich Insurance, donde antes fui editor web y Frontend Developer. Esa experiencia me ha dado algo que valoro mucho en diseño: entender cómo se construye, cómo se prueba y dónde suelen romperse las cosas.
+Hoy soy Test and Quality Lead en Zurich Insurance, donde antes fui editor web y Frontend Developer. Esa experiencia me enseñó a entender cómo se construye una interfaz, cómo se prueba y dónde suele romperse.
 
-Soy curioso, constante y a veces le doy muchas vueltas a las cosas, pero a la hora de resolver soy bastante pragmático. Me gusta un buen concierto, una buena película y una tarde de terraza con amigos.
+Soy curioso y constante. Le doy muchas vueltas a las cosas; cuando hay que resolver, voy al grano. Me gusta un buen concierto, una buena película y una tarde de terraza con amigos.

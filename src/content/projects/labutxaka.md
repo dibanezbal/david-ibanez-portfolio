@@ -36,7 +36,7 @@ order: 2
 
 *Butxaca* es "bolsillo" en catalán. LaButxaka es una aplicación web para llevar tus finanzas personales de forma autónoma: añades, editas y eliminas movimientos, los organizas por cuentas y categorías, y ves un resumen de cómo vas.
 
-La diseñé y la desarrollé yo de principio a fin, y es probablemente el proyecto donde más se ve el puente entre las dos partes: cada pantalla de Figma tiene detrás un controlador, un modelo y una tabla en la base de datos.
+La diseñé y la desarrollé yo de principio a fin, y es el proyecto donde mejor se ve cómo conectan diseño y código: cada pantalla de Figma tiene detrás un controlador, un modelo y una tabla en la base de datos.
 
 Las apps de finanzas suelen pecar de complejas o de tener demasiadas funciones para quien solo quiere saber en qué se le va el dinero. La solución fue una app enfocada en lo esencial (movimientos, cuentas, categorías, resumen), clara en desktop y en móvil. Hoy es una aplicación funcional en producción, con vídeo demo y tutorial interactivo para el usuario.
 
@@ -98,7 +98,7 @@ Creé un **user persona** y un **moodboard** para tener claro para quién diseñ
 
 </figure>
 
-Después, lo de siempre y por buenas razones:
+Después, en este orden:
 
 1. **Wireframes** en baja fidelidad para validar estructura y flujos sin distraerme con el estilo.
 2. **Prototipo de alta fidelidad** en Figma con la guía de estilos aplicada y los flujos prototipados.
@@ -114,8 +114,6 @@ Después, lo de siempre y por buenas razones:
 </figure>
 
 ## Desarrollo
-
-Aquí es donde el proyecto se pone interesante para mí.
 
 **Stack:** PHP y SQL en el backend, HTML, CSS y JavaScript vanilla en el frontend, y componentes de **Shoelace** (web components) personalizados para que encajaran con la guía de estilos en lugar de parecer una librería genérica.
 
@@ -140,7 +138,7 @@ El proceso, en orden:
 
 </figure>
 
-Personalizar Shoelace fue una buena lección de design engineering: no basta con que el componente funcione, tiene que sentirse parte del mismo sistema que diseñaste en Figma. Ajustar sus variables y partes para respetar la paleta y la tipografía fue donde más se juntaron las dos mitades del proyecto.
+Personalizar Shoelace enseñó que un componente tiene que sentirse parte del sistema que diseñaste en Figma, no solo funcionar. Ajustar sus variables y partes para respetar la paleta y la tipografía fue donde más se juntaron las dos mitades del proyecto.
 
 **Lo que se quedó fuera.** En el diseño, Resumen también tenía un botón para filtrar por fecha. No daba tiempo a aplicar los cambios, así que lo dejé como tarea pendiente en el backlog.
 
@@ -156,12 +154,12 @@ Personalizar Shoelace fue una buena lección de design engineering: no basta con
 
 ## Cómo lo presenté al usuario
 
-Una app no termina cuando funciona: alguien tiene que entender cómo usarla. Elegí dos formatos complementarios:
+Para que alguien use la app, tiene que entender cómo funciona. Elegí dos formatos complementarios:
 
 - **Un vídeo** cercano y visual, que enseña lo que hace la app sin entrar en tecnicismos.
 - **<a href="https://view.genially.com/69595024e2e30838a607ee26" target="_blank" rel="noopener noreferrer">Un tutorial interactivo</a>** al que el usuario puede volver cuando tenga dudas mientras la usa.
 
-El vídeo orienta; el tutorial acompaña a largo plazo.
+El vídeo presenta la app; el tutorial resuelve dudas cuando el usuario ya la usa.
 
 ## Lo que aprendí
 
