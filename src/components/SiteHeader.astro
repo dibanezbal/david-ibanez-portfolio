@@ -18,7 +18,7 @@ const nav = [
 					<li>
 						<a
 							href={item.href}
-							class="inline-block py-1 underline-offset-4 transition-colors hover:text-accent-text hover:underline"
+							class="inline-block py-1 underline-offset-4 transition-colors hover:text-accent-text hover:underline aria-[current=true]:text-accent-text aria-[current=true]:underline"
 						>
 							{item.label}
 						</a>
@@ -28,3 +28,24 @@ const nav = [
 		</ul>
 	</nav>
 </header>
+
+<script>
+	// Marca en la cabecera el apartado que se está leyendo
+	const links = [...document.querySelectorAll<HTMLAnchorElement>('header nav a')];
+	const targets = links
+		.map((link) => document.getElementById(link.hash.slice(1)))
+		.filter((element): element is HTMLElement => element !== null);
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) continue;
+				links.forEach((link) => link.removeAttribute('aria-current'));
+				links.find((link) => link.hash === `#${entry.target.id}`)?.setAttribute('aria-current', 'true');
+			}
+		},
+		{ rootMargin: '0px 0px -70% 0px' },
+	);
+
+	targets.forEach((target) => observer.observe(target));
+</script>
