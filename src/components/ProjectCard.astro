@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import Mockup from './Mockup.astro';
 import { formatPeriod } from '../lib/format';
 import { contextLabels, disciplineLabels } from '../lib/projects';
 
@@ -22,14 +23,8 @@ const disciplines = data.disciplines.map((discipline) => disciplineLabels[discip
 	<div class:list={['lg:col-span-8', reverse && 'lg:order-last']}>
 		{
 			data.cover && (
-				<div class="overflow-hidden bg-line">
-					<Image
-						src={data.cover.src}
-						alt={data.cover.alt}
-						widths={[480, 800, 1200]}
-						sizes="(min-width: 1024px) 66vw, 100vw"
-						class="h-auto w-full transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.015]"
-					/>
+				<div class="transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.01]">
+					<Mockup desktop={data.cover} mobile={data.mobile} />
 				</div>
 			)
 		}

@@ -9,10 +9,11 @@ const nav = [
 ];
 ---
 
-<header class="shell flex flex-wrap items-center justify-between gap-x-8 gap-y-4 py-6">
+<header class="shell grid grid-cols-[1fr_auto] items-center gap-x-6 py-6 md:grid-cols-[1fr_auto_1fr]">
 	<Logo />
-	<nav aria-label="Principal">
-		<ul class="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium">
+
+	<nav id="menu-principal" aria-label="Principal" class="col-span-2 row-start-2 hidden md:col-span-1 md:row-start-auto md:block md:justify-self-center">
+		<ul class="flex flex-col gap-1 py-4 text-base font-medium md:flex-row md:gap-x-6 md:py-0 md:text-sm">
 			{
 				nav.map((item) => (
 					<li>
@@ -27,9 +28,91 @@ const nav = [
 			}
 		</ul>
 	</nav>
+
+	<div class="flex items-center justify-end gap-1 md:justify-self-end">
+		<!-- Selector de idioma preparado: aún no cambia el idioma -->
+		<button
+			type="button"
+			disabled
+			aria-label="Idioma: ES (selector próximamente)"
+			class="flex h-9 cursor-not-allowed items-center gap-1.5 px-2 text-sm font-medium"
+		>
+			<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+				<circle cx="12" cy="12" r="9" />
+				<path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9s1.3-6.4 3.8-9z" />
+			</svg>
+			ES
+		</button>
+		<button
+			type="button"
+			id="cambiar-tema"
+			aria-label="Modo oscuro"
+			class="grid size-9 cursor-pointer place-items-center transition-colors hover:text-accent-text"
+		>
+			<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icono="luna">
+				<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+			</svg>
+			<svg class="size-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true" data-icono="sol">
+				<circle cx="12" cy="12" r="4" />
+				<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+			</svg>
+		</button>
+		<button
+			type="button"
+			id="abrir-menu"
+			aria-controls="menu-principal"
+			aria-expanded="false"
+			class="grid size-9 cursor-pointer place-items-center transition-colors hover:text-accent-text md:hidden"
+		>
+			<span class="sr-only">Menú</span>
+			<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+				<path d="M4 7h16M4 12h16M4 17h16" />
+			</svg>
+		</button>
+	</div>
 </header>
 
 <script>
+	// Cambia entre modo claro y oscuro y recuerda la elección
+	const themeButton = document.getElementById('cambiar-tema');
+	const isDark = () =>
+		document.documentElement.dataset.theme === 'dark' ||
+		(document.documentElement.dataset.theme !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+	const renderTheme = () => {
+		if (!themeButton) return;
+		const dark = isDark();
+		themeButton.setAttribute('aria-label', dark ? 'Modo claro' : 'Modo oscuro');
+		themeButton.querySelector('[data-icono="luna"]')?.classList.toggle('hidden', dark);
+		themeButton.querySelector('[data-icono="sol"]')?.classList.toggle('hidden', !dark);
+	};
+	themeButton?.addEventListener('click', () => {
+		const next = isDark() ? 'light' : 'dark';
+		document.documentElement.dataset.theme = next;
+		try {
+			localStorage.setItem('tema', next);
+		} catch {}
+		renderTheme();
+	});
+	renderTheme();
+
+	// Menú desplegable en móvil: se cierra con Escape, al elegir un apartado o al volver a pulsar
+	const menu = document.getElementById('menu-principal');
+	const menuButton = document.getElementById('abrir-menu');
+	const setMenu = (open: boolean) => {
+		menu?.classList.toggle('hidden', !open);
+		menuButton?.setAttribute('aria-expanded', String(open));
+	};
+	menuButton?.addEventListener('click', () => setMenu(menu?.classList.contains('hidden') ?? false));
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') {
+			setMenu(false);
+			menuButton.focus();
+		}
+	});
+	menu?.addEventListener('click', (event) => {
+		if ((event.target as HTMLElement).closest('a')) setMenu(false);
+	});
+
 	// Marca en la cabecera el apartado que se está leyendo
 	const links = [...document.querySelectorAll<HTMLAnchorElement>('header nav a')];
 	const targets = links

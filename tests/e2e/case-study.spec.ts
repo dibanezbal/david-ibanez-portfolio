@@ -43,8 +43,15 @@ test('se puede pasar de un caso al siguiente', async ({ page }) => {
 	await expect(page).toHaveURL(/\/proyectos\/joan-pere-jove$/);
 });
 
+// En móvil el menú está plegado: lo abrimos antes de usar los enlaces
+async function abrirNavegacion(page: import('@playwright/test').Page) {
+	const boton = page.getByRole('button', { name: 'Menú' });
+	if (await boton.isVisible()) await boton.click();
+}
+
 test('la navegación principal vuelve a la home desde un caso', async ({ page }) => {
 	await page.goto('/proyectos/labutxaka');
+	await abrirNavegacion(page);
 	await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Experiencia' }).click();
 	await expect(page).toHaveURL(/\/#experiencia$/);
 	await expect(page.getByRole('heading', { level: 2, name: 'Experiencia' })).toBeInViewport();
@@ -52,6 +59,7 @@ test('la navegación principal vuelve a la home desde un caso', async ({ page })
 
 test('el enlace de contacto funciona dentro del caso', async ({ page }) => {
 	await page.goto('/proyectos/labutxaka');
+	await abrirNavegacion(page);
 	await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Contacto' }).click();
 	await expect(page).toHaveURL(/\/proyectos\/labutxaka#contacto$/);
 	await expect(page.getByRole('heading', { level: 2, name: 'Contacto' })).toBeInViewport();

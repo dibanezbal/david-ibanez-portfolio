@@ -4,6 +4,7 @@ import { getEntry, render } from 'astro:content';
 import SiteFooter from '../../components/SiteFooter.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import Layout from '../../layouts/Layout.astro';
+import Mockup from '../../components/Mockup.astro';
 import { formatPeriod } from '../../lib/format';
 import { contextLabels, disciplineLabels, getPublishedProjects } from '../../lib/projects';
 
@@ -60,14 +61,7 @@ const lists = [
 			{
 				data.cover && (
 					<div class="shell">
-						<Image
-							src={data.cover.src}
-							alt={data.cover.alt}
-							widths={[800, 1200, 1440]}
-							sizes="(min-width: 1440px) 1360px, 100vw"
-							priority
-							class="h-auto w-full bg-line"
-						/>
+						<Mockup desktop={data.cover} mobile={data.mobile} sizes="(min-width: 1440px) 1360px, 100vw" />
 					</div>
 				)
 			}

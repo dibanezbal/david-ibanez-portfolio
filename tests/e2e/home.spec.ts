@@ -47,7 +47,8 @@ test('muestra los proyectos publicados y oculta los borradores', async ({ page }
 
 test('las portadas cargan y tienen texto alternativo', async ({ page }) => {
 	const covers = page.locator('article img');
-	await expect(covers).toHaveCount(3);
+	// Cada tarjeta tiene la captura de escritorio y, además, la de móvil
+	await expect(covers).toHaveCount(6);
 	for (const cover of await covers.all()) {
 		await cover.scrollIntoViewIfNeeded();
 		await expect(cover).toHaveAttribute('alt', /\S/);

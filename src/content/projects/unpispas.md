@@ -13,8 +13,12 @@ tags: ["Frontend", "Figma to Code", "Accesibilidad", "Responsive", "Componentes"
 hook: "La web comercial de un TPV en la nube, montada a partir del Figma que envió el cliente."
 detail: "Solo el frontend, en HTML, CSS y JavaScript puros, en contacto con el cliente y la diseñadora."
 cover:
-  src: "../../assets/projects/unpispas.png"
-  alt: "Portada de la web de unPisPas: el titular «Gestiona tu negocio de hostelería como nunca antes» sobre la foto de un camarero con una tableta."
+  src: "../../assets/projects/unpispas/web-escritorio.webp"
+  alt: "Captura de escritorio de la web de unPisPas."
+  label: "Escritorio, web del cliente"
+mobile:
+  src: "../../assets/projects/unpispas/web-movil.webp"
+  alt: "Captura móvil de la web de unPisPas."
 links:
   - label: "Ver la web publicada"
     url: "https://www.unpispas.es/es/"

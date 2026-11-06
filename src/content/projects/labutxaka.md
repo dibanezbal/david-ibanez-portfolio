@@ -16,8 +16,11 @@ tags: ["Web App", "Full-stack", "MVC", "Web Components", "Responsive", "UX Writi
 hook: "Una app de finanzas para quien solo quiere saber en qué se le va el dinero."
 detail: "La diseñé, la programé en PHP y la uso a diario para las cuentas de casa."
 cover:
-  src: "../../assets/projects/labutxaka.png"
-  alt: "Pantalla Resumen de LaButxaka: saldos por cuenta, balance del mes, últimos movimientos y gastos por categoría."
+  src: "../../assets/projects/labutxaka/web-escritorio.webp"
+  alt: "Captura de escritorio de la web de LaButxaka."
+mobile:
+  src: "../../assets/projects/labutxaka/web-movil.webp"
+  alt: "Captura móvil de la web de LaButxaka."
 links:
   - label: "Probar la demo"
     url: "https://labutxaka-demo.netlify.app/#resumen"

@@ -1,0 +1,39 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+	desktop: { src: ImageMetadata; alt: string; label?: string };
+	mobile?: { src: ImageMetadata; alt: string; label?: string };
+	/** Tamaño de la imagen de escritorio para el atributo sizes */
+	sizes?: string;
+}
+
+const { desktop, mobile, sizes = '(min-width: 1024px) 66vw, 100vw' } = Astro.props;
+---
+
+<!-- Marcos planos: escritorio con línea fina; móvil con contorno en Tinta y esquinas redondeadas, sin bisel ni sombra -->
+<div class:list={["grid items-start gap-5", mobile ? "grid-cols-1 min-[640px]:grid-cols-[minmax(0,1fr)_minmax(0,26%)]" : "grid-cols-1"]}>
+	<figure class="m-0">
+		<figcaption class="mb-2 text-sm font-medium text-muted">{desktop.label ?? 'Escritorio'}</figcaption>
+		<div class="border border-line bg-paper">
+			<Image
+				src={desktop.src}
+				alt={desktop.alt}
+				widths={[800, 1200, 1440]}
+				sizes={sizes}
+				class="block h-auto w-full"
+			/>
+		</div>
+	</figure>
+	{
+		mobile && (
+			<figure class="m-0 w-3/5 min-[640px]:w-auto">
+				<figcaption class="mb-2 text-sm font-medium text-muted">{mobile.label ?? 'Móvil'}</figcaption>
+				<div class="overflow-hidden rounded-[1.25rem] border border-ink bg-paper">
+					<Image src={mobile.src} alt={mobile.alt} widths={[390, 780]} sizes="(min-width: 1024px) 18vw, 60vw" class="block h-auto w-full" />
+				</div>
+			</figure>
+		)
+	}
+</div>

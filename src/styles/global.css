@@ -14,6 +14,36 @@
 	--font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* En oscuro, el retrato conserva su fondo blanco como una hoja de papel: multiply lo oscurecería */
+:root:not([data-theme="light"]) .portrait,
+:root[data-theme="dark"] .portrait {
+	mix-blend-mode: normal;
+	background-color: #ffffff;
+}
+
+/* Modo oscuro: mismos roles, tonos ajustados para contraste. Carmín se aclara para texto y formas sobre fondo oscuro */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--color-ink: #f5f3f2;
+		--color-paper: #151214;
+		--color-muted: #b9b1b4;
+		--color-muted-on-ink: #151214;
+		--color-line: #3a3436;
+		--color-accent: #e24e70;
+		--color-accent-text: #e24e70;
+	}
+}
+
+:root[data-theme="dark"] {
+		--color-ink: #f5f3f2;
+		--color-paper: #151214;
+		--color-muted: #b9b1b4;
+		--color-muted-on-ink: #151214;
+		--color-line: #3a3436;
+		--color-accent: #e24e70;
+		--color-accent-text: #e24e70;
+}
+
 @utility shell {
 	margin-inline: auto;
 	width: 100%;

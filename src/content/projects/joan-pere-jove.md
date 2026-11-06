@@ -18,8 +18,11 @@ tags: ["Branding", "UX Research", "UI Design", "Design System", "Accesibilidad",
 hook: "Un compositor con web, redes y tarjeta de visita, y ninguna marca que las uniera."
 detail: "Identidad visual, test con usuarios y tema de WordPress a medida para su web bilingüe."
 cover:
-  src: "../../assets/projects/joan-pere-jove.png"
-  alt: "Portada de la web de Joan Pere Jové: su nombre sobre una foto suya leyendo una partitura, en tonos azul verdoso."
+  src: "../../assets/projects/joan/web-escritorio.webp"
+  alt: "Captura de escritorio de la web de Joan Pere Jové."
+mobile:
+  src: "../../assets/projects/joan/web-movil.webp"
+  alt: "Captura móvil de la web de Joan Pere Jové."
 links:
   - label: "Ver la web publicada"
     url: "https://joanperejove.com/"
