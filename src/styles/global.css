@@ -326,3 +326,11 @@
 		animation-delay: var(--d, 0ms);
 	}
 }
+
+/* Cabecera fija: al desplazarse se compacta (de 88 px a 56 px). Fuera de las capas para vencer al padding de utilidad */
+[data-header] > div {
+	transition: padding-block 200ms ease-out;
+}
+[data-header][data-compact] > div {
+	padding-block: 0.5rem;
+}

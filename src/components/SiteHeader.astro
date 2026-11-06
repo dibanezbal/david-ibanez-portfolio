@@ -9,7 +9,7 @@ const nav = [
 ];
 ---
 
-<header class="sticky top-0 z-40 bg-paper">
+<header class="sticky top-0 z-40 bg-paper" data-header>
 	<div class="shell relative grid grid-cols-[1fr_auto] items-center gap-x-6 py-6 md:grid-cols-[1fr_auto_1fr]">
 	<Logo />
 
@@ -145,4 +145,10 @@ const nav = [
 		links.find((link) => link.hash === '#contacto')?.setAttribute('aria-current', 'true');
 	};
 	window.addEventListener('scroll', marcarContactoAlFinal, { passive: true });
+
+	// Al desplazarse, la cabecera se compacta para ocupar menos pantalla (sobre todo en móvil)
+	const cabecera = document.querySelector('[data-header]');
+	const compactar = () => cabecera?.toggleAttribute('data-compact', window.scrollY > 48);
+	window.addEventListener('scroll', compactar, { passive: true });
+	compactar();
 </script>
