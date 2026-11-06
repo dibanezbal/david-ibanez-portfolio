@@ -5,38 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>David Ibáñez — Brand</title>
 <link rel="icon" href="/favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --ink:#111; --paper:#f5f5f2; --mid:#8a8a85; --accent:#ff5f1f; --accent-text:#c2410c; --brim:var(--accent); }
+  :root { --ink:#1e191b; --paper:#ffffff; --mid:#5c5255; --line:#eae3e5; --accent:#b00637; --brim:var(--accent); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:"Plus Jakarta Sans",system-ui,sans-serif; background:var(--paper); color:var(--ink); padding:48px 16px 80px; }
+  body { font-family:"Schibsted Grotesk",system-ui,sans-serif; background:var(--paper); color:var(--ink); padding:48px 16px 80px; }
   main { max-width:1040px; margin:0 auto; }
-  .eyebrow { font:500 12px "JetBrains Mono",monospace; letter-spacing:.08em; text-transform:uppercase; color:var(--mid); margin-bottom:12px; }
-  h1 { font-size:clamp(32px,5vw,52px); letter-spacing:-.04em; line-height:1; margin-bottom:40px; }
+  .eyebrow { font-size:14px; font-weight:500; color:var(--mid); margin-bottom:12px; }
+  h1 { font-size:clamp(32px,5vw,52px); font-weight:600; letter-spacing:-.02em; line-height:1; margin-bottom:40px; }
   section { margin-bottom:56px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
-  .tile { background:#fff; border-radius:20px; padding:32px; min-height:260px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; position:relative; }
-  .tile.ink { background:var(--ink); color:var(--paper); }
+  .tile { background:#fff; border:1px solid var(--line); padding:32px; min-height:260px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; position:relative; }
+  .tile.ink { background:var(--ink); color:var(--paper); border-color:var(--ink); --brim:currentColor; }
   .tile.wide { grid-column:1/-1; }
-  .tile .cap { position:absolute; left:20px; bottom:16px; font:400 11px "JetBrains Mono",monospace; color:var(--mid); }
+  .tile .cap { position:absolute; left:20px; bottom:16px; font-size:12px; color:var(--mid); }
   .mark { width:180px; height:180px; }
   .hero .mark { width:min(340px,70vw); height:auto; }
   .anatomy { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px; margin-top:24px; }
   .anatomy b { display:block; font-size:15px; margin-bottom:4px; }
-  .anatomy p, .note { font-size:14px; line-height:1.5; color:#55554f; }
+  .anatomy p, .note { font-size:14px; line-height:1.5; color:var(--mid); }
   .lockup { display:flex; align-items:center; gap:18px; }
   .lockup svg { width:64px; height:64px; }
-  .lockup .name { font-weight:700; font-size:32px; letter-spacing:-.035em; line-height:1; }
-  .lockup .role { font:400 13px "JetBrains Mono",monospace; letter-spacing:.04em; opacity:.6; margin-top:6px; }
+  code { font:inherit; }
+  .lockup .name { white-space:nowrap; font-weight:600; font-size:32px; letter-spacing:-.02em; line-height:1; }
+  .lockup .role { font-size:13px; opacity:.65; margin-top:6px; }
   .stack { flex-direction:column; text-align:center; gap:12px; }
   .stack svg { width:96px; height:96px; }
   .sizes { display:flex; align-items:flex-end; gap:24px; }
   .swatches { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; }
-  .sw { border-radius:16px; padding:16px; height:140px; line-height:1.5; display:flex; flex-direction:column; justify-content:flex-end; font:400 12px "JetBrains Mono",monospace; }
-  .nav { width:100%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #e5e5e0; padding-bottom:16px; }
+  .sw { padding:16px; height:140px; line-height:1.5; display:flex; flex-direction:column; justify-content:flex-end; font-size:13px; }
+  .nav { width:100%; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:16px; }
   .nav .name, .nav .links span { white-space:nowrap; }
   .nav .links { display:flex; gap:14px; font-size:14px; align-items:center; }
-  .nav .links span:last-child { font:500 12px "JetBrains Mono",monospace; border:1px solid currentColor; border-radius:99px; padding:4px 10px; }
+  .nav .links span:last-child { font-size:12px; font-weight:500; border:1px solid currentColor; padding:4px 10px; }
   @media (max-width:560px){ .nav .links span:not(:last-child){ display:none; } }
 </style>
 </head>
@@ -48,7 +49,7 @@
   </symbol>
 </svg>
 <main>
-  <p class="eyebrow">Brand identity · v1</p>
+  <p class="eyebrow">Brand identity · v2</p>
   <h1>David Ibáñez — D / Cap</h1>
 
   <section>
@@ -59,7 +60,7 @@
       <div><b>01 · Gorra calada</b><p>La gorra va baja y ajustada, justo por encima de las gafas. Por eso la D es plana arriba y la visera, corta y caída hacia delante, se apoya casi pegada a la letra.</p></div>
       <div><b>02 · Cara redonda</b><p>De frente, tu cabeza es redonda y ancha de mejillas. La panza de la D es llena y amplia, no una D estrecha de imprenta.</p></div>
       <div><b>03 · Trazo equilibrado</b><p>El trazo tiene el mismo grosor en todo el contorno y la curva es continua y llena, como la línea de la cara y la barba. Así es una D sólida, legible y tranquila, sin perder el carácter de la cabeza.</p></div>
-      <div><b>04 · Alto contraste</b><p>Las fotos son blanco y negro con grandes masas negras (gorra, barba, chaqueta). El isotipo es macizo y de un solo color, con el naranja solo en la visera.</p></div>
+      <div><b>04 · Alto contraste</b><p>Las fotos son blanco y negro con grandes masas negras (gorra, barba, chaqueta). El isotipo es macizo y de un solo color, con el carmín solo en la visera.</p></div>
     </div>
   </section>
 
@@ -85,13 +86,12 @@
   <section>
     <p class="eyebrow">Color &amp; type</p>
     <div class="swatches">
-      <div class="sw" style="background:#111;color:#f5f5f2">Ink · #111111</div>
-      <div class="sw" style="background:#f5f5f2;color:#111;border:1px solid #e5e5e0">Paper · #F5F5F2</div>
-      <div class="sw" style="background:#8a8a85;color:#fff">Graphite · #8A8A85</div>
-      <div class="sw" style="background:#ff5f1f;color:#111">Signal Orange · #FF5F1F<br>acento · fondos y formas</div>
-      <div class="sw" style="background:#c2410c;color:#fff">Burnt Orange · #C2410C<br>texto y enlaces sobre claro</div>
+      <div class="sw" style="background:#1e191b;color:#fff">Tinta · #1E191B</div>
+      <div class="sw" style="background:#fff;color:#1e191b;border:1px solid var(--line)">Papel · #FFFFFF</div>
+      <div class="sw" style="background:#5c5255;color:#fff">Grafito · #5C5255</div>
+      <div class="sw" style="background:#b00637;color:#fff">Carmín · #B00637<br>formas, acción y texto sobre claro</div>
     </div>
-    <p class="note" style="margin-top:16px">Blanco y negro de alto contraste, como tus fotos, con <b style="color:var(--accent-text)">un único acento naranja</b> para la visera, los enlaces y los detalles de interacción. <code>#FF5F1F</code> llega a 6,2:1 sobre negro, pero solo a 2,8:1 sobre blanco roto; para texto sobre fondo claro se usa <code>#C2410C</code> (4,7:1, cumple AA). Tipografía: <b>Plus Jakarta Sans</b> para el nombre y los textos y <span style="font-family:'JetBrains Mono'">JetBrains Mono</span> para el rol (el guiño al código).</p>
+    <p class="note" style="margin-top:16px">Blanco y tinta de alto contraste, como tus fotos, con <b style="color:var(--accent)">un único acento carmín</b>, sacado de tus fotos, para la visera, los enlaces y la acción principal. Tipografía: Schibsted Grotesk, sin mono.</p>
   </section>
 </main>
 </body>

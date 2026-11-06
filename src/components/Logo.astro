@@ -4,7 +4,7 @@ interface Props {
 	variant?: 'mark' | 'full';
 	role?: string;
 	size?: number;
-	/** Visera en naranja de acento; false = monocromo */
+	/** Visera en el color de acento; false = monocromo */
 	accent?: boolean;
 }
 const { variant = 'full', role = 'Design & Development', size = 40, accent = true } = Astro.props;
@@ -13,7 +13,7 @@ const { variant = 'full', role = 'Design & Development', size = 40, accent = tru
 <a href="/" class="logo" aria-label={variant === 'mark' ? 'David Ibáñez, inicio' : undefined}>
 	<svg viewBox="32 20 160 160" width={size} height={size} fill="currentColor" aria-hidden="true">
 		<path fill-rule="evenodd" d="M44 62 H88 C136 62 166 90 166 122 C166 154 138 176 98 176 H64 Q44 176 44 156 Z M66 84 H90 C122 84 144 100 144 119 C144 138 124 154 96 154 H66 Z"></path>
-		<path fill={accent ? 'var(--color-accent, #ff5f1f)' : 'currentColor'} d="M44 34 H128 C152 34 170 44 180 60 C165 57 150 56 134 56 H50 Q44 56 44 50 Z"></path>
+		<path fill={accent ? 'var(--color-accent, #b00637)' : 'currentColor'} d="M44 34 H128 C152 34 170 44 180 60 C165 57 150 56 134 56 H50 Q44 56 44 50 Z"></path>
 	</svg>
 	{variant === 'full' && (
 		<span class="text">
@@ -26,6 +26,6 @@ const { variant = 'full', role = 'Design & Development', size = 40, accent = tru
 <style>
 	.logo { display: inline-flex; align-items: center; gap: 0.75em; color: inherit; text-decoration: none; }
 	.text { display: flex; flex-direction: column; line-height: 1; gap: 0.35em; }
-	.name { font-family: var(--font-sans); font-weight: 700; font-size: 1.25em; letter-spacing: -0.03em; }
-	.role { font-family: var(--font-mono); font-size: 0.7em; letter-spacing: 0.04em; opacity: 0.65; }
+	.name { font-family: var(--font-sans); font-weight: 600; font-size: 1.25em; letter-spacing: -0.02em; }
+	.role { font-size: 0.75em; opacity: 0.65; }
 </style>
