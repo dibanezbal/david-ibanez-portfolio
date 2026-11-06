@@ -14,8 +14,7 @@ hero:
 projects_intro: "Dos proyectos de principio a fin y un trabajo de frontend sobre el diseño de otra persona."
 experience_intro: "De editor web a lead de calidad, pasando por el frontend."
 about_intro:
-  - "Desde pequeño me ha apasionado la música y la tecnología. Con 5 años empecé a tocar la guitarra. Más adelante estudié FP de Telecomunicaciones y Audiovisuales a raíz de ello, hice mis pinitos como técnico de radio en Italia, Perú y Hungría. En Budapest, trabajé en marketing digital para un buscador de viajes, y ahí empecé a oír hablar de conceptos como user experience, landing pages o test con usuarios."
-  - "Años después, ya en Barcelona y mientras trabajaba como editor web y luego frontend para Zurich Insurance, decidí graduarme en Técnicas de Interacción Digital y Multimedia en la UOC para agrupar mis conocimientos. Quería descubrir cómo se tomaban las decisiones de diseño UX/UI. Y ahí volví a conectarme con mi creatividad."
+  - "Empecé en marketing digital y me gradué en diseño de interacción en la UOC. Hoy lidero QA en Zurich Insurance, en el mismo equipo después de pasar por la edición web y el frontend."
 skills:
   - title: "Entre medias"
     items:

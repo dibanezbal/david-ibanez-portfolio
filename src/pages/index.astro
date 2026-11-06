@@ -11,7 +11,7 @@ import { getPublishedProjects } from '../lib/projects';
 
 const home = await getEntry('site', 'home');
 if (!home) throw new Error('Falta src/content/site/home.md');
-const { hero, skills, tools } = home.data;
+const { hero, skills } = home.data;
 const [leadSkills, ...otherSkills] = skills;
 // Destaca las cifras de cada logro sin tocar el texto del CV
 const figures = /(\+\d+M?|\d+(?:,\d+)?\s%)/;
@@ -49,7 +49,7 @@ const jobs = (await getCollection('experience')).sort(
 							projects.slice(0, 3).map((project) =>
 								project.data.cover && (
 									<li>
-										<a href={`/proyectos/${project.id}`} class="group block" aria-label={project.data.title}>
+										<a href={`/proyectos/${project.id}`} class="group block">
 											<Image
 												src={project.data.cover.src}
 												alt=""
@@ -57,6 +57,7 @@ const jobs = (await getCollection('experience')).sort(
 												sizes="(min-width: 1024px) 160px, 30vw"
 												class="block aspect-[16/10] w-full border border-line bg-paper object-cover object-top transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.02]"
 											/>
+											<span class="mt-2 block text-sm font-medium underline-offset-4 group-hover:underline">{project.data.title}</span>
 										</a>
 									</li>
 								),
@@ -108,9 +109,6 @@ const jobs = (await getCollection('experience')).sort(
 					))
 				}
 			</div>
-			<p class="mt-12 text-sm leading-relaxed text-muted">
-				Herramientas: {tools.join(' · ')}
-			</p>
 		</section>
 
 		<section class="shell border-t border-line py-16 md:py-24" aria-labelledby="experiencia">
