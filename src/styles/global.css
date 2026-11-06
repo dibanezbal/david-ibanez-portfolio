@@ -6,6 +6,9 @@
 	--color-paper: oklch(1 0 0);
 	--color-muted: oklch(0.449 0.014 357.5);
 	--color-muted-on-ink: oklch(0.835 0.011 355);
+	/* Pie de página: oscuro con texto claro en los dos temas */
+	--color-footer: oklch(0.22 0.009 351.7);
+	--color-footer-text: oklch(1 0 0);
 	--color-line: oklch(0.922 0.008 357.8);
 	/* Carmín: formas, texto y enlaces sobre papel (7,2:1) */
 	--color-accent: oklch(0.483 0.19 16.2);
@@ -29,7 +32,9 @@
 		--color-ink: #f5f3f2;
 		--color-paper: #151214;
 		--color-muted: #b9b1b4;
-		--color-muted-on-ink: #151214;
+		--color-muted-on-ink: #b9b1b4;
+		--color-footer: #151214;
+		--color-footer-text: #f5f3f2;
 		--color-line: #3a3436;
 		--color-accent: #e24e70;
 		--color-accent-text: #e24e70;
@@ -40,7 +45,9 @@
 		--color-ink: #f5f3f2;
 		--color-paper: #151214;
 		--color-muted: #b9b1b4;
-		--color-muted-on-ink: #151214;
+		--color-muted-on-ink: #b9b1b4;
+		--color-footer: #151214;
+		--color-footer-text: #f5f3f2;
 		--color-line: #3a3436;
 		--color-accent: #e24e70;
 		--color-accent-text: #e24e70;

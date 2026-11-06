@@ -6,7 +6,7 @@ if (!home) throw new Error('Falta src/content/site/home.md');
 const { contact } = home.data;
 ---
 
-<footer class="bg-ink text-paper">
+<footer class="bg-footer text-footer-text">
 	<div class="shell py-16 md:py-24">
 		<h2 id="contacto" class="sr-only">Contacto</h2>
 		<p class="mt-6 max-w-[24ch] text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
@@ -14,7 +14,7 @@ const { contact } = home.data;
 		</p>
 		<a
 			href={`mailto:${contact.email}`}
-			class="mt-10 inline-block break-all text-xl font-medium text-paper underline underline-offset-8 transition-colors hover:opacity-70 md:text-3xl"
+			class="mt-10 inline-block break-all text-xl font-medium text-footer-text underline underline-offset-8 transition-colors hover:opacity-70 md:text-3xl"
 		>
 			{contact.email}
 		</a>
