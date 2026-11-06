@@ -37,6 +37,9 @@ test('se puede pasar de un caso al siguiente', async ({ page }) => {
 	await expect(page).toHaveURL(/\/proyectos\/labutxaka$/);
 
 	await page.getByRole('navigation', { name: 'Siguiente proyecto' }).getByRole('link').click();
+	await expect(page).toHaveURL(/\/proyectos\/unpispas$/);
+
+	await page.getByRole('navigation', { name: 'Siguiente proyecto' }).getByRole('link').click();
 	await expect(page).toHaveURL(/\/proyectos\/joan-pere-jove$/);
 });
 
@@ -54,14 +57,14 @@ test('el enlace de contacto funciona dentro del caso', async ({ page }) => {
 	await expect(page.getByRole('heading', { level: 2, name: 'Contacto' })).toBeInViewport();
 });
 
-for (const draft of ['unpispas', 'queer-as-book']) {
+for (const draft of ['queer-as-book']) {
 	test(`el borrador ${draft} no genera página`, async ({ request }) => {
 		const response = await request.get(`/proyectos/${draft}`);
 		expect(response.status()).toBe(404);
 	});
 }
 
-for (const id of ['joan-pere-jove', 'labutxaka']) {
+for (const id of ['joan-pere-jove', 'labutxaka', 'unpispas']) {
 	test(`${id} se mantiene igual visualmente`, async ({ page }) => {
 		await page.goto(`/proyectos/${id}`);
 		await page.evaluate(async () => {

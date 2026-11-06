@@ -2,7 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 // Añade aquí cada página nueva
-const ROUTES = ['/', '/proyectos/joan-pere-jove', '/proyectos/labutxaka'];
+const ROUTES = ['/', '/proyectos/joan-pere-jove', '/proyectos/labutxaka', '/proyectos/unpispas'];
 
 for (const route of ROUTES) {
 	test.describe(`Página ${route}`, () => {

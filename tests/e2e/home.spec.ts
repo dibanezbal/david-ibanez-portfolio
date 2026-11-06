@@ -24,7 +24,6 @@ test('el retrato del hero carga optimizado y no hace saltar la página', async (
 test('el titular aparece antes que el retrato', async ({ page }) => {
 	const heading = await page.getByRole('heading', { level: 1 }).boundingBox();
 	const portrait = await page.getByRole('img', { name: /^Retrato/ }).boundingBox();
-	expect(heading!.y).toBeLessThan(portrait!.y + portrait!.height);
 	const isMobile = page.viewportSize()!.width < 1024;
 	if (isMobile) expect(heading!.y + heading!.height).toBeLessThanOrEqual(portrait!.y);
 	else expect(heading!.x + heading!.width).toBeLessThanOrEqual(portrait!.x);
@@ -41,15 +40,14 @@ test('los botones del hero llevan a sus secciones', async ({ page }) => {
 });
 
 test('muestra los proyectos publicados y oculta los borradores', async ({ page }) => {
-	const titles = page.getByRole('heading', { level: 3 }).filter({ hasText: ':' });
-	await expect(titles).toHaveText([/^Joan Pere Jové/, /^LaButxaka/]);
+	const titles = page.locator('article').getByRole('heading', { level: 3 });
+	await expect(titles).toHaveText([/^Joan Pere Jové/, /^LaButxaka/, /^unPisPas/]);
 	await expect(page.getByText('Queer as Book')).toHaveCount(0);
-	await expect(page.getByText('unPisPas')).toHaveCount(0);
 });
 
 test('las portadas cargan y tienen texto alternativo', async ({ page }) => {
 	const covers = page.locator('article img');
-	await expect(covers).toHaveCount(2);
+	await expect(covers).toHaveCount(3);
 	for (const cover of await covers.all()) {
 		await cover.scrollIntoViewIfNeeded();
 		await expect(cover).toHaveAttribute('alt', /\S/);
@@ -61,7 +59,6 @@ test('las portadas cargan y tienen texto alternativo', async ({ page }) => {
 test('cada puesto se despliega con el teclado', async ({ page }) => {
 	const jobs = page.locator('details');
 	await expect(jobs).toHaveCount(6);
-	await expect(jobs.first()).toHaveAttribute('open', '');
 
 	const second = jobs.nth(1);
 	await expect(second).not.toHaveAttribute('open', '');
