@@ -1,5 +1,5 @@
 ---
-title: "Queer as Book: una librería accesible, del card sorting al código"
+title: "Queer as Book"
 client: "Librería LGBTQ+ ficticia · Proyecto web (UOC)"
 summary: "Diseño y maquetación de la web accesible de una librería LGBTQ+ ficticia: del card sorting y los prototipos en Figma al HTML/CSS mobile first, con nivel WCAG 2.0 AA."
 disciplines: ["design", "code"]
@@ -13,9 +13,8 @@ role:
   - "Maquetación HTML/CSS"
 tools: ["Figma", "HTML", "CSS", "Git", "GitHub"]
 tags: ["Accesibilidad", "WCAG", "Card Sorting", "Mobile First", "UI Design"]
-problem: "Diseñar y maquetar una web accesible para una librería LGBTQ+ ficticia, con tienda, eventos y página de presentación."
-solution: "Arquitectura de la información definida con card sorting, prototipos en Figma y maquetación HTML/CSS mobile first."
-outcome: "Web de cuatro páginas publicada, con nivel WCAG 2.0 AA y Matrícula de Honor."
+hook: "Una librería LGBTQ+ ficticia, accesible desde el card sorting hasta el código."
+detail: "Prototipos en Figma y maquetación HTML/CSS mobile first, con nivel WCAG 2.0 AA."
 metrics:
   - value: "AA"
     label: "nivel WCAG 2.0 alcanzado"

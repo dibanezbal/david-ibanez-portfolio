@@ -1,7 +1,7 @@
 ---
-title: "Joan Pere Jové: de plantilla de WordPress a marca personal"
+title: "Joan Pere Jové"
 client: "Joan Pere Jové, compositor y director de cine"
-summary: "Identidad visual completa y web bilingüe para un compositor que quería dar el salto de la afición a lo profesional. Del logotipo al tema de WordPress a medida, pasando por un test con usuarios."
+summary: "Identidad visual completa y web bilingüe para un compositor que quería dar el salto de la afición a lo profesional. Desde el logotipo hasta un tema de WordPress a medida, pasando por un test con usuarios."
 disciplines: ["design", "code"]
 context: "academic"
 startDate: 2026-02-01
@@ -15,14 +15,8 @@ role:
   - "Desarrollo del tema de WordPress"
 tools: ["Figma", "FigJam", "Maze", "InDesign", "WordPress", "Polylang", "PHP", "HTML", "CSS", "JavaScript", "ClickUp", "Claude"]
 tags: ["Branding", "UX Research", "UI Design", "Design System", "Accesibilidad", "Multilingüe", "WordPress"]
-problem: "Presencia digital dispersa, sin coherencia visual, en dos idiomas mezclados."
-solution: "Un sistema gráfico escalable (logo, tipografía, color, UI kit) aplicado a web, redes y papelería."
-outcome: "Web bilingüe catalán/inglés, publicada y en uso."
-metrics:
-  - value: "6/6"
-    label: "participantes llegan al formulario de contacto"
-  - value: "5/6"
-    label: "participantes encuentran la biografía"
+hook: "Un compositor con web, redes y tarjeta de visita, y ninguna marca que las uniera."
+detail: "Identidad visual, test con usuarios y tema de WordPress a medida para su web bilingüe."
 cover:
   src: "../../assets/projects/joan-pere-jove.png"
   alt: "Portada de la web de Joan Pere Jové: su nombre sobre una foto suya leyendo una partitura, en tonos azul verdoso."
@@ -41,11 +35,11 @@ order: 1
 
 Joan Pere lleva más de diez años componiendo y tres dirigiendo cortometrajes. Tenía web, redes y tarjeta de visita, pero cada pieza iba por su lado. Me pidió rediseñar la web y, al analizarlo todo, vi que el problema era otro: **no había una marca que lo uniera**.
 
+Joan Pere es mi marido, pero en este proyecto la relación fue de cliente.
+
 Así que el proyecto creció: identidad visual, manual de marca, prototipo web testeado con usuarios y, finalmente, la web en producción con un tema de WordPress hecho a medida.
 
-- **Problema:** presencia digital dispersa, sin coherencia visual, en dos idiomas mezclados.
-- **Solución:** un sistema gráfico escalable (logo, tipografía, color, UI kit) aplicado a web, redes y papelería.
-- **Resultado:** [joanperejove.com](https://joanperejove.com/), web bilingüe catalán/inglés, publicada y en uso.
+El punto de partida era una presencia digital dispersa, sin coherencia visual, en dos idiomas mezclados. Lo resolví con un sistema gráfico escalable (logo, tipografía, color, UI kit) aplicado a web, redes y papelería. El resultado es [joanperejove.com](https://joanperejove.com/), una web bilingüe catalán/inglés, publicada y en uso.
 
 ---
 
@@ -74,9 +68,52 @@ Estas dos personas acabaron definiendo los dos flujos principales: contacto en d
 
 **Logotipo.** Al principio él no quería un isotipo con sus iniciales. Probé con figuras musicales hasta que juntando un **pentagrama y un vinilo** salió una J. Girándola 180º, aparecía la P. Le enseñé un boceto rápido, le encantó y a partir de ahí todo fluyó. Después vinieron las versiones horizontal, vertical y en negativo.
 
+<figure>
+
+![Cuatro pasos del isotipo: un vinilo con el pentagrama delante, el pentagrama curvado formando la J, la misma forma girada formando la P, y las dos iniciales juntas dentro de un círculo.](../../assets/projects/joan-pere-jove/concepto-isotipo.webp)
+
+<figcaption>El pentagrama entra en el vinilo, gira y forma la J. Girada 180º, es la P.</figcaption>
+
+</figure>
+<figure class="figure-grid">
+
+![Isotipo blanco sobre círculo primario.](../../assets/projects/joan-pere-jove/isotipos/circulo-primario-blanco.svg)
+
+![Isotipo primario sobre círculo arena.](../../assets/projects/joan-pere-jove/isotipos/circulo-arena-primario.svg)
+
+![Isotipo blanco sobre círculo negro.](../../assets/projects/joan-pere-jove/isotipos/circulo-negro-blanco.svg)
+
+![Isotipo negro sobre círculo blanco.](../../assets/projects/joan-pere-jove/isotipos/circulo-blanco-negro.svg)
+
+![Isotipo primario sin círculo.](../../assets/projects/joan-pere-jove/isotipos/primario.svg)
+
+![Isotipo arena sin círculo.](../../assets/projects/joan-pere-jove/isotipos/arena.svg)
+
+![Isotipo negro sin círculo.](../../assets/projects/joan-pere-jove/isotipos/negro.svg)
+
+<figcaption>Versiones del isotipo: con círculo contenedor, que sirve como zona de protección y resalte, y sin círculo, que se prioriza sobre colores de la paleta.</figcaption>
+
+</figure>
+
 **Tipografía.** Livvic, a petición del cliente y alineada con el benchmarking (sans-serif). Es ligera, mezcla formas geométricas con matices humanistas y tiene muchos pesos, lo que me permitió construir jerarquía con una sola familia.
 
+<figure>
+
+![Jerarquía tipográfica con el nombre Joan Pere Jové en seis niveles, de título de 48 píxeles a caption de 12, con sus tamaños para web e impresión.](../../assets/projects/joan-pere-jove/jerarquia-tipografica.webp)
+
+<figcaption>Jerarquía tipográfica en Livvic, para web e impresión.</figcaption>
+
+</figure>
+
 **Color, pensado como sistema.** Primario azul oceánico, secundario arena. Generé las variantes manteniendo tono y saturación y moviendo solo la luminosidad (0 / 50 / 100), lo que en la práctica es una escala de tokens. Evité el negro y el blanco puros: salen de los extremos del secundario. Los colores semánticos mantienen la saturación y cambian el tono.
+
+<figure>
+
+![Paleta con los colores primarios, secundarios y semánticos del proyecto y sus valores HEX, RGB y CMYK.](../../assets/projects/joan-pere-jove/paleta-colores.webp)
+
+<figcaption>Paleta de la marca: primarios, secundarios y semánticos.</figcaption>
+
+</figure>
 
 **Accesibilidad desde el principio.** Validé las combinaciones con el contrast checker de WebAIM. El par primario/secundario pasaba AA y AAA en texto en negrita y gráficos, pero solo AA en texto regular. Lo dejé documentado como regla de uso: en texto normal, se sustituye por el blanco de la paleta.
 
@@ -92,6 +129,16 @@ Y los idiomas: catalán como principal, inglés como secundario, pero **cada uno
 
 Wireframes en Figma para validar los dos flujos (desktop y mobile) antes de meter nada de estilo. Retícula de 12 columnas en desktop y 4 en mobile, con gutter de 16px.
 
+<figure class="figure-pair">
+
+![Wireframe en escala de grises de la portada, con la cabecera, el último corto, las muestras de música, el premio, una cita y el pie.](../../assets/projects/joan-pere-jove/wireframe-portada.webp)
+
+![Diseño final de la portada, en azul y arena, con la foto de Joan Pere leyendo una partitura, su último corto, las muestras de música y el premio.](../../assets/projects/joan-pere-jove/diseno-final-portada.webp)
+
+<figcaption>La portada, del wireframe al diseño final.</figcaption>
+
+</figure>
+
 Luego el alta fidelidad, con un par de piezas que me parecen las más interesantes del proyecto:
 
 - **Reproductor persistente** en la parte inferior de la pantalla, para unificar todos los audios y que puedas seguir navegando mientras escuchas.
@@ -99,6 +146,18 @@ Luego el alta fidelidad, con un par de piezas que me parecen las más interesant
 - **UI kit** con header, botones, tarjetas, formulario, modal, reproductor y footer, en versión desktop y mobile.
 
 Las tarjetas de la filmografía fueron lo que más me costó. Pasaron por varias versiones porque son el centro del flujo: imagen, título, año y acción, todo visible antes de interactuar.
+
+<figure class="figure-versions">
+
+![Wireframe de tarjeta horizontal con el título del corto, el género, un texto y los botones Escoltar la música y Més informació.](../../assets/projects/joan-pere-jove/tarjeta-wireframe-horizontal.webp)
+
+![Wireframe de tarjeta vertical con una imagen, el título del proyecto, un texto y los botones Veure més y Escoltar.](../../assets/projects/joan-pere-jove/tarjeta-wireframe-vertical.webp)
+
+![Tarjeta final con un fotograma del corto Vies creuades, el año 2024 y los botones Escoltar música y Detalls.](../../assets/projects/joan-pere-jove/tarjeta-final.webp)
+
+<figcaption>La evolución de la tarjeta, de los dos primeros wireframes a la versión final: imagen, título, año y acción, todo visible antes de interactuar.</figcaption>
+
+</figure>
 
 ## Validar: IA con espíritu crítico y usuarios reales
 
@@ -115,9 +174,25 @@ Las tarjetas de la filmografía fueron lo que más me costó. Pasaron por varias
 
 Lo más valioso fue el feedback cualitativo: hacer más visible el botón de contacto, cambiar la foto de la biografía y, sobre todo, que **alguien buscó el selector de idioma en el header**. En la web publicada, el selector está justo ahí.
 
+<figure class="figure-pair">
+
+![Antes: la cabecera no tiene selector de idioma y el enlace English, marcado en carmín, está en el pie.](../../assets/projects/joan-pere-jove/idioma-antes.webp)
+
+![Después: el selector de idioma EN, marcado en carmín, está en la cabecera y ya no aparece en el pie.](../../assets/projects/joan-pere-jove/idioma-despues.webp)
+
+<figcaption>El cambio tras el test. Primero, el idioma se cambiaba desde el pie. Después, el selector pasó a la cabecera, donde lo buscaban.</figcaption>
+
+</figure>
+
 ## Más allá de la web
 
 Para demostrar que el sistema escala, lo apliqué a otras piezas: tarjeta de visita física con un QR que lleva a una **tarjeta virtual**, personalización de Instagram y una cabecera animada para YouTube. Todo recogido en el manual de identidad.
+
+<figure class="figure-video">
+<video src="/videos/joan-pere-jove/cabecera-youtube.mp4" controls muted playsinline preload="metadata" aria-label="Cabecera animada para YouTube con el isotipo de Joan Pere Jové"></video>
+<video src="/videos/joan-pere-jove/stories-instagram.mp4" controls muted playsinline preload="metadata" aria-label="Animación para stories de Instagram con el isotipo de Joan Pere Jové"></video>
+<figcaption>El sistema en movimiento: cabecera para YouTube y stories para Instagram.</figcaption>
+</figure>
 
 ## De Figma a producción
 
@@ -131,4 +206,4 @@ Para mí esta es la parte que mejor resume lo que hago: diseñar pensando en có
 - **Un buen sistema de color es un sistema de tokens.** Definir la paleta por luminosidad me facilitó mucho el paso a CSS.
 - **La IA es una buena compañera de revisión, no un juez.** Útil para ir rápido, peligrosa si no la contrastas.
 - **Mi UI kit no estaba listo para un handoff.** Quedó como un cajón desastre y le faltaban los estados del formulario. Hoy lo organizaría como una librería de componentes con variantes y estados desde el primer día.
-- **Separar lo personal de lo profesional.** Joan Pere es también mi pareja, así que tuve que aprender cuándo estaba diseñando y cuándo estaba conviviendo. Ver al cliente contento con el resultado fue la mejor parte.
+- **Separar lo personal de lo profesional.** Joan Pere es también mi marido, así que tuve que aprender cuándo estaba diseñando y cuándo estaba conviviendo. Ver al cliente contento con el resultado fue la mejor parte.

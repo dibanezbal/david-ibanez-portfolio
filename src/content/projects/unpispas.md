@@ -1,19 +1,17 @@
 ---
-title: "unPisPas: de Figma a una web comercial en seis idiomas"
+title: "unPisPas"
 client: "unPisPas · TPV en la nube y pedidos por QR para hostelería"
-summary: "Frontend de la web de unPisPas, un sistema de TPV en la nube y pedidos por QR para bares y restaurantes, construido a partir de los diseños en Figma."
+summary: "Frontend de la web de unPisPas, un sistema de TPV en la nube y pedidos por QR para bares y restaurantes, montado a partir de un Figma. El diseño fue enviado por el cliente."
 disciplines: ["code"]
-context: "professional"
+context: "freelance"
+startDate: 2026-01-01
+endDate: 2026-05-31
 role:
   - "Desarrollo frontend"
-tools: ["Figma", "HTML", "CSS", "JavaScript"]
-tags: ["Frontend", "Figma to Code", "Responsive", "Componentes", "Multilingüe"]
-problem: "Llevar a producción los diseños en Figma de la web comercial de un TPV en la nube, con contenido en varios idiomas."
-solution: "Maquetación responsive con componentes reutilizables, navegación desplegable y selector de idioma."
-outcome: "Web publicada y disponible en seis idiomas."
-metrics:
-  - value: "6"
-    label: "idiomas: español, inglés, francés, euskera, catalán y chino"
+tools: ["Figma", "HTML", "CSS", "JavaScript", "JSON"]
+tags: ["Frontend", "Figma to Code", "Accesibilidad", "Responsive", "Componentes", "Multilingüe"]
+hook: "La web comercial de un TPV en la nube, montada a partir del Figma que envió el cliente."
+detail: "Solo el frontend, en HTML, CSS y JavaScript puros, en contacto con el cliente y la diseñadora."
 cover:
   src: "../../assets/projects/unpispas.png"
   alt: "Portada de la web de unPisPas: el titular «Gestiona tu negocio de hostelería como nunca antes» sobre la foto de un camarero con una tableta."
@@ -22,9 +20,32 @@ links:
     url: "https://www.unpispas.es/es/"
     kind: "live"
 order: 3
-draft: true
 ---
 
 ## En resumen
 
-unPisPas es un sistema de TPV en la nube y pedidos por QR para bares, cafeterías y restaurantes. Monté el frontend de su web a partir de los diseños en Figma: una maquetación responsive con componentes reutilizables, navegación desplegable y un selector para sus seis idiomas.
+unPisPas es un sistema de TPV en la nube y pedidos por QR para bares, cafeterías y restaurantes. Mi parte fue montar el frontend de su web a partir de un Figma ya diseñado. **El diseño fue enviado por el cliente.**
+
+## Qué hice
+
+Maqueté la web en HTML, CSS y JavaScript puros: responsive, con componentes reutilizables, navegación desplegable y selector de idioma.
+
+Dejé la web preparada para seis idiomas, con el contenido de cada uno inyectado desde JSON. Además, preparé un scaffold con el código de las páginas para que, si quieren añadir más idiomas en el futuro, estos cojan la estructura.
+
+Durante el desarrollo, de enero a mayo de 2026, estuve en contacto con el cliente y con la diseñadora. Los principales cambios que pedí a diseño fueron de accesibilidad. En todo lo demás respeté lo que estaba en Figma.
+
+Por ejemplo, el texto amarillo del botón marcado no pasaba el contraste sobre el fondo blanco: daba 1,53:1. Se confirmó mantener el texto en negro.
+
+<figure class="figure-stack">
+
+![Fila de botones circulares del diseño en Figma, con el botón TPV en la nube marcado en amarillo y su texto también en amarillo sobre fondo blanco.](../../assets/projects/unpispas/botones-diseno.webp)
+
+![Comprobador de contraste con el amarillo FFCA0A sobre blanco FFFFFF: ratio de 1,53 a 1, que no pasa WCAG AA ni AAA en texto normal ni grande.](../../assets/projects/unpispas/contraste-amarillo.webp)
+
+<figcaption>El botón marcado en el diseño y su comprobación de contraste: 1,53:1, sin llegar a WCAG AA.</figcaption>
+
+</figure>
+
+## Hasta dónde llegó mi trabajo
+
+Terminó con la entrega del repositorio y de una URL de demo de la maquetación. La web se publicó en octubre de 2026, y en esa publicación no estuve implicado.
