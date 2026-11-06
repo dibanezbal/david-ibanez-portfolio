@@ -108,7 +108,7 @@ These two personas ended up defining the two main flows: contact on desktop and 
 
 </figure>
 
-**Color, thought through as a system.** Ocean blue as primary, sand as secondary. I generated the variants by keeping hue and saturation and moving only lightness (0 / 50 / 100), which in practice is a token scale. I avoided pure black and white: they come from the ends of the secondary. The semantic colors keep the saturation and change the hue.
+**Color palette.** Ocean blue as primary, sand as secondary. I generated the variants by keeping hue and saturation and moving only lightness (0 / 50 / 100), which in practice is a token scale. I avoided pure black and white: they come from the ends of the secondary. The semantic colors keep the saturation and change the hue.
 
 <figure>
 

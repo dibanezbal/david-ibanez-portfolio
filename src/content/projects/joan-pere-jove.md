@@ -108,7 +108,7 @@ Estas dos personas acabaron definiendo los dos flujos principales: contacto en d
 
 </figure>
 
-**Color, pensado como sistema.** Primario azul oceánico, secundario arena. Generé las variantes manteniendo tono y saturación y moviendo solo la luminosidad (0 / 50 / 100), lo que en la práctica es una escala de tokens. Evité el negro y el blanco puros: salen de los extremos del secundario. Los colores semánticos mantienen la saturación y cambian el tono.
+**Paleta de colores.** Primario azul oceánico, secundario arena. Generé las variantes manteniendo tono y saturación y moviendo solo la luminosidad (0 / 50 / 100), lo que en la práctica es una escala de tokens. Evité el negro y el blanco puros: salen de los extremos del secundario. Los colores semánticos mantienen la saturación y cambian el tono.
 
 <figure>
 

@@ -8,18 +8,19 @@ interface Props {
 	mobile?: { src: ImageMetadata; alt: string; label?: string };
 	/** Tamaño de la imagen de escritorio para el atributo sizes */
 	sizes?: string;
+	/** Por debajo de 640 px enseña solo la captura móvil, sin etiqueta, para que el contenido empiece antes */
+	mobileOnlyOnPhones?: boolean;
 }
 
-const { desktop, mobile, sizes = '(min-width: 1024px) 66vw, 100vw' } = Astro.props;
-// Por debajo de 640 px solo se ve la captura móvil, sin etiqueta: apilar las dos alejaría el contenido
-const small = 'hidden min-[640px]:block';
+const { desktop, mobile, sizes = '(min-width: 1024px) 66vw, 100vw', mobileOnlyOnPhones = false } = Astro.props;
+const fromTablet = mobile && mobileOnlyOnPhones && 'hidden min-[640px]:block';
 const t = ui[getLang(Astro.currentLocale)];
 ---
 
 <!-- Marcos planos: escritorio con línea fina; móvil con contorno en Tinta y esquinas redondeadas, sin bisel ni sombra -->
 <div class:list={["grid items-start gap-5", mobile ? "grid-cols-1 min-[640px]:grid-cols-[minmax(0,1fr)_minmax(0,26%)]" : "grid-cols-1"]}>
-	<figure class:list={["m-0", mobile && small]}>
-		<figcaption class:list={["mb-2 text-sm font-medium text-muted", mobile && small]}>{desktop.label ?? t.desktop}</figcaption>
+	<figure class:list={["m-0", fromTablet]}>
+		<figcaption class="mb-2 text-sm font-medium text-muted">{desktop.label ?? t.desktop}</figcaption>
 		<div class="border border-line bg-paper">
 			<Image
 				src={desktop.src}
@@ -33,7 +34,7 @@ const t = ui[getLang(Astro.currentLocale)];
 	{
 		mobile && (
 			<figure class="m-0 mx-auto w-3/5 min-[640px]:mx-0 min-[640px]:w-auto">
-				<figcaption class:list={["mb-2 text-sm font-medium text-muted", small]}>{mobile.label ?? t.mobile}</figcaption>
+				<figcaption class:list={["mb-2 text-sm font-medium text-muted", fromTablet]}>{mobile.label ?? t.mobile}</figcaption>
 				<div class="overflow-hidden rounded-[1.25rem] border border-ink bg-paper">
 					<Image src={mobile.src} alt={mobile.alt} widths={[390, 780]} sizes="(min-width: 1024px) 18vw, 60vw" class="block h-auto w-full" />
 				</div>
