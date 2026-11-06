@@ -204,6 +204,6 @@ Para mí esta es la parte que mejor resume lo que hago: diseñar pensando en có
 
 - **El encargo no siempre es el problema.** Me pidieron una web y lo que hacía falta era una marca.
 - **Un buen sistema de color es un sistema de tokens.** Definir la paleta por luminosidad me facilitó mucho el paso a CSS.
-- **La IA es una buena compañera de revisión, no un juez.** Útil para ir rápido, peligrosa si no la contrastas.
+- **La IA acelera la revisión.** Útil para ir rápido, pero cada cosa que propone hay que contrastarla.
 - **Mi UI kit no estaba listo para un handoff.** Quedó como un cajón desastre y le faltaban los estados del formulario. Hoy lo organizaría como una librería de componentes con variantes y estados desde el primer día.
 - **Separar lo personal de lo profesional.** Joan Pere es también mi marido, así que tuve que aprender cuándo estaba diseñando y cuándo estaba conviviendo. Ver al cliente contento con el resultado fue la mejor parte.

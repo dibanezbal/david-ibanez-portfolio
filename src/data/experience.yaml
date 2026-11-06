@@ -14,7 +14,7 @@
     - "Extendí la regresión visual con Percy a sitios de más de 500 páginas, y el tiempo de revisión manual bajó un 60 %."
   metrics:
     - { value: "65 %", label: "menos tiempo de ejecución manual de pruebas" }
-    - { value: "98 %", label: "en el quality gate de la migración (95 % exigido)" }
+    - { value: "98 %", label: "en el control de calidad de la migración (95 % exigido)" }
     - { value: "60 %", label: "menos tiempo de revisión manual" }
   stack: [Playwright, Percy, Azure DevOps, Low Code]
 
