@@ -13,7 +13,6 @@ const home = await getEntry('site', 'home');
 if (!home) throw new Error('Falta src/content/site/home.md');
 const { Content: About } = await render(home);
 const { hero, skills, tools } = home.data;
-import portraitCutout from '../assets/img/david-ibanez-front-recorte.webp';
 const [leadSkills, ...otherSkills] = skills;
 // Destaca las cifras de cada logro sin tocar el texto del CV
 const figures = /(\+\d+M?|\d+(?:,\d+)?\s%)/;
@@ -53,7 +52,7 @@ const jobs = (await getCollection('experience')).sort(
 					</div>
 				</div>
 				<div class="lg:col-span-5">
-					<!-- Claro: multiply funde el fondo de la foto con el papel; brightness lleva a blanco puro el fondo. Oscuro: recorte de la persona sobre el fondo de la página, sin bloque detrás -->
+					<!-- multiply funde el fondo de la foto con el papel; brightness lleva a blanco puro el fondo, que no lo es del todo. El recorte quita el aire sobrante de arriba -->
 					<Image
 						src={hero.portrait.src}
 						alt={hero.portrait.alt}
@@ -61,15 +60,7 @@ const jobs = (await getCollection('experience')).sort(
 						widths={[480, 800, 1200]}
 						sizes="(min-width: 1440px) 560px, (min-width: 1024px) 40vw, 100vw"
 						priority
-						class="portrait portrait-claro aspect-[8/9] w-full object-cover object-bottom mix-blend-multiply brightness-[1.02]"
-					/>
-					<Image
-						src={portraitCutout}
-						alt={hero.portrait.alt}
-						width={1200}
-						widths={[480, 800, 1200]}
-						sizes="(min-width: 1440px) 560px, (min-width: 1024px) 40vw, 100vw"
-						class="portrait portrait-oscuro aspect-[8/9] w-full object-cover object-bottom"
+						class="portrait aspect-[8/9] w-full object-cover object-bottom mix-blend-multiply brightness-[1.02]"
 					/>
 				</div>
 			</div>

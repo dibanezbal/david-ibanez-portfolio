@@ -23,6 +23,9 @@ links:
   - label: "Ver la web publicada"
     url: "https://www.unpispas.es/es/"
     kind: "live"
+  - label: "Demo compartida con el cliente"
+    url: "https://unpispas-test.netlify.app/"
+    kind: "prototype"
 order: 3
 ---
 
@@ -34,7 +37,7 @@ unPisPas es un sistema de TPV en la nube y pedidos por QR para bares, cafetería
 
 Maqueté la web en HTML, CSS y JavaScript puros: responsive, con componentes reutilizables, navegación desplegable y selector de idioma.
 
-Dejé la web preparada para seis idiomas, con el contenido de cada uno inyectado desde JSON. Además, preparé un scaffold con el código de las páginas para que, si quieren añadir más idiomas en el futuro, estos cojan la estructura.
+Dejé la web preparada para seis idiomas, con el contenido de cada uno inyectado desde JSON. Además, preparé un scaffold: al ejecutarlo genera un idioma nuevo con las mismas páginas, importando su contenido desde JSON, así que añadir idiomas no requiere volver a maquetar.
 
 Durante el desarrollo, de enero a mayo de 2026, estuve en contacto con el cliente y con la diseñadora. Los principales cambios que pedí a diseño fueron de accesibilidad. En todo lo demás respeté lo que estaba en Figma.
 
