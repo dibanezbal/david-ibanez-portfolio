@@ -65,6 +65,8 @@ for (const route of ROUTES) {
 
 		test('no tiene infracciones WCAG A/AA detectables con axe', async ({ page }) => {
 			await page.goto(route);
+			// El contraste se mide con el contenido ya visible: espera a que terminen las entradas
+			await page.waitForFunction(() => document.getAnimations().every((a) => a.playState === 'finished'));
 			const { violations } = await new AxeBuilder({ page })
 				.withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
 				.analyze();
