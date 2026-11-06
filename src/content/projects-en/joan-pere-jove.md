@@ -18,11 +18,11 @@ tags: ["Branding", "UX Research", "UI Design", "Design System", "Accessibility",
 hook: "A composer with a website, social media and a business card, and no brand tying them together."
 detail: "Visual identity, user testing and a custom WordPress theme for his bilingual website."
 cover:
-  src: "../../assets/projects/joan/web-escritorio.webp"
-  alt: "Desktop screenshot of Joan Pere Jové's website."
+  src: "../../assets/projects/joan/web-escritorio-en.webp"
+  alt: "Desktop screenshot of Joan Pere Jové’s website."
 mobile:
-  src: "../../assets/projects/joan/web-movil.webp"
-  alt: "Mobile screenshot of Joan Pere Jové's website."
+  src: "../../assets/projects/joan/web-movil-en.webp"
+  alt: "Mobile screenshot of Joan Pere Jové’s website."
 links:
   - label: "See the live site"
     url: "https://joanperejove.com/en/"
@@ -34,13 +34,13 @@ featured: true
 order: 1
 ---
 
-## In short
+## Summary
 
 Joan Pere has been composing for more than ten years and directing short films for three. He had a website, social media and a business card, but each one went its own way. He asked me to redesign the website and, when I looked at everything, I saw the problem was something else: **there was no brand tying it together**.
 
 Joan Pere is my husband, but on this project our relationship was client and designer.
 
-So the project grew: visual identity, brand guidelines, a web prototype tested with users and, finally, the live website on a custom WordPress theme.
+So the project grew: visual identity, brand guidelines, a web prototype tested with users and the live website on a custom WordPress theme.
 
 The starting point was a scattered digital presence, with no visual consistency and two languages mixed together. I solved it with a scalable graphic system (logo, typography, color, UI kit) applied to the website, social media and stationery. The result is <a href="https://joanperejove.com/en/" target="_blank" rel="noopener noreferrer">joanperejove.com</a>, a bilingual Catalan/English website, live and in use.
 
@@ -48,7 +48,7 @@ The starting point was a scattered digital presence, with no visual consistency 
 
 ## The starting point
 
-The website was an uncustomized WordPress template. Catalan and English shared the same pages, the menu had no clear structure and the home page didn't make it clear who he was or what he did. His social media worked like a catalog with no shared look, and his business card was literally a piece of paper with his contact details.
+The website was an uncustomized WordPress template. Catalan and English shared the same pages, the menu had no clear structure and the home page didn't make it clear who he was or what he did. His social media worked like a catalog with no shared look, and his business card was a piece of paper with his contact details.
 
 My hypothesis: if every piece shares the same visual language, the brand comes across as more professional.
 
@@ -142,7 +142,7 @@ Wireframes in Figma to validate the two flows (desktop and mobile) before adding
 
 </figure>
 
-Then high fidelity, with a few pieces I find the most interesting in the project:
+Then high fidelity. The three pieces that interest me most:
 
 - **Persistent player** at the bottom of the screen, to unify all the audio and let you keep browsing while you listen.
 - **Project modal** to show more information without taking the user off the page.
@@ -164,7 +164,7 @@ The filmography cards were what cost me the most. They went through several vers
 
 ## Validate: AI with a critical eye, and real users
 
-**Heuristic analysis with Claude.** I connected Figma to Claude and asked for an analysis based on Nielsen's heuristics. It helped me move fast and spot improvements (filters, future pagination, footer icons), but it also **got things wrong**: it saw a serif typeface that didn't exist and flagged a "Dossier" that wasn't in the prototype. AI speeds up the work; every conclusion still has to be checked. I added my own analysis based on Gestalt principles.
+**Heuristic analysis with Claude.** I connected Figma to Claude and asked for an analysis based on Nielsen's heuristics. It helped me move fast and spot improvements (filters, future pagination, footer icons), but it also **got things wrong**: it saw a serif typeface that didn't exist and flagged a "Dossier" that wasn't in the prototype. AI speeds up the work, and I still check every conclusion. I added my own analysis based on Gestalt principles.
 
 **User testing in Maze.** Six participants: a senior UX/UI designer, an audiovisual producer, three people with different profiles and the client himself. Four tasks based on Paula's flow:
 
@@ -201,12 +201,12 @@ To show that the system scales, I applied it to other pieces: a physical busines
 
 Joan Pere already knew how to use WordPress and wanted to keep publishing on his own. So, instead of moving him to another tool, I developed a **custom WordPress theme** from the prototype, with the bilingual site managed through Polylang and the language selector in the header, just as the test asked for.
 
-For me, this is the part that best sums up what I do: designing with how it will be built in mind, and building with respect for what was designed.
+This part sums up my work: I design for how the site gets built, and I build what the design says.
 
 ## What I learned (and what I'd do differently)
 
 - **The brief isn't always the problem.** They asked me for a website and what was needed was a brand.
 - **A good color system is a token system.** Defining the palette by lightness made the move to CSS much easier.
-- **AI speeds up review.** Useful for moving fast, but everything it suggests has to be checked.
+- **AI speeds up review.** Useful for moving fast, but I check everything it suggests.
 - **My UI kit wasn't ready for handoff.** It ended up as a mix of everything and was missing the form states. Today I'd organize it as a component library with variants and states from day one.
 - **Keeping the personal and the professional apart.** Joan Pere is also my husband, but I could separate when I was designing from when we were just living together. Seeing the client happy with the result was the best part.

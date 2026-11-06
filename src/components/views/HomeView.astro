@@ -1,4 +1,5 @@
 ---
+import PlusIcon from '../PlusIcon.astro';
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
 import { getLang, routes, ui } from '../../i18n/ui';
@@ -123,17 +124,12 @@ const jobs = await getExperience(lang);
 					jobs.map(({ data }) => (
 						<details class="group border-t border-ink">
 							<summary class="grid cursor-pointer list-none grid-cols-[1fr_auto] gap-x-6 gap-y-1 py-5 transition-colors hover:text-accent-text md:grid-cols-12 md:items-baseline [&::-webkit-details-marker]:hidden">
-								<span class="text-sm text-muted md:col-span-3">{formatPeriod(data, lang)}</span>
+								<span class="text-sm tabular-nums text-muted md:col-span-3">{formatPeriod(data, lang)}</span>
 								<span class="col-start-1 text-lg font-bold leading-snug tracking-tight md:col-span-5 md:col-start-4">
 									{data.role}
 								</span>
 								<span class="col-start-1 leading-snug text-muted md:col-span-3 md:col-start-9">{data.company}</span>
-								<span
-									aria-hidden="true"
-									class="col-start-2 row-start-1 justify-self-end text-lg leading-6 transition-transform group-open:rotate-45 md:col-start-12"
-								>
-									+
-								</span>
+								<PlusIcon class="col-start-2 row-start-1 mt-1.5 justify-self-end md:col-start-12 md:mt-0 md:self-center" />
 							</summary>
 							<div class="grid gap-4 pb-8 md:grid-cols-12 md:gap-6">
 								<div class="md:col-span-8 md:col-start-4">

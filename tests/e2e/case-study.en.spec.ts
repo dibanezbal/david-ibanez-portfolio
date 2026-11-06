@@ -89,3 +89,29 @@ for (const id of ['joan-pere-jove', 'labutxaka', 'unpispas']) {
 		await expect(page).toHaveScreenshot(`${id}-en.png`, { fullPage: true, maxDiffPixelRatio: 0.01 });
 	});
 }
+
+test('the case index goes to its section and works on mobile', async ({ page }) => {
+	await page.goto('/en/projects/joan-pere-jove');
+	const isPhone = page.viewportSize()!.width < 1024;
+	const nav = page.getByRole('navigation', { name: 'Case study sections' });
+	if (isPhone) {
+		const summary = nav.locator('summary');
+		await summary.focus();
+		await page.keyboard.press('Enter');
+	}
+	const link = nav.getByRole('link').nth(1);
+	await link.click();
+	await expect(page).toHaveURL(/#.+$/);
+	await expect(page.getByRole('heading', { level: 2 }).nth(1)).toBeInViewport();
+	if (isPhone) {
+		await expect(nav.locator('details')).not.toHaveAttribute('open', '');
+	} else {
+		await expect(link).toHaveAttribute('aria-current', 'true');
+	}
+});
+
+test('English covers show the English sites', async ({ page }) => {
+	await page.goto('/en/projects/unpispas');
+	const srcset = await page.locator('main figure img').first().getAttribute('src');
+	expect(decodeURIComponent(srcset ?? '')).toMatch(/web-(escritorio|movil)-en/);
+});

@@ -21,17 +21,8 @@ const mainLink = data.links[0];
 const disciplines = data.disciplines.map((discipline) => t.disciplines[discipline]).join(', ');
 ---
 
+<!-- El texto va antes que la captura; en escritorio se colocan lado a lado y alternan -->
 <article class="group relative grid gap-8 border-t border-ink py-10 lg:grid-cols-12 lg:gap-12 lg:py-16">
-	<div class:list={['lg:col-span-8', reverse && 'lg:order-last']}>
-		{
-			data.cover && (
-				<div class="transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.01]">
-					<Mockup desktop={data.cover} mobile={data.mobile} />
-				</div>
-			)
-		}
-	</div>
-
 	<div class="lg:col-span-4">
 		<h3 class="text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
 			<a href={caseUrl} class="underline-offset-4 after:absolute after:inset-0 group-hover:underline">
@@ -72,5 +63,15 @@ const disciplines = data.disciplines.map((discipline) => t.disciplines[disciplin
 				)
 			}
 		</ul>
+	</div>
+
+	<div class:list={['lg:col-span-8', !reverse && 'lg:order-first']}>
+		{
+			data.cover && (
+				<div class="transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.01]">
+					<Mockup desktop={data.cover} mobile={data.mobile} />
+				</div>
+			)
+		}
 	</div>
 </article>

@@ -1,7 +1,7 @@
 ---
 title: "unPisPas"
 client: "unPisPas · Cloud POS and QR ordering for hospitality"
-summary: "Frontend for the unPisPas website, a cloud POS and QR ordering system for bars and restaurants, built from a Figma file. The design was sent by the client."
+summary: "Frontend for the unPisPas website, a cloud POS and QR ordering system for bars and restaurants, built from a Figma file. The client sent the design."
 disciplines: ["code"]
 context: "freelance"
 startDate: 2026-01-01
@@ -13,11 +13,11 @@ tags: ["Frontend", "Figma to Code", "Accessibility", "Responsive", "Components",
 hook: "The marketing website for a cloud POS, built from the Figma file the client sent."
 detail: "Frontend only, in plain HTML, CSS and JavaScript, in contact with the client and the designer."
 cover:
-  src: "../../assets/projects/unpispas/web-escritorio.webp"
+  src: "../../assets/projects/unpispas/web-escritorio-en.webp"
   alt: "Desktop screenshot of the unPisPas website."
-  label: "Desktop, client's website"
+  label: "Desktop, client’s website"
 mobile:
-  src: "../../assets/projects/unpispas/web-movil.webp"
+  src: "../../assets/projects/unpispas/web-movil-en.webp"
   alt: "Mobile screenshot of the unPisPas website."
 links:
   - label: "See the live site"
@@ -29,9 +29,9 @@ links:
 order: 3
 ---
 
-## In short
+## Summary
 
-unPisPas is a cloud POS and QR ordering system for bars, cafés and restaurants. My part was building the frontend of its website from a finished Figma design. **The design was sent by the client.**
+unPisPas is a cloud POS and QR ordering system for bars, cafés and restaurants. My part was building the frontend of its website from a finished Figma design. **The client sent the design.**
 
 ## What I did
 
@@ -39,7 +39,7 @@ I built the website in plain HTML, CSS and JavaScript: responsive, with reusable
 
 I left the website ready for six languages, with each one's content injected from JSON. I also prepared a scaffold: when you run it, it generates a new language with the same pages and imports its content from JSON, so adding languages doesn't require rebuilding the layout.
 
-During development, from January to May 2026, I was in contact with the client and the designer. The main changes I asked design for were about accessibility. In everything else I stuck to what was in Figma.
+During development, from January to May 2026, I was in contact with the client and the designer. Most of what I asked the designer to change was about accessibility. In everything else I stuck to what was in Figma.
 
 For example, the yellow text on the highlighted button didn't pass contrast on the white background: it came to 1.53:1. I talked to the designer about the accessibility problem: she suggested changing the text to black, and the client confirmed it.
 

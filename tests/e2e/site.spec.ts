@@ -96,3 +96,14 @@ for (const { route, lang } of ROUTES) {
 		});
 	});
 }
+
+test('tocar fuera cierra el menú móvil', async ({ page }) => {
+	await page.goto('/');
+	const button = page.locator('#abrir-menu');
+	test.skip(!(await button.isVisible()), 'El menú desplegable solo existe en móvil');
+	await button.click();
+	await expect(button).toHaveAttribute('aria-expanded', 'true');
+	await page.mouse.click(195, 700);
+	await expect(button).toHaveAttribute('aria-expanded', 'false');
+	await expect(page.locator('#menu-principal')).toBeHidden();
+});

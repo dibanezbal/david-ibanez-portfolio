@@ -32,13 +32,13 @@ featured: true
 order: 2
 ---
 
-## En resumen
+## Resumen
 
 *Butxaca* es "bolsillo" en catalán. LaButxaka es una aplicación web para llevar tus finanzas personales de forma autónoma: añades, editas y eliminas movimientos, los organizas por cuentas y categorías, y ves un resumen de cómo vas.
 
 La diseñé y la desarrollé yo de principio a fin, y es el proyecto donde mejor se ve cómo conectan diseño y código: cada pantalla de Figma tiene detrás un controlador, un modelo y una tabla en la base de datos.
 
-Las apps de finanzas suelen pecar de complejas o de tener demasiadas funciones para quien solo quiere saber en qué se le va el dinero. La solución fue una app enfocada en lo esencial (movimientos, cuentas, categorías, resumen), clara en desktop y en móvil. Hoy es una aplicación funcional en producción, con vídeo demo y tutorial interactivo para el usuario.
+Las apps de finanzas suelen pecar de complejas o de tener demasiadas funciones para quien solo quiere saber en qué se le va el dinero. Enfoqué la app en lo esencial (movimientos, cuentas, categorías, resumen) y la mantuve clara en desktop y en móvil. Hoy es una aplicación funcional en producción, con vídeo demo y tutorial interactivo para el usuario.
 
 ---
 
@@ -54,7 +54,7 @@ Antes de abrir Figma hice un **benchmarking** de otras apps de finanzas para ver
 
 </figure>
 
-Dibujar esos flujos al principio me ahorró mucho después: cada caja del diagrama acabó siendo, casi literalmente, una ruta o un método del controlador.
+Dibujar esos flujos al principio me ahorró mucho después: cada caja del diagrama acabó siendo una ruta o un método del controlador.
 
 <figure>
 
@@ -138,9 +138,9 @@ El proceso, en orden:
 
 </figure>
 
-Personalizar Shoelace enseñó que un componente tiene que sentirse parte del sistema que diseñaste en Figma, no solo funcionar. Ajustar sus variables y partes para respetar la paleta y la tipografía fue donde más se juntaron las dos mitades del proyecto.
+Ajusté las variables y partes de Shoelace hasta que los componentes encajaron con la paleta y la tipografía de Figma.
 
-**Lo que se quedó fuera.** En el diseño, Resumen también tenía un botón para filtrar por fecha. No daba tiempo a aplicar los cambios, así que lo dejé como tarea pendiente en el backlog.
+**Lo que se quedó fuera.** En el diseño, Resumen también tenía un botón para filtrar por fecha. Me quedé sin tiempo para aplicar los cambios, así que lo dejé como tarea pendiente en el backlog.
 
 <figure class="figure-pair">
 

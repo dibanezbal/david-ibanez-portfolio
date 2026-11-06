@@ -34,6 +34,6 @@ order: 4
 draft: true
 ---
 
-## En resumen
+## Resumen
 
 Queer as Book es la web de una librería LGBTQ+ ficticia, creada para la asignatura de proyecto web del Grado en Técnicas de Interacción Digital y Multimedia de la UOC. La diseñé y la maqueté de principio a fin: del card sorting y los prototipos en Figma al HTML/CSS mobile first, alcanzando el nivel WCAG 2.0 AA.

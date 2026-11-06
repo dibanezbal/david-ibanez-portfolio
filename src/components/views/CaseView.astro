@@ -1,9 +1,11 @@
 ---
+import PlusIcon from '../PlusIcon.astro';
 import { getImage, Image } from 'astro:assets';
-import { getEntry, render } from 'astro:content';
+import { render } from 'astro:content';
 import SiteFooter from '../SiteFooter.astro';
 import SiteHeader from '../SiteHeader.astro';
 import Layout from '../../layouts/Layout.astro';
+import FactItem from '../FactItem.astro';
 import Mockup from '../Mockup.astro';
 import { formatPeriod } from '../../lib/format';
 import { getLang, routes, ui } from '../../i18n/ui';
@@ -32,10 +34,11 @@ const facts = [
 	...(data.recognition ? [[t.recognition, data.recognition]] : []),
 ];
 const lists = [
-	[t.myRole, data.role],
-	[t.tools, data.tools],
-	[t.topics, data.tags],
-] as const;
+	[t.tools, data.tools.join(' · ')],
+	[t.topics, data.tags.join(' · ')],
+];
+const phoneFacts = [...facts, ...lists];
+const allFacts = [...facts, [t.myRole, data.role.join(' · ')], ...lists];
 ---
 
 <Layout title={`${data.title} · David Ibáñez`} description={data.summary} image={socialImage?.src}>
@@ -57,12 +60,11 @@ const lists = [
 					{data.title}
 				</h1>
 				<p class="mt-6 max-w-[30ch] text-2xl leading-snug md:text-4xl">{data.hook}</p>
-				<p class="mt-6 max-w-3xl text-lg leading-relaxed text-muted md:text-xl">{data.summary}</p>
 			</header>
 
 			{
 				data.cover && (
-					<div class="pb-10 md:pb-14 lg:col-span-7 lg:pt-16">
+					<div class="pb-2 md:pb-14 lg:col-span-7 lg:pt-16">
 						<Mockup desktop={data.cover} mobile={data.mobile} sizes="(min-width: 1440px) 1360px, 100vw" />
 					</div>
 				)
@@ -84,25 +86,14 @@ const lists = [
 				)
 			}
 
-			<div class="shell grid gap-12 py-12 md:py-20 lg:grid-cols-12 lg:gap-16">
-				<aside class="self-start lg:sticky lg:top-24 lg:col-span-4" aria-label={t.factsLabel}>
-					<dl class="space-y-5 text-sm leading-relaxed">
-						{
-							facts.map(([label, value]) => (
-								<div>
-									<dt class="text-sm text-muted">{label}</dt>
-									<dd class="mt-1 font-medium">{value}</dd>
-								</div>
-							))
-						}
-						{
-							lists.map(([label, items]) => (
-								<div>
-									<dt class="text-sm text-muted">{label}</dt>
-									<dd class="mt-1">{items.join(' · ')}</dd>
-								</div>
-							))
-						}
+			<div class="shell grid gap-10 py-8 md:py-20 lg:grid-cols-12 lg:gap-16">
+				<aside class="lg:col-span-4" aria-label={t.factsLabel}>
+					<!-- Escritorio: ficha completa. Móvil: rol y enlaces a la vista, y el resto plegado para no alejar el caso -->
+					<dl class="hidden space-y-5 text-sm leading-relaxed lg:block">
+						{allFacts.map(([label, value]) => <FactItem label={label} value={value} />)}
+					</dl>
+					<dl class="text-sm leading-relaxed lg:hidden">
+						<FactItem label={t.myRole} value={data.role.join(' · ')} />
 					</dl>
 					{
 						data.links.length > 0 && (
@@ -123,35 +114,55 @@ const lists = [
 							</ul>
 						)
 					}
+					<details class="group mt-8 border-t border-ink lg:hidden">
+						<summary class="flex cursor-pointer list-none items-center justify-between py-4 font-medium transition-colors hover:text-accent-text [&::-webkit-details-marker]:hidden">
+							{t.factsLabel}
+							<PlusIcon />
+						</summary>
+						<dl class="space-y-5 pb-5 text-sm leading-relaxed">
+							{phoneFacts.map(([label, value]) => <FactItem label={label} value={value} />)}
+						</dl>
+					</details>
 					{
 						sections.length > 1 && (
-							<nav aria-label={t.sectionsLabel} class="mt-10 hidden border-t border-line pt-6 lg:block">
-								<p class="text-sm text-muted">{t.inThisCase}</p>
-								<ol class="mt-3 space-y-2 text-sm">
-									{sections.map((section) => (
-										<li>
-											<a href={`#${section.slug}`} class="inline-flex min-h-6 items-center underline-offset-4 transition-colors hover:text-accent-text hover:underline">
-												{section.text}
-											</a>
-										</li>
-									))}
-								</ol>
-							</nav>
+							<>
+								<nav aria-label={t.sectionsLabel} class="mt-10 hidden border-t border-line pt-6 lg:sticky lg:top-24 lg:block">
+									<p class="text-sm text-muted">{t.inThisCase}</p>
+									<ol class="mt-3 space-y-2 text-sm" data-indice>
+										{sections.map((section) => (
+											<li>
+												<a href={`#${section.slug}`} class="inline-flex min-h-6 items-center underline-offset-4 transition-colors hover:text-accent-text hover:underline aria-[current=true]:text-accent-text aria-[current=true]:underline">
+													{section.text}
+												</a>
+											</li>
+										))}
+									</ol>
+								</nav>
+								<!-- En móvil el índice se pliega para no alejar el contenido, y se cierra al elegir un apartado -->
+								<nav aria-label={t.sectionsLabel} class="border-y border-ink lg:hidden">
+									<details class="group" data-indice-movil>
+										<summary class="flex cursor-pointer list-none items-center justify-between py-4 font-medium transition-colors hover:text-accent-text [&::-webkit-details-marker]:hidden">
+											{t.inThisCase}
+											<PlusIcon />
+										</summary>
+										<ol class="space-y-1 pb-4" data-indice>
+											{sections.map((section) => (
+												<li>
+													<a href={`#${section.slug}`} class="inline-flex min-h-11 items-center underline-offset-4 aria-[current=true]:text-accent-text aria-[current=true]:underline">
+														{section.text}
+													</a>
+												</li>
+											))}
+										</ol>
+									</details>
+								</nav>
+							</>
 						)
 					}
 				</aside>
 
 				<div class="case-prose lg:col-span-8">
 					<Content />
-					<aside class="mt-16 border-t border-ink pt-8" aria-label={t.contactLabel}>
-						<p class="text-2xl font-semibold leading-snug tracking-tight">{t.ctaQuestion}</p>
-						<a
-							href={`mailto:${(await getEntry('site', lang === 'en' ? 'home-en' : 'home'))?.data.contact.email}`}
-							class="mt-4 inline-block font-medium text-accent-text underline underline-offset-4 transition-colors hover:text-ink"
-						>
-							{t.ctaEmail}
-						</a>
-					</aside>
 				</div>
 			</div>
 		</article>
@@ -172,3 +183,34 @@ const lists = [
 
 	<SiteFooter />
 </Layout>
+
+<script>
+	// Marca en el índice el apartado que se está leyendo
+	const indexLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-indice] a')];
+	const headings = [...document.querySelectorAll<HTMLElement>('.case-prose h2[id]')];
+	let ticking = false;
+	// Cuenta como actual el último apartado cuyo título ha pasado del primer tercio de la pantalla
+	const markSection = () => {
+		ticking = false;
+		const line = window.innerHeight / 3;
+		const current = headings.filter((heading) => heading.getBoundingClientRect().top <= line).at(-1);
+		for (const link of indexLinks) {
+			if (current && link.hash === `#${current.id}`) link.setAttribute('aria-current', 'true');
+			else link.removeAttribute('aria-current');
+		}
+	};
+	const requestMark = () => {
+		if (ticking) return;
+		ticking = true;
+		requestAnimationFrame(markSection);
+	};
+	window.addEventListener('scroll', requestMark, { passive: true });
+	window.addEventListener('resize', requestMark);
+	markSection();
+
+	const mobileIndex = document.querySelector<HTMLDetailsElement>('[data-indice-movil]');
+	mobileIndex?.addEventListener('toggle', requestMark);
+	mobileIndex?.addEventListener('click', (event) => {
+		if ((event.target as HTMLElement).closest('a')) mobileIndex.open = false;
+	});
+</script>

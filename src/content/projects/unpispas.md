@@ -1,7 +1,7 @@
 ---
 title: "unPisPas"
 client: "unPisPas · TPV en la nube y pedidos por QR para hostelería"
-summary: "Frontend de la web de unPisPas, un sistema de TPV en la nube y pedidos por QR para bares y restaurantes, montado a partir de un Figma. El diseño fue enviado por el cliente."
+summary: "Frontend de la web de unPisPas, un sistema de TPV en la nube y pedidos por QR para bares y restaurantes, montado a partir de un Figma. El cliente envió el diseño."
 disciplines: ["code"]
 context: "freelance"
 startDate: 2026-01-01
@@ -29,9 +29,9 @@ links:
 order: 3
 ---
 
-## En resumen
+## Resumen
 
-unPisPas es un sistema de TPV en la nube y pedidos por QR para bares, cafeterías y restaurantes. Mi parte fue montar el frontend de su web a partir de un Figma ya diseñado. **El diseño fue enviado por el cliente.**
+unPisPas es un sistema de TPV en la nube y pedidos por QR para bares, cafeterías y restaurantes. Mi parte fue montar el frontend de su web a partir de un Figma ya diseñado. **El cliente envió el diseño.**
 
 ## Qué hice
 
@@ -39,7 +39,7 @@ Maqueté la web en HTML, CSS y JavaScript puros: responsive, con componentes reu
 
 Dejé la web preparada para seis idiomas, con el contenido de cada uno inyectado desde JSON. Además, preparé un scaffold: al ejecutarlo genera un idioma nuevo con las mismas páginas, importando su contenido desde JSON, así que añadir idiomas no requiere volver a maquetar.
 
-Durante el desarrollo, de enero a mayo de 2026, estuve en contacto con el cliente y con la diseñadora. Los principales cambios que pedí a diseño fueron de accesibilidad. En todo lo demás respeté lo que estaba en Figma.
+Durante el desarrollo, de enero a mayo de 2026, estuve en contacto con el cliente y con la diseñadora. La mayoría de los cambios que pedí a la diseñadora fueron de accesibilidad. En todo lo demás respeté lo que estaba en Figma.
 
 Por ejemplo, el texto amarillo del botón marcado no pasaba el contraste sobre el fondo blanco: daba 1,53:1. Hablé con la diseñadora sobre el problema de accesibilidad: sugirió cambiar el texto a negro, y el cliente lo confirmó.
 

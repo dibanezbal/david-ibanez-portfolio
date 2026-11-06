@@ -5,13 +5,13 @@ description: "Portfolio of David Ibáñez, a Design Engineer in Barcelona: visua
 hero:
   headline: "I design interfaces that can be built and tested."
   headline_accent: ""
-  intro: "I'm David Ibáñez, a Design Engineer. I design digital products and build them in code, with accessibility and testing before every release."
+  intro: "I’m David Ibáñez, a Design Engineer. I design digital products and build them in code, with accessibility and testing before every release."
   cta_primary: { label: "See projects", url: "#projects" }
-  cta_secondary: { label: "Let's talk", url: "#contact" }
+  cta_secondary: { label: "Let’s talk", url: "#contact" }
   portrait:
     src: "../../assets/img/david-ibanez-front.jpg"
     alt: "Black-and-white portrait of David Ibáñez, wearing a cap, glasses and a zip-up jacket, smiling and looking straight ahead."
-projects_intro: "Two projects from start to finish, plus a frontend build from someone else's design."
+projects_intro: "Two projects from start to finish, plus a frontend build from someone else’s design."
 experience_intro: "From web editor to quality lead, by way of frontend."
 about_intro:
   - "I started in digital marketing and graduated in interaction design at UOC. Today I lead QA at Zurich Insurance, on the same team where I worked in web editing and frontend."
@@ -28,8 +28,7 @@ skills:
   - title: "Code"
     items:
       - "HTML, CSS/Sass and JavaScript"
-      - "Familiar with these environments:"
-      - "React, Next.js, TypeScript and Astro"
+      - "Familiar with these environments: React, Next.js, TypeScript and Astro"
   - title: "Quality"
     items:
       - "Playwright and visual regression with Percy"
@@ -37,7 +36,7 @@ skills:
       - "ISTQB Certified Tester Foundation Level v4"
 tools: ["Figma", "FigJam", "Storybook", "Maze", "WordPress", "Git", "Claude"]
 contact:
-  intro: "If your team needs someone who understands both design and code, let's talk."
+  intro: "If your team needs someone who understands both design and code, let’s talk."
   email: "dibanezbal@gmail.com"
   linkedin: "https://www.linkedin.com/in/davidib"
   github: "https://github.com/dibanezbal"

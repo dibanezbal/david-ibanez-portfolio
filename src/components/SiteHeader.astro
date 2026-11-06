@@ -123,7 +123,7 @@ const nav = [
 		} catch {}
 	});
 
-	// Menú desplegable en móvil: se cierra con Escape, al elegir un apartado o al volver a pulsar
+	// Menú desplegable en móvil: se cierra con Escape, al elegir un apartado, al tocar fuera o al volver a pulsar
 	const menu = document.getElementById('menu-principal');
 	const menuButton = document.getElementById('abrir-menu');
 	const setMenu = (open: boolean) => {
@@ -137,6 +137,11 @@ const nav = [
 			menuButton.focus();
 		}
 	});
+	document.addEventListener('click', (event) => {
+		const target = event.target as Node;
+		if (menu?.classList.contains('hidden') || menu?.contains(target) || menuButton?.contains(target)) return;
+		setMenu(false);
+	});
 	menu?.addEventListener('click', (event) => {
 		if ((event.target as HTMLElement).closest('a')) setMenu(false);
 	});
@@ -147,27 +152,20 @@ const nav = [
 		.map((link) => document.getElementById(link.hash.slice(1)))
 		.filter((element): element is HTMLElement => element !== null);
 
-	const observer = new IntersectionObserver(
-		(entries) => {
-			for (const entry of entries) {
-				if (!entry.isIntersecting) continue;
-				links.forEach((link) => link.removeAttribute('aria-current'));
-				links.find((link) => link.hash === `#${entry.target.id}`)?.setAttribute('aria-current', 'true');
-			}
-		},
-		{ rootMargin: '0px 0px -70% 0px' },
-	);
-
-	targets.forEach((target) => observer.observe(target));
-
-	// Al llegar al final de la página, el pie (contacto) queda marcado aunque no llegue a la franja superior
-	const marcarContactoAlFinal = () => {
-		const alFinal = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-		if (!alFinal) return;
-		links.forEach((link) => link.removeAttribute('aria-current'));
-		links.find((link) => link.hasAttribute('data-contacto'))?.setAttribute('aria-current', 'true');
+	// Cuenta el último apartado cuyo título ha pasado del 30 % superior. Al final de la página, el pie (contacto)
+	// queda marcado aunque no llegue a esa franja, y por encima del primer apartado no se marca ninguno
+	const marcarApartado = () => {
+		const linea = window.innerHeight * 0.3;
+		const alFinal = window.scrollY > 0 && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+		const actual = targets.filter((target) => target.getBoundingClientRect().top <= linea).at(-1);
+		const activo = alFinal
+			? links.find((link) => link.hasAttribute('data-contacto'))
+			: links.find((link) => link.hash === `#${actual?.id}`);
+		links.forEach((link) => link.toggleAttribute('aria-current', false));
+		activo?.setAttribute('aria-current', 'true');
 	};
-	window.addEventListener('scroll', marcarContactoAlFinal, { passive: true });
+	window.addEventListener('scroll', marcarApartado, { passive: true });
+	marcarApartado();
 
 	// Al desplazarse, la cabecera se compacta para ocupar menos pantalla (sobre todo en móvil)
 	const cabecera = document.querySelector('[data-header]');

@@ -29,6 +29,7 @@
 /* Modo oscuro: mismos roles, tonos ajustados para contraste. Carmín se aclara para texto y formas sobre fondo oscuro */
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme="light"]) {
+		color-scheme: dark;
 		--color-ink: #f5f3f2;
 		--color-paper: #151214;
 		--color-muted: #b9b1b4;
@@ -42,6 +43,7 @@
 }
 
 :root[data-theme="dark"] {
+	color-scheme: dark;
 		--color-ink: #f5f3f2;
 		--color-paper: #151214;
 		--color-muted: #b9b1b4;
@@ -289,6 +291,17 @@
 	video:focus-visible {
 		outline: 2px solid currentColor;
 		outline-offset: 3px;
+	}
+
+	h1,
+	h2,
+	h3 {
+		text-wrap: balance;
+	}
+
+	.case-prose p,
+	.case-prose li {
+		text-wrap: pretty;
 	}
 
 	::selection {

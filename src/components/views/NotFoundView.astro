@@ -16,12 +16,11 @@ const alternate = lang === 'en' ? '/404' : '/en/404';
 
 	<main id="contenido">
 		<section class="shell py-24 md:py-36">
-			<p class="text-sm text-accent-text">Error 404</p>
-			<h1 class="mt-5 max-w-[18ch] text-[clamp(2.5rem,5.7vw,5.75rem)] font-semibold leading-[1.02] tracking-[-0.02em]">
+			<h1 class="max-w-[18ch] text-[clamp(2.5rem,5.7vw,5.75rem)] font-semibold leading-[1.02] tracking-[-0.02em]">
 				{t.notFoundHeading}
 			</h1>
 			<p class="mt-8 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">
-				{t.notFoundBody}
+				Error 404. {t.notFoundBody}
 			</p>
 			<div class="mt-10 flex flex-wrap gap-3">
 				<a href={route.home} class="border border-ink bg-ink px-6 py-3.5 font-medium text-paper transition-colors hover:border-accent-text hover:bg-accent-text">{t.notFoundHome}</a>

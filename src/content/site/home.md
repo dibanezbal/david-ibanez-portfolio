@@ -28,8 +28,7 @@ skills:
   - title: "Código"
     items:
       - "HTML, CSS/Sass y JavaScript"
-      - "Familiarizado con entornos:"
-      - "React, Next.js, TypeScript y Astro"
+      - "Familiarizado con entornos: React, Next.js, TypeScript y Astro"
   - title: "Calidad"
     items:
       - "Playwright y regresión visual con Percy"

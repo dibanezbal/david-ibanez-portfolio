@@ -55,8 +55,11 @@ test('shows published projects and hides drafts', async ({ page }) => {
 
 test('covers load and have alt text', async ({ page }) => {
 	const covers = page.locator('article img');
+	// Cada tarjeta tiene las dos capturas; por debajo de 640 px solo se ve la móvil
+	const phone = page.viewportSize()!.width < 640;
 	await expect(covers).toHaveCount(6);
-	for (const cover of await covers.all()) {
+	await expect(page.locator('article img:visible')).toHaveCount(phone ? 3 : 6);
+	for (const cover of await page.locator('article img:visible').all()) {
 		await cover.scrollIntoViewIfNeeded();
 		await expect(cover).toHaveAttribute('alt', /\S/);
 		await expect(cover).toHaveJSProperty('complete', true);

@@ -26,7 +26,7 @@
     - I developed reusable components in React, Next.js and TypeScript for the corporate websites, aligned with the Design System in Figma.
     - "I worked with the UX/UI design team to evolve the Design System in Storybook and Figma, bringing design and code closer together."
     - "I made 15+ web components accessible for people who use a screen reader or keyboard, following WCAG."
-    - "I introduced automated testing with Percy and CI/CD in Azure DevOps. That's where the quality area I now lead began."
+    - "I introduced automated testing with Percy and CI/CD in Azure DevOps. That’s where the quality area I now lead began."
   metrics:
     - { value: "15+", label: "web components adapted to WCAG" }
   stack: [React, Next.js, TypeScript, Storybook, Figma, Percy, Azure DevOps]

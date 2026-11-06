@@ -85,3 +85,33 @@ for (const id of ['joan-pere-jove', 'labutxaka', 'unpispas']) {
 		await expect(page).toHaveScreenshot(`${id}.png`, { fullPage: true, maxDiffPixelRatio: 0.01 });
 	});
 }
+
+test('el índice del caso lleva a su apartado y funciona en móvil', async ({ page }) => {
+	await page.goto('/proyectos/joan-pere-jove');
+	const isPhone = page.viewportSize()!.width < 1024;
+	const nav = page.getByRole('navigation', { name: 'Apartados del caso' });
+	if (isPhone) {
+		const summary = nav.locator('summary');
+		await summary.focus();
+		await page.keyboard.press('Enter');
+	}
+	const link = nav.getByRole('link').nth(1);
+	await link.click();
+	await expect(page).toHaveURL(/#.+$/);
+	await expect(page.getByRole('heading', { level: 2 }).nth(1)).toBeInViewport();
+	if (isPhone) {
+		await expect(nav.locator('details')).not.toHaveAttribute('open', '');
+	} else {
+		await expect(link).toHaveAttribute('aria-current', 'true');
+	}
+});
+
+test('en móvil el caso empieza pronto: una captura y la ficha plegada', async ({ page }) => {
+	await page.goto('/proyectos/joan-pere-jove');
+	test.skip(page.viewportSize()!.width >= 640, 'Solo por debajo de 640 px');
+	await expect(page.locator('main figure:visible img').first()).toHaveAttribute('alt', /móvil/i);
+	await expect(page.locator('dt:visible', { hasText: 'Mi papel' })).toHaveCount(1);
+	await expect(page.locator('dt:visible', { hasText: 'Herramientas' })).toHaveCount(0);
+	const top = await page.getByRole('heading', { level: 2 }).first().evaluate((h) => h.getBoundingClientRect().top + scrollY);
+	expect(top).toBeLessThan(1400);
+});

@@ -34,13 +34,13 @@ featured: true
 order: 1
 ---
 
-## En resumen
+## Resumen
 
 Joan Pere lleva más de diez años componiendo y tres dirigiendo cortometrajes. Tenía web, redes y tarjeta de visita, pero cada pieza iba por su lado. Me pidió rediseñar la web y, al analizarlo todo, vi que el problema era otro: **no había una marca que lo uniera**.
 
 Joan Pere es mi marido, pero en este proyecto la relación fue de cliente.
 
-Así que el proyecto creció: identidad visual, manual de marca, prototipo web testeado con usuarios y, por último, la web en producción con un tema de WordPress hecho a medida.
+Así que el proyecto creció: identidad visual, manual de marca, prototipo web testeado con usuarios y la web en producción con un tema de WordPress hecho a medida.
 
 El punto de partida era una presencia digital dispersa, sin coherencia visual, en dos idiomas mezclados. Lo resolví con un sistema gráfico escalable (logo, tipografía, color, UI kit) aplicado a web, redes y papelería. El resultado es <a href="https://joanperejove.com/" target="_blank" rel="noopener noreferrer">joanperejove.com</a>, una web bilingüe catalán/inglés, publicada y en uso.
 
@@ -48,7 +48,7 @@ El punto de partida era una presencia digital dispersa, sin coherencia visual, e
 
 ## El punto de partida
 
-La web era una plantilla de WordPress sin personalizar. El catalán y el inglés convivían en las mismas páginas, el menú no tenía una estructura clara y, en la portada, no quedaba claro quién era ni a qué se dedicaba. Las redes funcionaban como un catálogo sin estética común y la tarjeta de visita era, literalmente, un trozo de papel con su contacto.
+La web era una plantilla de WordPress sin personalizar. El catalán y el inglés convivían en las mismas páginas, el menú no tenía una estructura clara y, en la portada, no quedaba claro quién era ni a qué se dedicaba. Las redes funcionaban como un catálogo sin estética común y la tarjeta de visita era un trozo de papel con su contacto.
 
 Mi hipótesis: si todas las piezas comparten el mismo lenguaje visual, la marca se percibe más profesional.
 
@@ -142,7 +142,7 @@ Wireframes en Figma para validar los dos flujos (desktop y mobile) antes de mete
 
 </figure>
 
-Luego el alta fidelidad, con un par de piezas que me parecen las más interesantes del proyecto:
+Luego el alta fidelidad. Las tres piezas que más me interesan:
 
 - **Reproductor persistente** en la parte inferior de la pantalla, para unificar todos los audios y que puedas seguir navegando mientras escuchas.
 - **Modal de proyecto** para ampliar información sin sacar al usuario de la página.
@@ -164,7 +164,7 @@ Las tarjetas de la filmografía fueron lo que más me costó. Pasaron por varias
 
 ## Validar: IA con espíritu crítico y usuarios reales
 
-**Análisis heurístico con Claude.** Conecté Figma con Claude y le pedí un análisis según las heurísticas de Nielsen. Me sirvió para ir rápido y detectar mejoras (filtros, paginación futura, iconos del footer), pero también **se equivocó**: vio una tipografía serif que no existía y señaló un "Dossier" que no estaba en el prototipo. La IA acelera el trabajo; cada conclusión hay que revisarla. Lo complementé con un análisis propio basado en principios de la Gestalt.
+**Análisis heurístico con Claude.** Conecté Figma con Claude y le pedí un análisis según las heurísticas de Nielsen. Me sirvió para ir rápido y detectar mejoras (filtros, paginación futura, iconos del footer), pero también **se equivocó**: vio una tipografía serif que no existía y señaló un "Dossier" que no estaba en el prototipo. La IA acelera el trabajo, y yo reviso cada conclusión. Lo complementé con un análisis propio basado en principios de la Gestalt.
 
 **Test con usuarios en Maze.** Seis participantes: una diseñadora UX/UI senior, un productor audiovisual, tres personas con perfiles distintos y el propio cliente. Cuatro tareas basadas en el flujo de Paula:
 
@@ -201,12 +201,12 @@ Para demostrar que el sistema escala, lo apliqué a otras piezas: tarjeta de vis
 
 Joan Pere ya sabía usar WordPress y quería seguir publicando él solo. Así que, en lugar de cambiarle de herramienta, desarrollé un **tema de WordPress a medida** a partir del prototipo, con la web bilingüe gestionada con Polylang y el selector de idioma en la cabecera, tal y como pedía el test.
 
-Para mí esta es la parte que mejor resume lo que hago: diseñar pensando en cómo se va a construir y construir respetando lo que se ha diseñado.
+Esta parte resume mi trabajo: diseño pensando en cómo se va a construir y construyo lo que dice el diseño.
 
 ## Lo que aprendí (y lo que haría distinto)
 
 - **El encargo no siempre es el problema.** Me pidieron una web y lo que hacía falta era una marca.
 - **Un buen sistema de color es un sistema de tokens.** Definir la paleta por luminosidad me facilitó mucho el paso a CSS.
-- **La IA acelera la revisión.** Útil para ir rápido, pero cada cosa que propone hay que contrastarla.
+- **La IA acelera la revisión.** Útil para ir rápido, pero contrasto cada cosa que propone.
 - **Mi UI kit no estaba listo para un handoff.** Quedó como un *cajón de sastre* y le faltaban los estados del formulario. Hoy lo organizaría como una librería de componentes con variantes y estados desde el primer día.
 - **Separar lo personal de lo profesional.** Joan Pere es también mi marido, pero pude separar cuándo estaba diseñando y cuándo estaba conviviendo. Ver al cliente contento con el resultado fue la mejor parte.

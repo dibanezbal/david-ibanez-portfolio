@@ -32,13 +32,13 @@ featured: true
 order: 2
 ---
 
-## In short
+## Summary
 
 *Butxaca* means "pocket" in Catalan. LaButxaka is a web app for managing your personal finances on your own: you add, edit and delete transactions, organize them by accounts and categories, and see a summary of how you're doing. The interface is in Spanish, so the screen and button names below stay in Spanish.
 
 I designed and developed it myself from start to finish, and it's the project that best shows how design and code connect: every Figma screen has a controller, a model and a database table behind it.
 
-Finance apps tend to be too complex or to have too many features for people who just want to know where their money goes. The solution was an app focused on the essentials (transactions, accounts, categories, summary), clear on desktop and on mobile. Today it's a working app in production, with a demo video and an interactive tutorial for the user.
+Finance apps tend to be too complex or to have too many features for people who just want to know where their money goes. I focused the app on the essentials (transactions, accounts, categories, summary) and kept it clear on desktop and on mobile. Today it's a working app in production, with a demo video and an interactive tutorial for the user.
 
 ---
 
@@ -54,7 +54,7 @@ Before opening Figma I did a **benchmark** of other finance apps to see which in
 
 </figure>
 
-Drawing those flows at the start saved me a lot later: each box in the diagram ended up as, almost literally, a route or a controller method.
+Drawing those flows at the start saved me a lot later: each box in the diagram ended up as a route or a controller method.
 
 <figure>
 
@@ -138,9 +138,9 @@ The process, in order:
 
 </figure>
 
-Customizing Shoelace taught me that a component has to feel like part of the system you designed in Figma, not just work. Adjusting its variables and parts to respect the palette and typography was where the two halves of the project came together most.
+I adjusted Shoelace's variables and parts until the components matched the palette and typography from Figma.
 
-**What got left out.** In the design, Resumen also had a button to filter by date. There wasn't time to apply the changes, so I left it as a pending task in the backlog.
+**What got left out.** In the design, Resumen also had a button to filter by date. I ran out of time to apply the changes, so I left it as a pending task in the backlog.
 
 <figure class="figure-pair">
 
