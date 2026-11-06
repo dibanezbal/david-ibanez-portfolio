@@ -82,11 +82,14 @@ const nav = [
 			id="abrir-menu"
 			aria-controls="menu-principal"
 			aria-expanded="false"
-			class="grid size-9 cursor-pointer place-items-center transition-colors hover:text-accent-text md:hidden"
+			class="group grid size-9 cursor-pointer place-items-center transition-colors hover:text-accent-text md:hidden"
 		>
 			<span class="sr-only">{t.menu}</span>
-			<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
+			<svg class="size-5 group-aria-expanded:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true" data-icono-menu="abrir">
 				<path d="M4 7h16M4 12h16M4 17h16" />
+			</svg>
+			<svg class="hidden size-5 group-aria-expanded:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true" data-icono-menu="cerrar">
+				<path d="M6 6l12 12M18 6L6 18" />
 			</svg>
 		</button>
 	</div>
@@ -137,7 +140,8 @@ const nav = [
 			menuButton.focus();
 		}
 	});
-	document.addEventListener('click', (event) => {
+	// pointerdown y no click: en iPhone, tocar una zona sin enlaces no genera click en el documento
+	document.addEventListener('pointerdown', (event) => {
 		const target = event.target as Node;
 		if (menu?.classList.contains('hidden') || menu?.contains(target) || menuButton?.contains(target)) return;
 		setMenu(false);

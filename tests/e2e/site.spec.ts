@@ -101,9 +101,13 @@ test('tocar fuera cierra el menú móvil', async ({ page }) => {
 	await page.goto('/');
 	const button = page.locator('#abrir-menu');
 	test.skip(!(await button.isVisible()), 'El menú desplegable solo existe en móvil');
+	await expect(button.locator('[data-icono-menu="abrir"]')).toBeVisible();
 	await button.click();
 	await expect(button).toHaveAttribute('aria-expanded', 'true');
+	await expect(button.locator('[data-icono-menu="cerrar"]')).toBeVisible();
+	await expect(button.locator('[data-icono-menu="abrir"]')).toBeHidden();
 	await page.mouse.click(195, 700);
 	await expect(button).toHaveAttribute('aria-expanded', 'false');
+	await expect(button.locator('[data-icono-menu="abrir"]')).toBeVisible();
 	await expect(page.locator('#menu-principal')).toBeHidden();
 });

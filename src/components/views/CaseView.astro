@@ -195,7 +195,8 @@ const allFacts = [...facts, [t.myRole, data.role.join(' · ')], ...lists];
 		const line = window.innerHeight / 3;
 		const current = headings.filter((heading) => heading.getBoundingClientRect().top <= line).at(-1);
 		for (const link of indexLinks) {
-			if (current && link.hash === `#${current.id}`) link.setAttribute('aria-current', 'true');
+			// href y no hash: hash codifica los acentos y no coincidiría con el id
+			if (current && link.getAttribute('href') === `#${current.id}`) link.setAttribute('aria-current', 'true');
 			else link.removeAttribute('aria-current');
 		}
 	};

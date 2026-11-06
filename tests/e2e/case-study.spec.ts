@@ -115,3 +115,14 @@ test('en móvil el caso empieza pronto: una captura y la ficha plegada', async (
 	const top = await page.getByRole('heading', { level: 2 }).first().evaluate((h) => h.getBoundingClientRect().top + scrollY);
 	expect(top).toBeLessThan(1400);
 });
+
+test('el índice marca cada apartado al hacer scroll, también los que llevan acentos', async ({ page }) => {
+	await page.goto('/proyectos/joan-pere-jove');
+	test.skip(page.viewportSize()!.width < 1024, 'El índice lateral solo se ve en escritorio');
+	const headings = page.locator('.case-prose h2[id]');
+	for (const heading of await headings.all()) {
+		const id = await heading.getAttribute('id');
+		await heading.evaluate((h) => window.scrollTo({ top: h.getBoundingClientRect().top + scrollY - 150, behavior: 'instant' }));
+		await expect(page.locator(`[data-indice] a[aria-current="true"]:visible`)).toHaveAttribute('href', `#${id}`);
+	}
+});
