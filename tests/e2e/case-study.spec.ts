@@ -62,7 +62,7 @@ test('el enlace de contacto funciona dentro del caso', async ({ page }) => {
 	await abrirNavegacion(page);
 	await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name: 'Contacto' }).click();
 	await expect(page).toHaveURL(/\/proyectos\/labutxaka#contacto$/);
-	await expect(page.getByRole('heading', { level: 2, name: 'Contacto' })).toBeInViewport();
+	await expect(page.getByRole('link', { name: 'dibanezbal@gmail.com' })).toBeInViewport();
 });
 
 for (const draft of ['queer-as-book']) {

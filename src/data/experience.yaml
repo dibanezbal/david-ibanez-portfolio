@@ -8,8 +8,6 @@
   summary: Trabajo en el equipo que gestiona el desarrollo, la edición y la calidad de más de 50 sitios web.
   highlights:
     - "Diseñé y desarrollé un portal interno que reúne todas las automatizaciones de QA. Las pruebas manuales tardan ahora un 65 % menos."
-    - "Integré Playwright y Low Code en los pipelines de Azure DevOps para detectar regresiones antes de cada despliegue."
-    - "Reviso con ayuda de IA las interacciones y estados que las herramientas automáticas no detectan."
     - "Defino y superviso la estrategia de pruebas de aceptación (UAT). En la primera fase de la migración de un sitio de 2.000 páginas, superamos el control de calidad con un 98 %, cuando se exigía un 95 %."
     - "Extendí la regresión visual con Percy a sitios de más de 500 páginas, y el tiempo de revisión manual bajó un 60 %."
   metrics:

@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { getCollection, getEntry, render } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import ProjectCard from '../components/ProjectCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -11,7 +11,6 @@ import { getPublishedProjects } from '../lib/projects';
 
 const home = await getEntry('site', 'home');
 if (!home) throw new Error('Falta src/content/site/home.md');
-const { Content: About } = await render(home);
 const { hero, skills, tools } = home.data;
 const [leadSkills, ...otherSkills] = skills;
 // Destaca las cifras de cada logro sin tocar el texto del CV
@@ -88,8 +87,9 @@ const jobs = (await getCollection('experience')).sort(
 			{projects.map((project, index) => <ProjectCard {project} reverse={index % 2 === 1} />)}
 		</section>
 
+
 		<section class="shell border-t border-line py-16 md:py-24" aria-labelledby="que-aporto">
-			<SectionHeading id="que-aporto" title="Qué aporto" />
+			<SectionHeading id="que-aporto" title="Lo que aporto" />
 			<div class="mt-12 border-t border-ink pt-4">
 				<h3 class="text-sm font-medium">{leadSkills.title}</h3>
 				<ul class="mt-4 grid gap-6 text-xl leading-snug md:grid-cols-3 md:gap-8">
@@ -121,7 +121,7 @@ const jobs = (await getCollection('experience')).sort(
 			<div class="mt-12 border-b border-ink">
 				{
 					jobs.map(({ data }, index) => (
-						<details class="group border-t border-ink" open={index === 0}>
+						<details class="group border-t border-ink">
 							<summary class="grid cursor-pointer list-none grid-cols-[1fr_auto] gap-x-6 gap-y-1 py-5 transition-colors hover:text-accent-text md:grid-cols-12 md:items-baseline [&::-webkit-details-marker]:hidden">
 								<span class="text-sm text-muted md:col-span-3">{formatPeriod(data)}</span>
 								<span class="col-start-1 text-lg font-bold leading-snug tracking-tight md:col-span-5 md:col-start-4">
@@ -173,7 +173,8 @@ const jobs = (await getCollection('experience')).sort(
 				<div
 					class="max-w-prose text-xl leading-relaxed text-muted md:col-span-7 [&_em]:italic [&_p+p]:mt-5 [&_strong]:font-bold [&_strong]:text-ink"
 				>
-					<About />
+					{home.data.about_intro.map((p) => <p>{p}</p>)}
+					<p class="mt-8"><a href="/sobre-mi" class="inline-block py-1 underline underline-offset-4 transition-colors hover:text-accent-text">Leer más sobre mí <span aria-hidden="true">→</span></a></p>
 				</div>
 			</div>
 		</section>

@@ -12,7 +12,10 @@ hero:
     src: "../../assets/img/david-ibanez-front.jpg"
     alt: "Retrato en blanco y negro de David Ibáñez, con gorra, gafas y chaqueta de cremallera, sonriendo y mirando de frente."
 projects_intro: "Dos proyectos de principio a fin y un trabajo de frontend sobre el diseño de otra persona."
-experience_intro: "Empecé editando contenido, pasé al frontend y ahora lidero calidad. Aprendí qué hace falta para que un diseño llegue entero a producción."
+experience_intro: "De editor web a lead de calidad, pasando por el frontend."
+about_intro:
+  - "Desde pequeño me han apasionado la música y la tecnología. En Budapest, trabajando en marketing digital, descubrí el diseño de experiencias y los tests con usuarios."
+  - "Me gradué en Técnicas de Interacción Digital y Multimedia en la UOC. Hoy soy Test and Quality Lead en Zurich Insurance, y eso me enseñó a entender cómo se construye una interfaz, cómo se prueba y dónde suele romperse."
 skills:
   - title: "Entre medias"
     items:
@@ -25,8 +28,9 @@ skills:
       - "Design Systems, tokens y accesibilidad (WCAG)"
   - title: "Código"
     items:
-      - "React, Next.js, TypeScript y Astro"
       - "HTML, CSS/Sass y JavaScript"
+      - "Familiarizado con entornos:"
+      - "React, Next.js, TypeScript y Astro"
   - title: "Calidad"
     items:
       - "Playwright y regresión visual con Percy"

@@ -1,0 +1,33 @@
+---
+import { getEntry, render } from 'astro:content';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import Layout from '../layouts/Layout.astro';
+
+const home = await getEntry('site', 'home');
+if (!home) throw new Error('Falta src/content/site/home.md');
+const { Content } = await render(home);
+---
+
+<Layout title="Sobre mí · David Ibáñez" description="Quién soy y cómo llegué al diseño, la calidad y el código.">
+	<SiteHeader />
+
+	<main id="contenido">
+		<article class="shell pb-16 pt-10 md:pb-24 md:pt-16">
+			<a
+				href="/#experiencia"
+				class="inline-block py-1 text-sm underline-offset-4 transition-colors hover:text-accent-text hover:underline"
+			>
+				<span aria-hidden="true">←</span> Volver a la portada
+			</a>
+			<h1 class="mt-10 text-[clamp(2.25rem,4.6vw,4.5rem)] font-semibold leading-[1.04] tracking-[-0.02em]">Sobre mí</h1>
+			<div
+				class="mt-10 max-w-prose text-xl leading-relaxed text-muted [&_em]:italic [&_p+p]:mt-5 [&_strong]:font-bold [&_strong]:text-ink"
+			>
+				<Content />
+			</div>
+		</article>
+	</main>
+
+	<SiteFooter />
+</Layout>
