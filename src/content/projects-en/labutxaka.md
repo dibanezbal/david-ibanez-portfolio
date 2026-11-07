@@ -1,7 +1,7 @@
 ---
 title: "LaButxaka"
 client: "Personal project · Interactive application (UOC)"
-summary: "A personal finance web app designed and developed from start to finish: built on flows in FigJam, with an MVC architecture in PHP, a relational database and custom Shoelace components."
+summary: "Personal finance web app, an academic project at UOC: flows in FigJam, design in Figma and development in PHP, with a public demo."
 disciplines: ["design", "code", "quality"]
 context: "academic"
 startDate: 2026-01-01
@@ -9,10 +9,10 @@ endDate: 2026-01-31
 role:
   - "UX/UI"
   - "Prototyping"
-  - "Full-stack development"
+  - "Web development with PHP and SQL"
   - "Testing"
 tools: ["Figma", "FigJam", "PHP", "SQL", "HTML", "CSS", "JavaScript", "Shoelace", "Git", "GitHub"]
-tags: ["Web App", "Full-stack", "MVC", "Web Components", "Responsive", "UX Writing", "Onboarding"]
+tags: ["Web App", "PHP", "MVC", "Web Components", "Responsive", "UX Writing", "Onboarding"]
 hook: "A finance app for people who just want to know where their money goes."
 detail: "I designed it, programmed it in PHP and use it every day for our household accounts."
 cover:
@@ -34,11 +34,11 @@ order: 2
 
 ## Summary
 
-*Butxaca* means "pocket" in Catalan. LaButxaka is a web app for managing your personal finances on your own: you add, edit and delete transactions, organize them by accounts and categories, and see a summary of how you're doing. The interface is in Spanish, so the screen and button names below stay in Spanish.
+*Butxaca* means "pocket" in Catalan. LaButxaka is a web app, born as an academic project at UOC, for managing your personal finances on your own: you add, edit and delete transactions, organize them by accounts and categories, and see a summary of how you're doing. The interface is in Spanish, so the screen and button names below stay in Spanish.
 
 I designed and developed it myself from start to finish, and it's the project that best shows how design and code connect: every Figma screen has a controller, a model and a database table behind it.
 
-Finance apps tend to be too complex or to have too many features for people who just want to know where their money goes. I focused the app on the essentials (transactions, accounts, categories, summary) and kept it clear on desktop and on mobile. Today it's a working app in production, with a demo video and an interactive tutorial for the user.
+Finance apps tend to be too complex or to have too many features for people who just want to know where their money goes. I focused the app on the essentials (transactions, accounts, categories, summary) and kept it clear on desktop and on mobile. Today it's a working app I use at home, with a public demo, a video and an interactive tutorial.
 
 ---
 

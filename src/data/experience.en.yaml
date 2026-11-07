@@ -5,7 +5,7 @@
   company: Zurich Insurance Group
   location: Barcelona, Spain
   startDate: 2025-06-01
-  summary: I work on the team that handles development, editing and quality for more than 50 websites.
+  summary: I work on the team that handles development, editing and quality for more than 50 websites. I look after the testing strategy and carry out the testing, and I coordinate testers when a project calls for it.
   highlights:
     - "I designed and built an internal portal that brings together all our QA automation. Manual testing now takes 65% less time."
     - "I define and supervise the user acceptance testing (UAT) strategy. In the first phase of migrating a 2,000-page site, we passed the quality gate with 98%, when 95% was required."
@@ -22,11 +22,12 @@
   location: Barcelona, Spain
   startDate: 2023-06-01
   endDate: 2025-06-30
+  summary: "I worked between Figma and code, on the same team: components, Design System and accessibility."
   highlights:
-    - I developed reusable components in React, Next.js and TypeScript for the corporate websites, aligned with the Design System in Figma.
+    - I modified and maintained React, Next.js and TypeScript components for the corporate websites, aligned with the Design System in Figma.
     - "I worked with the UX/UI design team to evolve the Design System in Storybook and Figma, bringing design and code closer together."
     - "I made 15+ web components accessible for people who use a screen reader or keyboard, following WCAG."
-    - "I introduced automated testing with Percy and CI/CD in Azure DevOps. That’s where the quality area I now lead began."
+    - "I introduced automated testing with Percy and CI/CD in Azure DevOps. That’s where the quality area I work in today began."
   metrics:
     - { value: "15+", label: "web components adapted to WCAG" }
   stack: [React, Next.js, TypeScript, Storybook, Figma, Percy, Azure DevOps]
@@ -41,7 +42,7 @@
   highlights:
     - "I joined as an external contractor and, after a year on the team, became a Zurich employee."
     - "I built pages in Sitecore from InVision designs, and worked with the design team to catch uncovered cases before publishing: responsive layouts, empty states, long content and component reuse."
-    - "I migrated JSS components to Next.js and TypeScript. That was my first step into frontend development."
+    - "I took part in migrating JSS components to Next.js and TypeScript. That was my first step into frontend development."
     - "I made sure the corporate website and blog looked consistent on desktop and mobile."
   stack: [Sitecore, InVision, Next.js, TypeScript]
 

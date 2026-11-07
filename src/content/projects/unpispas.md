@@ -1,7 +1,7 @@
 ---
 title: "unPisPas"
 client: "unPisPas · TPV en la nube y pedidos por QR para hostelería"
-summary: "Frontend de la web de unPisPas, un sistema de TPV en la nube y pedidos por QR para bares y restaurantes, montado a partir de un Figma. El cliente envió el diseño."
+summary: "Maquetación de la web de unPisPas a partir del diseño en Figma de otra persona: HTML, CSS y JavaScript, responsive, seis idiomas y accesibilidad."
 disciplines: ["code"]
 context: "freelance"
 startDate: 2026-01-01
@@ -10,7 +10,7 @@ role:
   - "Desarrollo frontend"
 tools: ["Figma", "HTML", "CSS", "JavaScript", "JSON"]
 tags: ["Frontend", "Figma to Code", "Accesibilidad", "Responsive", "Componentes", "Multilingüe"]
-hook: "La web comercial de un TPV en la nube, montada a partir del Figma que envió el cliente."
+hook: "Maquetación responsive de la web de un TPV en la nube, a partir del diseño en Figma de otra persona."
 detail: "Solo el frontend, en HTML, CSS y JavaScript puros, en contacto con el cliente y la diseñadora."
 cover:
   src: "../../assets/projects/unpispas/web-escritorio.webp"
@@ -31,7 +31,7 @@ order: 3
 
 ## Resumen
 
-unPisPas es un sistema de TPV en la nube y pedidos por QR para bares, cafeterías y restaurantes. Mi parte fue montar el frontend de su web a partir de un Figma ya diseñado. **El cliente envió el diseño.**
+unPisPas es un sistema de TPV en la nube y pedidos por QR para bares, cafeterías y restaurantes. Mi parte fue el frontend: maqueté la web a partir de un Figma diseñado por otra persona.
 
 ## Qué hice
 

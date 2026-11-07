@@ -1,33 +1,34 @@
 ---
 title: "Home"
-seo_title: "David Ibáñez · Design Engineer"
-description: "Portfolio of David Ibáñez, a Design Engineer in Barcelona: visual identity, UX/UI, prototypes, user testing and code."
+seo_title: "David Ibáñez · Design Engineer in Barcelona, UI and frontend"
+description: "Portfolio of David Ibáñez, Design Engineer in Barcelona. I design interfaces in Figma and build them with HTML, CSS and JavaScript, with frontend and quality experience."
 hero:
   headline: "I design interfaces that can be built and tested."
   headline_accent: ""
-  intro: "I’m David Ibáñez, a Design Engineer. I design digital products and build them in code, with accessibility and testing before every release."
+  intro: "I’m David Ibáñez, a Design Engineer in Barcelona. I work between design and frontend: I design interfaces in Figma and build them in code, with care for accessibility and quality."
   cta_primary: { label: "See projects", url: "#projects" }
   cta_secondary: { label: "Let’s talk", url: "#contact" }
   portrait:
     src: "../../assets/img/david-ibanez-front.jpg"
     alt: "Black-and-white portrait of David Ibáñez, wearing a cap, glasses and a zip-up jacket, smiling and looking straight ahead."
 projects_intro: "Two projects from start to finish, plus a frontend build from someone else’s design."
-experience_intro: "From web editor to quality lead, by way of frontend."
+experience_intro: "Six years on web teams: first publishing pages, then in frontend, and now looking after quality."
 about_intro:
-  - "I started in digital marketing and graduated in interaction design at UOC. Today I lead QA at Zurich Insurance, on the same team where I worked in web editing and frontend."
+  - "I started out in digital marketing. At Zurich Insurance I’ve moved through web editing, frontend and now quality, as Test and Quality Lead, and along the way I earned a degree in Digital Interaction and Multimedia at UOC. I’m a good fit for roles like Design Engineer, UX Engineer, UI Developer, Web Designer or Product Builder."
 skills:
-  - title: "In between"
+  - title: "Between design and code"
     items:
       - "Translating design decisions into tokens and components"
       - "Designing for states, edge cases and scalability"
       - "AI as a working tool, with the judgment to review what it suggests"
   - title: "Design"
     items:
-      - "Visual identity and brand guidelines"
+      - "Interface design in Figma: wireframes, flows and prototypes"
       - "Design Systems, tokens and accessibility (WCAG)"
+      - "Visual identity and brand guidelines"
   - title: "Code"
     items:
-      - "HTML, CSS/Sass and JavaScript"
+      - "HTML, CSS/Sass, JavaScript and responsive design"
       - "Familiar with these environments: React, Next.js, TypeScript and Astro"
   - title: "Quality"
     items:

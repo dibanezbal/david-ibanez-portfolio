@@ -1,7 +1,7 @@
 ---
 title: "Joan Pere Jové"
 client: "Joan Pere Jové, compositor y director de cine"
-summary: "Identidad visual completa y web bilingüe para un compositor que quería dar el salto de la afición a lo profesional. Desde el logotipo hasta un tema de WordPress a medida, pasando por un test con usuarios."
+summary: "Caso académico: identidad visual, UX/UI, test con usuarios y web bilingüe en WordPress para un compositor. TFG con Matrícula de Honor en la UOC."
 disciplines: ["design", "code"]
 context: "academic"
 startDate: 2026-02-01
@@ -14,7 +14,7 @@ role:
   - "Test con usuarios"
   - "Desarrollo del tema de WordPress"
 tools: ["Figma", "FigJam", "Maze", "InDesign", "WordPress", "Polylang", "PHP", "HTML", "CSS", "JavaScript", "ClickUp", "Claude"]
-tags: ["Branding", "UX Research", "UI Design", "Design System", "Accesibilidad", "Multilingüe", "WordPress"]
+tags: ["Branding", "Test con usuarios", "UI Design", "Design System", "Accesibilidad", "Multilingüe", "WordPress"]
 hook: "Un compositor con web, redes y tarjeta de visita, y ninguna marca que las uniera."
 detail: "Identidad visual, test con usuarios y tema de WordPress a medida para su web bilingüe."
 cover:
@@ -36,13 +36,15 @@ order: 1
 
 ## Resumen
 
+Este proyecto fue mi Trabajo de Fin de Grado en la UOC.
+
 Joan Pere lleva más de diez años componiendo y tres dirigiendo cortometrajes. Tenía web, redes y tarjeta de visita, pero cada pieza iba por su lado. Me pidió rediseñar la web y, al analizarlo todo, vi que el problema era otro: **no había una marca que lo uniera**.
 
 Joan Pere es mi marido, pero en este proyecto la relación fue de cliente.
 
 Así que el proyecto creció: identidad visual, manual de marca, prototipo web testeado con usuarios y la web en producción con un tema de WordPress hecho a medida.
 
-El punto de partida era una presencia digital dispersa, sin coherencia visual, en dos idiomas mezclados. Lo resolví con un sistema gráfico escalable (logo, tipografía, color, UI kit) aplicado a web, redes y papelería. El resultado es <a href="https://joanperejove.com/" target="_blank" rel="noopener noreferrer">joanperejove.com</a>, una web bilingüe catalán/inglés, publicada y en uso.
+Apliqué un sistema gráfico (logo, tipografía, color y UI kit) a la web, las redes y la papelería. El resultado es <a href="https://joanperejove.com/" target="_blank" rel="noopener noreferrer">joanperejove.com</a>, una web bilingüe catalán/inglés, publicada y en uso.
 
 ---
 

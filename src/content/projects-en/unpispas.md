@@ -1,7 +1,7 @@
 ---
 title: "unPisPas"
 client: "unPisPas · Cloud POS and QR ordering for hospitality"
-summary: "Frontend for the unPisPas website, a cloud POS and QR ordering system for bars and restaurants, built from a Figma file. The client sent the design."
+summary: "Frontend build of the unPisPas website from someone else’s Figma design: HTML, CSS and JavaScript, responsive, six languages and accessibility."
 disciplines: ["code"]
 context: "freelance"
 startDate: 2026-01-01
@@ -10,7 +10,7 @@ role:
   - "Frontend development"
 tools: ["Figma", "HTML", "CSS", "JavaScript", "JSON"]
 tags: ["Frontend", "Figma to Code", "Accessibility", "Responsive", "Components", "Multilingual"]
-hook: "The marketing website for a cloud POS, built from the Figma file the client sent."
+hook: "Responsive build of a cloud POS marketing website, from someone else’s Figma design."
 detail: "Frontend only, in plain HTML, CSS and JavaScript, in contact with the client and the designer."
 cover:
   src: "../../assets/projects/unpispas/web-escritorio-en.webp"
@@ -31,7 +31,7 @@ order: 3
 
 ## Summary
 
-unPisPas is a cloud POS and QR ordering system for bars, cafés and restaurants. My part was building the frontend of its website from a finished Figma design. **The client sent the design.**
+unPisPas is a cloud POS and QR ordering system for bars, cafés and restaurants. My part was the frontend: I built the website from a Figma file designed by someone else.
 
 ## What I did
 

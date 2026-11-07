@@ -1,7 +1,7 @@
 ---
 title: "LaButxaka"
 client: "Proyecto propio · Aplicación interactiva (UOC)"
-summary: "Aplicación web de finanzas personales diseñada y desarrollada de principio a fin: con los flujos en FigJam como base y una arquitectura MVC en PHP con base de datos relacional y componentes Shoelace personalizados."
+summary: "Aplicación web de finanzas personales, proyecto académico en la UOC: flujos en FigJam, diseño en Figma y desarrollo en PHP, con demo pública."
 disciplines: ["design", "code", "quality"]
 context: "academic"
 startDate: 2026-01-01
@@ -9,10 +9,10 @@ endDate: 2026-01-31
 role:
   - "UX/UI"
   - "Prototipado"
-  - "Desarrollo full-stack"
+  - "Desarrollo web con PHP y SQL"
   - "Testing"
 tools: ["Figma", "FigJam", "PHP", "SQL", "HTML", "CSS", "JavaScript", "Shoelace", "Git", "GitHub"]
-tags: ["Web App", "Full-stack", "MVC", "Web Components", "Responsive", "UX Writing", "Onboarding"]
+tags: ["Web App", "PHP", "MVC", "Web Components", "Responsive", "UX Writing", "Onboarding"]
 hook: "Una app de finanzas para quien solo quiere saber en qué se le va el dinero."
 detail: "La diseñé, la programé en PHP y la uso a diario para las cuentas de casa."
 cover:
@@ -34,11 +34,11 @@ order: 2
 
 ## Resumen
 
-*Butxaca* es "bolsillo" en catalán. LaButxaka es una aplicación web para llevar tus finanzas personales de forma autónoma: añades, editas y eliminas movimientos, los organizas por cuentas y categorías, y ves un resumen de cómo vas.
+*Butxaca* es "bolsillo" en catalán. LaButxaka es una aplicación web, nacida como proyecto académico en la UOC, para llevar tus finanzas personales de forma autónoma: añades, editas y eliminas movimientos, los organizas por cuentas y categorías, y ves un resumen de cómo vas.
 
 La diseñé y la desarrollé yo de principio a fin, y es el proyecto donde mejor se ve cómo conectan diseño y código: cada pantalla de Figma tiene detrás un controlador, un modelo y una tabla en la base de datos.
 
-Las apps de finanzas suelen pecar de complejas o de tener demasiadas funciones para quien solo quiere saber en qué se le va el dinero. Enfoqué la app en lo esencial (movimientos, cuentas, categorías, resumen) y la mantuve clara en desktop y en móvil. Hoy es una aplicación funcional en producción, con vídeo demo y tutorial interactivo para el usuario.
+Las apps de finanzas suelen pecar de complejas o de tener demasiadas funciones para quien solo quiere saber en qué se le va el dinero. Enfoqué la app en lo esencial (movimientos, cuentas, categorías, resumen) y la mantuve clara en desktop y en móvil. Hoy es una aplicación funcional que uso en casa, con demo pública, vídeo y tutorial interactivo.
 
 ---
 

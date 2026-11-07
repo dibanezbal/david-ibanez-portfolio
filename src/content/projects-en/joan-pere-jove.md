@@ -1,7 +1,7 @@
 ---
 title: "Joan Pere Jové"
 client: "Joan Pere Jové, composer and film director"
-summary: "Full visual identity and a bilingual website for a composer who wanted to go from hobby to profession. From the logo to a custom WordPress theme, with user testing along the way."
+summary: "Academic case study: visual identity, UX/UI, user testing and a bilingual WordPress website for a composer. Final degree project with Honors at UOC."
 disciplines: ["design", "code"]
 context: "academic"
 startDate: 2026-02-01
@@ -14,7 +14,7 @@ role:
   - "User testing"
   - "WordPress theme development"
 tools: ["Figma", "FigJam", "Maze", "InDesign", "WordPress", "Polylang", "PHP", "HTML", "CSS", "JavaScript", "ClickUp", "Claude"]
-tags: ["Branding", "UX Research", "UI Design", "Design System", "Accessibility", "Multilingual", "WordPress"]
+tags: ["Branding", "User testing", "UI Design", "Design System", "Accessibility", "Multilingual", "WordPress"]
 hook: "A composer with a website, social media and a business card, and no brand tying them together."
 detail: "Visual identity, user testing and a custom WordPress theme for his bilingual website."
 cover:
@@ -36,13 +36,15 @@ order: 1
 
 ## Summary
 
+This project was my final degree project at UOC.
+
 Joan Pere has been composing for more than ten years and directing short films for three. He had a website, social media and a business card, but each one went its own way. He asked me to redesign the website and, when I looked at everything, I saw the problem was something else: **there was no brand tying it together**.
 
 Joan Pere is my husband, but on this project our relationship was client and designer.
 
 So the project grew: visual identity, brand guidelines, a web prototype tested with users and the live website on a custom WordPress theme.
 
-The starting point was a scattered digital presence, with no visual consistency and two languages mixed together. I solved it with a scalable graphic system (logo, typography, color, UI kit) applied to the website, social media and stationery. The result is <a href="https://joanperejove.com/en/" target="_blank" rel="noopener noreferrer">joanperejove.com</a>, a bilingual Catalan/English website, live and in use.
+I applied a graphic system (logo, typography, color and UI kit) to the website, social media and stationery. The result is <a href="https://joanperejove.com/en/" target="_blank" rel="noopener noreferrer">joanperejove.com</a>, a bilingual Catalan/English website, live and in use.
 
 ---
 

@@ -5,7 +5,7 @@
   company: Zurich Insurance Group
   location: Barcelona
   startDate: 2025-06-01
-  summary: Trabajo en el equipo que gestiona el desarrollo, la edición y la calidad de más de 50 sitios web.
+  summary: Trabajo en el equipo que gestiona el desarrollo, la edición y la calidad de más de 50 sitios web. Me encargo de la estrategia de pruebas y de ejecutarlas, y coordino a testers cuando el proyecto lo requiere.
   highlights:
     - "Diseñé y desarrollé un portal interno que reúne todas las automatizaciones de QA. Las pruebas manuales tardan ahora un 65 % menos."
     - "Defino y superviso la estrategia de pruebas de aceptación (UAT). En la primera fase de la migración de un sitio de 2.000 páginas, superamos el control de calidad con un 98 %, cuando se exigía un 95 %."
@@ -22,11 +22,12 @@
   location: Barcelona
   startDate: 2023-06-01
   endDate: 2025-06-30
+  summary: "Trabajé entre Figma y el código, en el mismo equipo: componentes, Design System y accesibilidad."
   highlights:
-    - Desarrollé componentes reutilizables en React, Next.js y TypeScript para los sitios corporativos, alineados con el Design System en Figma.
-    - "Impulsé con el equipo de diseño UX/UI la evolución del Design System en Storybook y Figma, para acercar diseño y código."
+    - Modifiqué y mantuve componentes en React, Next.js y TypeScript para los sitios corporativos, alineados con el Design System en Figma.
+    - "Trabajé con el equipo de diseño UX/UI en la evolución del Design System en Storybook y Figma, para acercar diseño y código."
     - "Hice accesibles +15 componentes web para quienes usan lector de pantalla o teclado, siguiendo WCAG."
-    - "Introduje el testing automatizado con Percy y CI/CD en Azure DevOps. Ahí empezó el área de calidad que hoy lidero."
+    - "Introduje el testing automatizado con Percy y CI/CD en Azure DevOps. Ahí empezó el área de calidad en la que trabajo hoy."
   metrics:
     - { value: "+15", label: "componentes web adaptados a WCAG" }
   stack: [React, Next.js, TypeScript, Storybook, Figma, Percy, Azure DevOps]
@@ -41,7 +42,7 @@
   highlights:
     - "Entré como externo y, tras un año en el equipo, pasé a la plantilla de Zurich."
     - "Construía páginas en Sitecore a partir de diseños en InVision, y con el equipo de diseño detectaba antes de publicar los casos no contemplados: responsive, estados vacíos, contenido largo o reutilización de componentes."
-    - "Migré componentes JSS a Next.js y TypeScript. Fue mi primer paso hacia el desarrollo frontend."
+    - "Participé en la migración de componentes JSS a Next.js y TypeScript. Fue mi primer paso hacia el desarrollo frontend."
     - "Cuidé que la web y el blog corporativos se vieran coherentes en escritorio y móvil."
   stack: [Sitecore, InVision, Next.js, TypeScript]
 
