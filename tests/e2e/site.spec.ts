@@ -111,3 +111,15 @@ test('tocar fuera cierra el menú móvil', async ({ page }) => {
 	await expect(button.locator('[data-icono-menu="abrir"]')).toBeVisible();
 	await expect(page.locator('#menu-principal')).toBeHidden();
 });
+
+test('el sitemap incluye las páginas en los dos idiomas y deja fuera las 404', async ({ request }) => {
+	const robots = await (await request.get('/robots.txt')).text();
+	expect(robots).toContain('Sitemap: https://davidib.com/sitemap-index.xml');
+	const index = await request.get('/sitemap-index.xml');
+	expect(index.ok()).toBe(true);
+	const sitemap = await (await request.get('/sitemap-0.xml')).text();
+	for (const path of ['/', '/en/', '/sobre-mi/', '/en/about/', '/proyectos/labutxaka/', '/en/projects/labutxaka/']) {
+		expect(sitemap).toContain(`<loc>https://davidib.com${path}</loc>`);
+	}
+	expect(sitemap).not.toContain('404');
+});

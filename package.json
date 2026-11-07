@@ -14,6 +14,7 @@
     "test:links": "playwright test --project=links"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.4",
     "astro": "^7.4.0",
     "tailwindcss": "^4.3.4"

@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
 
+import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
@@ -13,6 +14,8 @@ export default defineConfig({
 		defaultLocale: 'es',
 		routing: { prefixDefaultLocale: false },
 	},
+	// Los pares de idiomas ya se declaran con hreflang en cada página
+	integrations: [sitemap({ filter: (page) => !page.includes('/404') })],
 	fonts: [
 		{
 			provider: fontProviders.fontsource(),
