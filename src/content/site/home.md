@@ -5,7 +5,7 @@ description: "Portfolio de David Ibáñez, Design Engineer en Barcelona. Diseño
 hero:
   headline: "Diseño interfaces que se pueden construir y probar."
   headline_accent: ""
-  intro: "Soy David Ibáñez, Design Engineer en Barcelona. Trabajo entre el diseño y el frontend: diseño interfaces en Figma y las construyo en código, cuidando la accesibilidad y la calidad."
+  intro: "Soy David Ibáñez, Design Engineer en Barcelona. Combino diseño de interfaces, prototipado e implementación frontend para convertir ideas visuales en experiencias digitales funcionales y accesibles."
   cta_primary: { label: "Ver proyectos", url: "#proyectos" }
   cta_secondary: { label: "Hablemos", url: "#contacto" }
   portrait:
@@ -16,24 +16,25 @@ experience_intro: "Seis años en equipos web: primero publicando páginas, luego
 about_intro:
   - "Vengo del marketing digital. En Zurich Insurance he pasado por la edición web, el frontend y ahora la calidad, como Test and Quality Lead, y en paralelo me gradué en Técnicas de Interacción Digital y Multimedia en la UOC. Encajo en puestos como Design Engineer, UX Engineer, UI Developer, Web Designer o Product Builder."
 skills:
-  - title: "Entre diseño y código"
-    items:
-      - "Traducir decisiones de diseño a tokens y componentes"
-      - "Diseñar pensando en estados, casos límite y escalabilidad"
-      - "IA como herramienta de trabajo, con criterio para revisar lo que propone"
   - title: "Diseño"
     items:
-      - "Diseño de interfaces en Figma: wireframes, flujos y prototipos"
-      - "Design Systems, tokens y accesibilidad (WCAG)"
-      - "Identidad visual y manuales de marca"
-  - title: "Código"
+      - "Diseño de interfaces en Figma: wireframes, flujos y prototipos interactivos"
+      - "Design Systems, design tokens y accesibilidad (WCAG)"
+      - "Identidad visual, manuales de marca y guías de estilos"
+  - title: "Implementación visual"
     items:
       - "HTML, CSS/Sass, JavaScript y diseño responsive"
-      - "Familiarizado con entornos: React, Next.js, TypeScript y Astro"
-  - title: "Calidad"
+      - "Traducir diseños en componentes reutilizables y escalables"
+      - "Prototipado funcional para validar ideas antes de producción"
+  - title: "Frameworks y herramientas"
     items:
+      - "Familiarizado con React, Next.js, TypeScript y Astro"
+      - "Storybook para documentar y gestionar componentes"
+      - "IA como herramienta de trabajo, con criterio para revisar lo que propone"
+  - title: "Accesibilidad y validación"
+    items:
+      - "WCAG, auditorías de accesibilidad y testing automatizado"
       - "Playwright y regresión visual con Percy"
-      - "CI/CD en Azure DevOps"
       - "ISTQB Certified Tester Foundation Level v4"
 tools: ["Figma", "FigJam", "Storybook", "Maze", "WordPress", "Git", "Claude"]
 contact:

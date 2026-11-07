@@ -26,6 +26,7 @@ links:
   - label: "Demo compartida con el cliente"
     url: "https://unpispas-test.netlify.app/"
     kind: "prototype"
+featured: true
 order: 3
 ---
 

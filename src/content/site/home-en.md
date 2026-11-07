@@ -5,7 +5,7 @@ description: "Portfolio of David Ibáñez, Design Engineer in Barcelona. I desig
 hero:
   headline: "I design interfaces that can be built and tested."
   headline_accent: ""
-  intro: "I’m David Ibáñez, a Design Engineer in Barcelona. I work between design and frontend: I design interfaces in Figma and build them in code, with care for accessibility and quality."
+  intro: "I’m David Ibáñez, a Design Engineer in Barcelona. I combine interface design, prototyping and frontend implementation to turn visual ideas into functional and accessible digital experiences."
   cta_primary: { label: "See projects", url: "#projects" }
   cta_secondary: { label: "Let’s talk", url: "#contact" }
   portrait:
@@ -16,24 +16,25 @@ experience_intro: "Six years on web teams: first publishing pages, then in front
 about_intro:
   - "I started out in digital marketing. At Zurich Insurance I’ve moved through web editing, frontend and now quality, as Test and Quality Lead, and along the way I earned a degree in Digital Interaction and Multimedia at UOC. I’m a good fit for roles like Design Engineer, UX Engineer, UI Developer, Web Designer or Product Builder."
 skills:
-  - title: "Between design and code"
-    items:
-      - "Translating design decisions into tokens and components"
-      - "Designing for states, edge cases and scalability"
-      - "AI as a working tool, with the judgment to review what it suggests"
   - title: "Design"
     items:
-      - "Interface design in Figma: wireframes, flows and prototypes"
-      - "Design Systems, tokens and accessibility (WCAG)"
-      - "Visual identity and brand guidelines"
-  - title: "Code"
+      - "Interface design in Figma: wireframes, flows and interactive prototypes"
+      - "Design Systems, design tokens and accessibility (WCAG)"
+      - "Visual identity, brand guidelines and design systems"
+  - title: "Visual implementation"
     items:
       - "HTML, CSS/Sass, JavaScript and responsive design"
-      - "Familiar with these environments: React, Next.js, TypeScript and Astro"
-  - title: "Quality"
+      - "Translating designs into reusable and scalable components"
+      - "Functional prototyping to validate ideas before production"
+  - title: "Frameworks and tools"
     items:
+      - "Familiar with React, Next.js, TypeScript and Astro"
+      - "Storybook for documenting and managing components"
+      - "AI as a working tool, with the judgment to review what it suggests"
+  - title: "Accessibility and validation"
+    items:
+      - "WCAG, accessibility audits and automated testing"
       - "Playwright and visual regression with Percy"
-      - "CI/CD in Azure DevOps"
       - "ISTQB Certified Tester Foundation Level v4"
 tools: ["Figma", "FigJam", "Storybook", "Maze", "WordPress", "Git", "Claude"]
 contact:
