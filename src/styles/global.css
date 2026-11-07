@@ -160,6 +160,15 @@
 			background-color: transparent;
 		}
 
+		/* Los wireframes son transparentes: la hoja blanca los mantiene legibles en modo oscuro. La tarjeta final conserva sus esquinas */
+		& .figure-versions p:not(:last-of-type) img {
+			background-color: var(--color-sheet);
+		}
+
+		& .figure-versions p:first-of-type img {
+			padding: 0.75rem;
+		}
+
 		& .figure-video video:nth-of-type(2) {
 			max-width: 16rem;
 		}

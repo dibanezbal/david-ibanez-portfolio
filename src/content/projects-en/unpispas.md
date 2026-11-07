@@ -1,16 +1,16 @@
 ---
 title: "unPisPas"
 client: "unPisPas · Cloud POS and QR ordering for hospitality"
-summary: "Frontend build of the unPisPas website from someone else’s Figma design: HTML, CSS and JavaScript, responsive, six languages and accessibility."
+summary: "Frontend build of the unPisPas website from a Figma design by Julia Carrión: HTML, CSS and JavaScript, responsive, six languages and accessibility."
 disciplines: ["code"]
 context: "freelance"
 startDate: 2026-01-01
-endDate: 2026-05-31
+endDate: 2026-03-31
 role:
   - "Frontend development"
 tools: ["Figma", "HTML", "CSS", "JavaScript", "JSON"]
 tags: ["Frontend", "Figma to Code", "Accessibility", "Responsive", "Components", "Multilingual"]
-hook: "Responsive build of a cloud POS marketing website, from someone else’s Figma design."
+hook: "Responsive build of a cloud POS marketing website, from a Figma design."
 detail: "Frontend only, in plain HTML, CSS and JavaScript, in contact with the client and the designer."
 cover:
   src: "../../assets/projects/unpispas/web-escritorio-en.webp"
@@ -31,7 +31,7 @@ order: 3
 
 ## Summary
 
-unPisPas is a cloud POS and QR ordering system for bars, cafés and restaurants. My part was the frontend: I built the website from a Figma file designed by someone else.
+unPisPas is a cloud POS and QR ordering system for bars, cafés and restaurants. My part was the frontend: I built the website from a Figma file designed by <a href="https://www.trama22.com/" target="_blank" rel="noopener noreferrer">Julia Carrión</a>.
 
 ## What I did
 
@@ -39,7 +39,17 @@ I built the website in plain HTML, CSS and JavaScript: responsive, with reusable
 
 I left the website ready for six languages, with each one's content injected from JSON. I also prepared a scaffold: when you run it, it generates a new language with the same pages and imports its content from JSON, so adding languages doesn't require rebuilding the layout.
 
-During development, from January to May 2026, I was in contact with the client and the designer. Most of what I asked the designer to change was about accessibility. In everything else I stuck to what was in Figma.
+During development, from January to March 2026, I was in contact with the client and the designer. Most of what I asked the designer to change was about accessibility. Otherwise I stuck to the Figma design; the client asked for the home page copy changes.
+
+<figure class="figure-pair">
+
+![The unPisPas home page in Figma: dark header, a photo of a waiter with a tablet, a headline, a button reading Prueba 1 mes gratis and six circular icons below.](../../assets/projects/unpispas/figma-inicio.webp)
+
+![The same home page on the live website, with a shorter headline, a button reading Pide una demo and the same six icons below.](../../assets/projects/unpispas/web-final-inicio.webp)
+
+<figcaption>The home page in Figma and the same page on the live website, both in Spanish.</figcaption>
+
+</figure>
 
 For example, the yellow text on the highlighted button didn't pass contrast on the white background: it came to 1.53:1. I talked to the designer about the accessibility problem: she suggested changing the text to black, and the client confirmed it.
 
