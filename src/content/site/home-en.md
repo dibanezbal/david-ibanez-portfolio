@@ -51,4 +51,6 @@ Years later, in Barcelona, while I was working as a web editor and then in front
 
 In 2026 I work as Test and Quality Lead on the same Zurich Insurance team where I used to be a web editor and Frontend Developer. That experience taught me how an interface gets built, how it gets tested and where it tends to break.
 
+Now I want to bring all of that to product design: exploring solutions with the team, designing the interfaces and building prototypes to test them before they reach production.
+
 I'd describe myself as curious and committed. I care about social justice, especially LGBTQ+ rights. I often overthink things, but when something needs solving, I go for the most pragmatic option. I love traveling, going to concerts, a good movie and an afternoon on a terrace with friends.
