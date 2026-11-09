@@ -84,3 +84,14 @@
   datePrecision: year
   highlights:
     - I brought English and Spanish to the local community through radio programs and language classes.
+
+- id: evrokom-tv-prácticas
+  role: Audiovisual Production Internship
+  company: Evrokom TV
+  location: Sofia, Bulgaria
+  startDate: 2015-03-01
+  endDate: 2015-06-30
+  summary: Internship during Higher Education Degree in Audiovisual Projects and Events Realization. Video editing and animation in television production context.
+  highlights:
+    - Video editing and animation in After Effects in a television production context.
+  stack: [After Effects, Adobe Creative Suite, Video Editing]

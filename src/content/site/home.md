@@ -21,6 +21,11 @@ skills:
       - "Diseño de interfaces en Figma: wireframes, flujos y prototipos interactivos"
       - "Design Systems, design tokens y accesibilidad (WCAG)"
       - "Identidad visual, manuales de marca y guías de estilos"
+  - title: "Motion & Audiovisual"
+    items:
+      - "Motion graphics, animación y edición de vídeo"
+      - "Adobe Creative Suite: After Effects, Premiere Pro, Illustrator, InDesign"
+      - "Prototipado dinámico y experiencias audiovisuales"
   - title: "Implementación visual"
     items:
       - "HTML, CSS/Sass, JavaScript y diseño responsive"

@@ -84,3 +84,14 @@
   datePrecision: year
   highlights:
     - Acerqué el inglés y el español a la comunidad local con programas de radio y clases de idiomas.
+
+- id: evrokom-tv-prácticas
+  role: Prácticas en Realización Audiovisual
+  company: Evrokom TV
+  location: Sofía, Bulgaria
+  startDate: 2015-03-01
+  endDate: 2015-06-30
+  summary: Prácticas del Grado Superior en Realización de Proyectos Audiovisuales y Espectáculos. Montaje de vídeo y animación en contexto de producción televisiva.
+  highlights:
+    - Montaje de vídeo y animación en After Effects en contexto de producción televisiva.
+  stack: [After Effects, Adobe Creative Suite, Edición de vídeo]
