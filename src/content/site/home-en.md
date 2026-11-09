@@ -1,7 +1,7 @@
 ---
 title: "Home"
 seo_title: "David Ibáñez · Design Engineer in Barcelona, UI and frontend"
-description: "Portfolio of David Ibáñez, Design Engineer in Barcelona. I design interfaces in Figma and build them with HTML, CSS and JavaScript, with frontend and quality experience."
+description: "Portfolio of David Ibáñez, Design Engineer in Barcelona. Interface design, prototyping and visual implementation: from Figma to functional and accessible code."
 hero:
   headline: "I design interfaces that can be built and tested."
   headline_accent: ""
