@@ -1,0 +1,140 @@
+---
+import { Image } from 'astro:assets';
+import { getLang, ui } from '../../i18n/ui';
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../SiteHeader.astro';
+import SiteFooter from '../SiteFooter.astro';
+import QRCard from '../QRCard.astro';
+import davidFront from '../../assets/img/david-ibanez-front.jpg';
+
+const lang = getLang(Astro.currentLocale);
+const t = ui[lang];
+const cardUrl = `https://davidib.com${lang === 'en' ? '/en' : ''}/card`;
+
+const contact = {
+	name: 'David Ibáñez',
+	title: 'Design & Development',
+	email: 'dibanezbal@gmail.com',
+	phone: '+34 123 456 789', // Reemplazar con número real
+	linkedin: 'https://www.linkedin.com/in/davidib',
+	github: 'https://github.com/dibanezbal',
+	website: 'davidib.com'
+};
+
+const cvFiles = {
+	es: '/cv/David-Ibanez-CV-ES.pdf',
+	en: '/cv/David-Ibanez-CV-EN.pdf'
+};
+
+const labels = {
+	es: {
+		title: 'Tarjeta Digital',
+		title2: 'David Ibáñez',
+		downloadCV: 'Descargar CV',
+		language: 'Idioma:',
+		or: 'o',
+		scanQR: 'Escanea este código QR',
+		shareInfo: 'Comparte esta tarjeta'
+	},
+	en: {
+		title: 'Digital Card',
+		title2: 'David Ibáñez',
+		downloadCV: 'Download CV',
+		language: 'Language:',
+		or: 'or',
+		scanQR: 'Scan this QR code',
+		shareInfo: 'Share this card'
+	}
+};
+
+const label = labels[lang];
+---
+
+<Layout title={`Tarjeta Digital · David Ibáñez`} description={`Tarjeta de visita digital de David Ibáñez, Design Engineer en Barcelona`}>
+	<SiteHeader />
+
+	<main id="contenido" class="shell py-10 md:py-16">
+		<div class="mx-auto max-w-md">
+			<!-- Encabezado -->
+			<div class="mb-8 text-center">
+				<h1 class="text-2xl font-semibold md:text-3xl">{label.title}</h1>
+			</div>
+
+			<!-- Tarjeta física simulada -->
+			<div class="mb-12 overflow-hidden rounded-lg border-2 border-ink bg-paper shadow-lg">
+				<!-- Frente de la tarjeta -->
+				<div class="border-b-2 border-ink bg-gradient-to-br from-paper to-paper p-6">
+					<div class="mb-6 flex justify-center">
+						<Image src={davidFront} alt="David Ibáñez" class="h-16 w-16 rounded-full object-cover" />
+					</div>
+					<div class="text-center">
+						<h2 class="text-xl font-semibold text-ink">{contact.name}</h2>
+						<p class="mt-1 text-sm text-muted">{contact.title}</p>
+						<p class="mt-2 text-xs text-muted">{contact.website}</p>
+					</div>
+				</div>
+
+				<!-- Reverso de la tarjeta -->
+				<div class="space-y-4 bg-paper p-6">
+					<!-- Contacto interactivo -->
+					<div class="space-y-3">
+						<a href={`mailto:${contact.email}`} class="block text-sm text-accent transition-colors hover:text-ink">
+							📧 {contact.email}
+						</a>
+						<a href={`tel:${contact.phone.replace(/\s/g, '')}`} class="block text-sm text-accent transition-colors hover:text-ink">
+							📱 {contact.phone}
+						</a>
+						<a href={contact.linkedin} target="_blank" rel="noopener noreferrer" class="block text-sm text-accent transition-colors hover:text-ink">
+							🔗 LinkedIn
+						</a>
+						<a href={contact.github} target="_blank" rel="noopener noreferrer" class="block text-sm text-accent transition-colors hover:text-ink">
+							💻 GitHub
+						</a>
+					</div>
+
+					<!-- Selector de CV -->
+					<div class="border-t border-ink pt-4">
+						<p class="mb-2 text-xs font-medium text-muted">{label.language}</p>
+						<div class="flex gap-2">
+							<a
+								href={cvFiles.es}
+								download
+								class="flex-1 rounded bg-accent px-3 py-2 text-center text-xs font-medium text-paper transition-colors hover:bg-ink"
+							>
+								CV ES
+							</a>
+							<span class="flex items-center text-xs text-muted">{label.or}</span>
+							<a
+								href={cvFiles.en}
+								download
+								class="flex-1 rounded bg-accent px-3 py-2 text-center text-xs font-medium text-paper transition-colors hover:bg-ink"
+							>
+								CV EN
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- QR Section -->
+			<div class="rounded-lg border border-ink bg-paper p-8">
+				<p class="mb-6 text-center text-sm font-medium text-muted">{label.scanQR}</p>
+				<QRCard url={cardUrl} size={240} />
+				<p class="mt-4 text-center text-xs text-muted">{label.shareInfo}</p>
+			</div>
+
+			<!-- Footer -->
+			<div class="mt-12 text-center">
+				<p class="text-xs text-muted">davidib.com/card</p>
+			</div>
+		</div>
+	</main>
+
+	<SiteFooter />
+</Layout>
+
+<style>
+	:global(body) {
+		background: var(--color-paper);
+	}
+</style>

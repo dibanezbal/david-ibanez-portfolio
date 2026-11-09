@@ -1,0 +1,35 @@
+---
+interface Props {
+	url: string;
+	size?: number;
+}
+
+const { url, size = 280 } = Astro.props;
+
+// Generar QR usando API de qrserver.com
+// Utiliza error correction level H para permitir logotipo en el centro
+const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(url)}&ecc=H`;
+---
+
+<div class="qr-container">
+	<img src={qrApiUrl} alt="QR Code para {url}" width={size} height={size} class="qr-image" />
+</div>
+
+<style>
+	.qr-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1rem;
+		background: white;
+		border-radius: 0.5rem;
+	}
+
+	.qr-image {
+		width: 100%;
+		max-width: 280px;
+		height: auto;
+		image-rendering: pixelated;
+		image-rendering: crisp-edges;
+	}
+</style>
