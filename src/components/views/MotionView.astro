@@ -1,101 +1,160 @@
 ---
-import { getLang, ui, routes } from '../../i18n/ui';
+import { getLang, routes, ui } from '../../i18n/ui';
 import SiteFooter from '../SiteFooter.astro';
 import SiteHeader from '../SiteHeader.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const lang = getLang(Astro.currentLocale);
 const t = ui[lang];
+const route = routes[lang];
+const en = lang === 'en';
 
-const isEN = lang === 'en';
-const pageTitle = isEN ? 'Motion Graphics' : 'Motion Graphics';
-const pageDescription = isEN
-  ? 'Motion graphics projects with animation and video editing'
-  : 'Proyectos de motion graphics con animación y edición de vídeo';
+const copy = en
+	? {
+			title: 'Motion graphics',
+			description:
+				"Motion graphics by David Ibáñez: an animated header for Joan Pere Jové's visual identity and the opening titles of the short film La il·lusió efímera.",
+			lead: 'Animation and graphic design for two projects from 2026, made with the Adobe suite.',
+			back: 'Projects',
+			role: 'Role',
+			tools: 'Tools',
+			context: 'Context',
+			direction: 'Director',
+			youtube: 'Watch on YouTube',
+			fullFilm: 'Watch the full short film',
+			seeCase: t.seeCase,
+		}
+	: {
+			title: 'Motion graphics',
+			description:
+				'Motion graphics de David Ibáñez: cabecera animada para la identidad visual de Joan Pere Jové y créditos iniciales del cortometraje La il·lusió efímera.',
+			lead: 'Animación y diseño gráfico en dos proyectos de 2026, hechos con la suite de Adobe.',
+			back: 'Proyectos',
+			role: 'Rol',
+			tools: 'Herramientas',
+			context: 'Contexto',
+			direction: 'Dirección',
+			youtube: 'Ver en YouTube',
+			fullFilm: 'Ver el corto completo',
+			seeCase: t.seeCase,
+		};
 
-const videos = [
-  {
-    id: 'joan-pere-jove',
-    title: isEN ? 'Joan Pere Jové - Visual Identity Animation' : 'Joan Pere Jové - Animación de Identidad Visual',
-    description: isEN
-      ? 'Application of Joan Pere\'s visual identity in which the graphic elements that formed the isotype are animated. The layers were prepared in Illustrator and animated in After Effects using audio composed by Joan Pere.'
-      : 'Aplicación de la identidad visual de Joan Pere en la que se animan los elementos gráficos con los que se formó el isotipo. Se prepararon las capas con Illustrator y se animaron en After Effects utilizando un audio compuesto por Joan Pere.',
-    videoSrc: '/videos/joan-pere-jove/cabecera-youtube.mp4',
-    youtubeLink: 'https://www.youtube.com/watch?v=fwJvXFFfUII',
-    linkText: isEN ? 'Watch on YouTube' : 'Ver en Youtube'
-  },
-  {
-    id: 'la-ilusio-efimera',
-    title: isEN ? 'La il·lusió efímera - Short Film Intro' : 'La il·lusió efímera - Intro del Cortometraje',
-    description: isEN
-      ? 'The director\'s idea for the short film\'s introduction was to show a pursuit between the sculpture/vase and the protagonist. Based on this concept, I decided to use the line as a halo showing that chase until they finally meet. Created with layers from the film itself and the color palette used in other graphic elements featured in the short.'
-      : 'La idea del director para la introducción del cortometraje era mostrar una persecución entre la escultura/jarrón y el protagonista. Con esta información decidí que la línea haría de halo mostrando esa persecución hasta que al final se encuentran. Se creó con capas de capturas del propio cortometraje y la paleta de colores utilizada en otros elementos gráficos empleados en el corto.',
-    videoSrc: '/videos/la-ilusio-efimera/intro.mp4',
-    shortFilmLink: 'https://www.youtube.com/watch?v=JErSDsep9ms',
-    linkText: isEN ? 'Watch the full short film' : 'Ver el corto completo'
-  }
+const pieces = [
+	{
+		id: 'joan-pere-jove',
+		title: en ? 'Joan Pere Jové: animated header' : 'Joan Pere Jové: cabecera animada',
+		hook: en ? "Joan Pere's visual identity in motion." : 'La identidad visual de Joan Pere en movimiento.',
+		meta: en ? 'Design · Academic · 2026' : 'Diseño · Académico · 2026',
+		description: en
+			? 'An application of the visual identity in which the graphic elements that formed the isotype are animated. I prepared the layers in Illustrator and animated them in After Effects, set to a piece of music composed by Joan Pere himself.'
+			: 'Una aplicación de la identidad visual en la que se animan los elementos gráficos con los que se formó el isotipo. Preparé las capas en Illustrator y las animé en After Effects, con una pieza musical compuesta por el propio Joan Pere.',
+		facts: [
+			[copy.role, en ? 'Visual identity design' : 'Diseño de identidad visual'],
+			[copy.tools, 'Illustrator, After Effects'],
+			[copy.context, en ? 'Final degree project (UOC): an example of applying the visual identity manual' : 'Trabajo de Fin de Grado (UOC): ejemplo de aplicación del manual de identidad visual'],
+		],
+		video: '/videos/joan-pere-jove/cabecera-youtube.mp4',
+		poster: '/videos/joan-pere-jove/poster.jpg',
+		label: en ? 'Animated header for Joan Pere Jové, 15 seconds, with music' : 'Cabecera animada de Joan Pere Jové, 15 segundos, con música',
+		links: [
+			{ label: copy.seeCase, url: route.project('joan-pere-jove'), internal: true },
+			{ label: copy.youtube, url: 'https://www.youtube.com/watch?v=fwJvXFFfUII', internal: false },
+		],
+	},
+	{
+		id: 'la-ilusio-efimera',
+		title: en ? 'La il·lusió efímera: opening titles' : 'La il·lusió efímera: créditos iniciales',
+		hook: en ? 'A line that acts as a halo in a chase between a sculpture and the protagonist.' : 'Una línea que hace de halo en la persecución entre una escultura y el protagonista.',
+		meta: en ? 'Graphic design and motion · Short film · 2026' : 'Diseño gráfico y motion · Cortometraje · 2026',
+		description: en
+			? "The director's idea for the opening was a chase between the sculpture/vase and the protagonist. I made a line act as a halo that follows that chase until they finally meet. I built it from layers of captures from the film itself and the colour palette of the short's other graphic elements."
+			: 'La idea del director para la introducción era una persecución entre la escultura/jarrón y el protagonista. Hice que una línea hiciera de halo y siguiera esa persecución hasta que al final se encuentran. La construí con capas de capturas del propio corto y la paleta de colores de sus otros elementos gráficos.',
+		facts: [
+			[copy.role, en ? 'Design and animation of the opening titles; design of posters and leaflets as props for the film' : 'Diseño y animación de los créditos iniciales; diseño de carteles y trípticos como props del corto'],
+			[copy.tools, 'Illustrator, Photoshop, After Effects'],
+			[copy.direction, 'Joan Pere Jové'],
+		],
+		video: '/videos/la-ilusio-efimera/intro.mp4',
+		poster: '/videos/la-ilusio-efimera/poster.jpg',
+		label: en ? 'Opening titles of the short film La il·lusió efímera, 33 seconds' : 'Créditos iniciales del cortometraje La il·lusió efímera, 33 segundos',
+		links: [{ label: copy.fullFilm, url: 'https://www.youtube.com/watch?v=JErSDsep9ms', internal: false }],
+	},
 ];
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
-  <SiteHeader />
+<Layout title={copy.title} description={copy.description}>
+	<SiteHeader />
 
-  <main class="px-6 py-16 md:py-24">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">
-        {pageTitle}
-      </h1>
-      <p class="text-lg text-muted mb-16">
-        {pageDescription}
-      </p>
+	<main id="contenido">
+		<div class="shell pb-16 pt-10 md:pb-24 md:pt-16">
+			<a
+				href={`${route.home}#${route.anchors.projects}`}
+				class="inline-block py-1 text-sm underline-offset-4 transition-colors hover:text-accent-text hover:underline"
+			>
+				<span aria-hidden="true">←</span> {copy.back}
+			</a>
+			<h1 class="mt-10 text-[clamp(2.25rem,4.6vw,4.5rem)] font-semibold leading-[1.04] tracking-[-0.02em]">{copy.title}</h1>
+			<p class="mt-6 max-w-prose text-xl leading-relaxed text-muted">{copy.lead}</p>
 
-      <div class="space-y-20">
-        {videos.map((video) => (
-          <div class="space-y-6">
-            <div class="aspect-video bg-black rounded-lg overflow-hidden">
-              <video
-                src={video.videoSrc}
-                controls
-                class="w-full h-full object-cover"
-              />
-            </div>
+			<div class="mt-12 md:mt-16">
+				{
+					pieces.map((piece, index) => (
+						<article class="grid gap-8 border-t border-ink py-10 lg:grid-cols-12 lg:gap-12 lg:py-16">
+							<div class="lg:col-span-4">
+								<h2 class="text-3xl font-semibold leading-tight tracking-tight md:text-4xl">{piece.title}</h2>
+								<p class="mt-5 text-xl leading-snug">{piece.hook}</p>
+								<p class="mt-5 text-sm leading-relaxed text-muted">{piece.meta}</p>
+								<p id={`${piece.id}-desc`} class="mt-6 max-w-prose leading-relaxed text-muted">
+									{piece.description}
+								</p>
+								<dl class="mt-6 space-y-3 text-sm leading-relaxed">
+									{piece.facts.map(([term, value]) => (
+										<div>
+											<dt class="font-medium">{term}</dt>
+											<dd class="text-muted">{value}</dd>
+										</div>
+									))}
+								</dl>
+								<ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-medium">
+									{piece.links.map((link) => (
+										<li>
+											<a
+												href={link.url}
+												{...(link.internal ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+												class:list={[
+													'inline-flex min-h-6 items-center gap-1 underline underline-offset-4 transition-colors',
+													link.internal ? 'text-accent-text hover:text-ink' : 'hover:text-accent-text',
+												]}
+											>
+												{link.label}
+												<span aria-hidden="true">{link.internal ? '→' : '↗'}</span>
+												{!link.internal && <span class="sr-only">{en ? ' (opens in a new tab)' : ' (se abre en una pestaña nueva)'}</span>}
+											</a>
+										</li>
+									))}
+								</ul>
+							</div>
 
-            <div>
-              <h2 class="text-2xl font-bold mb-3">
-                {video.title}
-              </h2>
-              <p class="text-muted mb-6 leading-relaxed">
-                {video.description}
-              </p>
+							<div class:list={['lg:col-span-8', index % 2 === 0 && 'lg:order-first']}>
+								<video
+									src={piece.video}
+									poster={piece.poster}
+									controls
+									playsinline
+									preload="none"
+									width="1920"
+									height="1080"
+									aria-label={piece.label}
+									aria-describedby={`${piece.id}-desc`}
+									class="block aspect-video w-full border border-line bg-line object-contain"
+								/>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</main>
 
-              {video.youtubeLink && (
-                <a
-                  href={video.youtubeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-block text-accent-text hover:underline underline-offset-4 font-medium transition-colors"
-                >
-                  {video.linkText} ↗
-                </a>
-              )}
-
-              {video.shortFilmLink && (
-                <a
-                  href={video.shortFilmLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-block text-accent-text hover:underline underline-offset-4 font-medium transition-colors"
-                >
-                  {video.linkText} ↗
-                </a>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </main>
-
-  <SiteFooter />
+	<SiteFooter />
 </Layout>
-
