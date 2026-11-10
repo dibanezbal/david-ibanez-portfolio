@@ -28,6 +28,7 @@ const t = ui[getLang(Astro.currentLocale)];
 				widths={[800, 1200, 1440]}
 				sizes={sizes}
 				class="block h-auto w-full"
+				style={`aspect-ratio: ${desktop.src.width} / ${desktop.src.height}`}
 			/>
 		</div>
 	</figure>
@@ -36,7 +37,7 @@ const t = ui[getLang(Astro.currentLocale)];
 			<figure class="m-0 mx-auto w-3/5 min-[640px]:mx-0 min-[640px]:w-auto">
 				<figcaption class:list={["mb-2 text-sm font-medium text-muted", fromTablet]}>{mobile.label ?? t.mobile}</figcaption>
 				<div class="overflow-hidden rounded-[1.25rem] border border-ink bg-paper">
-					<Image src={mobile.src} alt={mobile.alt} widths={[390, 780]} sizes="(min-width: 1024px) 18vw, 60vw" class="block h-auto w-full" />
+					<Image src={mobile.src} alt={mobile.alt} widths={[390, 780]} sizes="(min-width: 1024px) 18vw, 60vw" class="block h-auto w-full" style={`aspect-ratio: ${mobile.src.width} / ${mobile.src.height}`} />
 				</div>
 			</figure>
 		)
