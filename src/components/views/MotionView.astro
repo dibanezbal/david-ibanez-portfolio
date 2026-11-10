@@ -45,7 +45,7 @@ const videos = [
       <h1 class="text-4xl md:text-5xl font-bold mb-4">
         {pageTitle}
       </h1>
-      <p class="text-lg text-gray-400 mb-16">
+      <p class="text-lg text-muted mb-16">
         {pageDescription}
       </p>
 
@@ -64,7 +64,7 @@ const videos = [
               <h2 class="text-2xl font-bold mb-3">
                 {video.title}
               </h2>
-              <p class="text-gray-300 mb-6 leading-relaxed">
+              <p class="text-muted mb-6 leading-relaxed">
                 {video.description}
               </p>
 
@@ -73,7 +73,7 @@ const videos = [
                   href={video.youtubeLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-block text-red-500 hover:text-red-400 font-medium transition-colors"
+                  class="inline-block text-accent-text hover:underline underline-offset-4 font-medium transition-colors"
                 >
                   {video.linkText} ↗
                 </a>
@@ -84,7 +84,7 @@ const videos = [
                   href={video.shortFilmLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-block text-red-500 hover:text-red-400 font-medium transition-colors"
+                  class="inline-block text-accent-text hover:underline underline-offset-4 font-medium transition-colors"
                 >
                   {video.linkText} ↗
                 </a>
@@ -99,9 +99,3 @@ const videos = [
   <SiteFooter />
 </Layout>
 
-<style>
-  main {
-    color: var(--text-primary);
-    background: var(--bg-primary);
-  }
-</style>
