@@ -1,0 +1,107 @@
+---
+import { getLang, ui, routes } from '../../i18n/ui';
+import SiteFooter from '../SiteFooter.astro';
+import SiteHeader from '../SiteHeader.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const lang = getLang(Astro.currentLocale);
+const t = ui[lang];
+
+const isEN = lang === 'en';
+const pageTitle = isEN ? 'Motion Graphics' : 'Motion Graphics';
+const pageDescription = isEN
+  ? 'Motion graphics projects with animation and video editing'
+  : 'Proyectos de motion graphics con animación y edición de vídeo';
+
+const videos = [
+  {
+    id: 'joan-pere-jove',
+    title: isEN ? 'Joan Pere Jové - Visual Identity Animation' : 'Joan Pere Jové - Animación de Identidad Visual',
+    description: isEN
+      ? 'Application of Joan Pere\'s visual identity in which the graphic elements that formed the isotype are animated. The layers were prepared in Illustrator and animated in After Effects using audio composed by Joan Pere.'
+      : 'Aplicación de la identidad visual de Joan Pere en la que se animan los elementos gráficos con los que se formó el isotipo. Se prepararon las capas con Illustrator y se animaron en After Effects utilizando un audio compuesto por Joan Pere.',
+    videoSrc: '/videos/joan-pere-jove/cabecera-youtube.mp4',
+    youtubeLink: 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID', // TODO: Update with actual YouTube URL
+    linkText: isEN ? 'Watch on YouTube' : 'Ver en Youtube'
+  },
+  {
+    id: 'la-ilusio-efimera',
+    title: isEN ? 'La il·lusió efímera - Short Film Intro' : 'La il·lusió efímera - Intro del Cortometraje',
+    description: isEN
+      ? 'The director\'s idea for the short film\'s introduction was to show a pursuit between the sculpture/vase and the protagonist. Based on this concept, I decided to use the line as a halo showing that chase until they finally meet. Created with layers from the film itself and the color palette used in other graphic elements featured in the short.'
+      : 'La idea del director para la introducción del cortometraje era mostrar una persecución entre la escultura/jarrón y el protagonista. Con esta información decidí que la línea haría de halo mostrando esa persecución hasta que al final se encuentran. Se creó con capas de capturas del propio cortometraje y la paleta de colores utilizada en otros elementos gráficos empleados en el corto.',
+    videoSrc: '/videos/la-ilusio-efimera/intro.mp4',
+    shortFilmLink: 'https://www.youtube.com/watch?v=YOUR_SHORT_FILM_ID', // TODO: Update with actual short film URL
+    linkText: isEN ? 'Watch the full short film' : 'Ver el corto completo'
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <SiteHeader />
+
+  <main class="px-6 py-16 md:py-24">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        {pageTitle}
+      </h1>
+      <p class="text-lg text-gray-400 mb-16">
+        {pageDescription}
+      </p>
+
+      <div class="space-y-20">
+        {videos.map((video) => (
+          <div class="space-y-6">
+            <div class="aspect-video bg-black rounded-lg overflow-hidden">
+              <video
+                src={video.videoSrc}
+                controls
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-bold mb-3">
+                {video.title}
+              </h2>
+              <p class="text-gray-300 mb-6 leading-relaxed">
+                {video.description}
+              </p>
+
+              {video.youtubeLink && (
+                <a
+                  href={video.youtubeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block text-red-500 hover:text-red-400 font-medium transition-colors"
+                >
+                  {video.linkText} ↗
+                </a>
+              )}
+
+              {video.shortFilmLink && (
+                <a
+                  href={video.shortFilmLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block text-red-500 hover:text-red-400 font-medium transition-colors"
+                >
+                  {video.linkText} ↗
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <SiteFooter />
+</Layout>
+
+<style>
+  main {
+    color: var(--text-primary);
+    background: var(--bg-primary);
+  }
+</style>
