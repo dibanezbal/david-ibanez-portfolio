@@ -15,11 +15,12 @@ export default defineConfig({
 		// El idioma del navegador decide la versión de la web: por defecto se prueba la española
 		locale: 'es-ES',
 	},
+	// En CI el build ya está hecho (el mismo dist que se publica), así no se construye dos veces
 	// Se prueba la salida de producción, no el servidor de desarrollo
 	webServer: {
 		// --ignore-lock: mantiene el servidor en primer plano para que Playwright lo cierre al acabar.
 		// Sin él, Astro lo manda a segundo plano si detecta que lo lanza un agente de IA.
-		command: `npm run build && npm run preview -- --host 127.0.0.1 --port ${PORT} --ignore-lock`,
+		command: `${process.env.CI ? '' : 'npm run build && '}npm run preview -- --host 127.0.0.1 --port ${PORT} --ignore-lock`,
 		url: `http://127.0.0.1:${PORT}`,
 		reuseExistingServer: false,
 		timeout: 120_000,

@@ -22,10 +22,21 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - id: playwright
+        run: echo "version=$(npm ls @playwright/test --json | jq -r '.dependencies["@playwright/test"].version')" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        id: browsers
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ steps.playwright.outputs.version }}
       - run: npx playwright install --with-deps chromium
+        if: steps.browsers.outputs.cache-hit != 'true'
+      - run: npx playwright install-deps chromium
+        if: steps.browsers.outputs.cache-hit == 'true'
+      # Se construye una vez: los tests prueban este mismo dist y es el que se publica
+      - run: npm run build
       # Las capturas de referencia son de macOS: la regresión visual se pasa en local
       - run: npm run test:e2e -- --grep-invert "se mantiene igual visualmente"
-      - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
