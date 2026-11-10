@@ -1,43 +1,56 @@
 ---
 import { getEntry } from 'astro:content';
 import { getLang, routes, ui } from '../i18n/ui';
+import Logo from './Logo.astro';
 
 const lang = getLang(Astro.currentLocale);
 const t = ui[lang];
 const home = await getEntry('site', lang === 'en' ? 'home-en' : 'home');
 if (!home) throw new Error('Falta el contenido de la portada');
 const { contact } = home.data;
+
+// Sobre el fondo oscuro del footer se usa el rosa claro, no el carmín (no llegaría a contraste)
+const link =
+	'inline-flex min-h-11 items-center gap-1 underline underline-offset-4 transition-colors hover:text-footer-accent active:text-footer-accent';
 ---
 
-<footer id={routes[lang].anchors.contact} class="bg-footer text-footer-text">
-	<div class="shell py-16 md:py-24">
+<footer id={routes[lang].anchors.contact} class="border-t-4 border-accent bg-footer text-footer-text">
+	<div class="shell py-16 md:py-20">
 		<h2 class="sr-only">{t.navContact}</h2>
-		<p class="mt-6 max-w-[24ch] text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
-			{contact.intro}
-		</p>
-		<a
-			href={`mailto:${contact.email}`}
-			class="mt-10 inline-block break-all text-xl font-medium text-footer-text underline underline-offset-8 transition-colors hover:opacity-70 md:text-3xl"
-		>
-			{contact.email}
-		</a>
-		<ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-medium">
-			<li>
-				<a href={contact.linkedin} target="_blank" rel="noopener noreferrer" class="inline-block py-1 underline underline-offset-4 transition-colors hover:opacity-70">
-					LinkedIn <span aria-hidden="true">↗</span>
+		<div class="grid gap-12 md:grid-cols-12 md:gap-8">
+			<div class="md:col-span-8">
+				<p class="max-w-[26ch] text-3xl font-semibold leading-tight tracking-tight md:text-5xl">
+					{contact.intro}
+				</p>
+				<a
+					href={`mailto:${contact.email}`}
+					class="mt-10 inline-flex min-h-11 items-center break-all text-xl font-medium underline underline-offset-8 transition-colors hover:text-footer-accent active:text-footer-accent md:text-3xl"
+				>
+					{contact.email}
 				</a>
-			</li>
-			<li>
-				<a href={contact.github} target="_blank" rel="noopener noreferrer" class="inline-block py-1 underline underline-offset-4 transition-colors hover:opacity-70">
-					GitHub <span aria-hidden="true">↗</span>
-				</a>
-			</li>
-			<li>
-				<a href={t.cvFile} download class="inline-block py-1 underline underline-offset-4 transition-colors hover:opacity-70">
-					{t.cvDownload}
-				</a>
-			</li>
-		</ul>
+			</div>
+			<div class="flex flex-col gap-10 md:col-span-4 md:items-end md:justify-between">
+				<!-- Isotipo monocromo (variante inversa): sobre el fondo oscuro va todo en blanco -->
+				<div class="text-footer-text">
+					<Logo variant="mark" size={72} accent={false} />
+				</div>
+				<ul class="flex flex-wrap gap-x-6 gap-y-1 font-medium md:flex-col md:items-end md:gap-y-0">
+					<li>
+						<a href={contact.linkedin} target="_blank" rel="noopener noreferrer" class={link}>
+							LinkedIn <span aria-hidden="true">↗</span>
+						</a>
+					</li>
+					<li>
+						<a href={contact.github} target="_blank" rel="noopener noreferrer" class={link}>
+							GitHub <span aria-hidden="true">↗</span>
+						</a>
+					</li>
+					<li>
+						<a href={t.cvFile} download class={link}>{t.cvDownload}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<p class="mt-16 text-sm text-muted-on-ink">David Ibáñez · Barcelona</p>
 	</div>
 </footer>

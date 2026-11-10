@@ -21,7 +21,7 @@ const nav = [
 ---
 
 <header class="sticky top-0 z-40 bg-paper" data-header>
-	<div class="shell relative grid grid-cols-[1fr_auto] items-center gap-x-6 py-2 md:grid-cols-[1fr_auto_1fr] md:py-6">
+	<div class="shell relative grid grid-cols-[1fr_auto] items-center gap-x-2 py-2 md:gap-x-6 md:grid-cols-[1fr_auto_1fr] md:py-6">
 	<Logo />
 
 	<nav id="menu-principal" aria-label={t.navLabel} class="absolute inset-x-0 top-full z-50 hidden border-b border-ink bg-paper px-5 md:static md:col-span-1 md:block md:justify-self-center md:border-0 md:bg-transparent md:px-0">
@@ -34,7 +34,7 @@ const nav = [
 							download={item.download}
 							aria-label={item.download ? t.cvDownloadLabel : undefined}
 								data-contacto={item.contact ? '' : undefined}
-							class="inline-block py-1 underline-offset-4 transition-colors hover:text-accent-text hover:underline aria-[current=true]:text-accent-text aria-[current=true]:underline"
+							class="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-accent-text hover:underline aria-[current=true]:text-accent-text aria-[current=true]:underline"
 						>
 							{item.label}
 							{item.download && <span aria-hidden="true"> ↓</span>}
@@ -45,7 +45,7 @@ const nav = [
 		</ul>
 	</nav>
 
-	<div class="flex items-center justify-end gap-1 md:justify-self-end">
+	<div class="flex items-center justify-end md:justify-self-end">
 		<!-- Selector de idioma: enlaza a esta misma página en el otro idioma y recuerda la elección -->
 		<a
 			href={alternate}
@@ -53,7 +53,7 @@ const nav = [
 			lang={otherLang}
 			aria-label={t.langLabel}
 			data-idioma={otherLang}
-			class="flex h-9 items-center gap-1.5 px-2 text-sm font-medium transition-colors hover:text-accent-text"
+			class="flex h-11 items-center gap-1.5 px-2.5 text-sm font-medium transition-colors hover:text-accent-text"
 		>
 			<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true">
 				<circle cx="12" cy="12" r="9" />
@@ -67,7 +67,7 @@ const nav = [
 			data-label-dark={t.themeDark}
 			data-label-light={t.themeLight}
 			aria-label={t.themeDark}
-			class="grid size-9 cursor-pointer place-items-center transition-colors hover:text-accent-text"
+			class="grid size-11 cursor-pointer place-items-center transition-colors hover:text-accent-text"
 		>
 			<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icono="luna">
 				<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
@@ -82,7 +82,7 @@ const nav = [
 			id="abrir-menu"
 			aria-controls="menu-principal"
 			aria-expanded="false"
-			class="group grid size-9 cursor-pointer place-items-center transition-colors hover:text-accent-text md:hidden"
+			class="group grid size-11 cursor-pointer place-items-center transition-colors hover:text-accent-text md:hidden"
 		>
 			<span class="sr-only">{t.menu}</span>
 			<svg class="size-5 group-aria-expanded:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true" data-icono-menu="abrir">

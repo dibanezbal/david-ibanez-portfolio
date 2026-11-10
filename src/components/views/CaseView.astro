@@ -50,7 +50,7 @@ const allFacts = [...facts, [t.myRole, data.role.join(' · ')], ...lists];
 			<header class="pb-10 pt-10 md:pb-14 md:pt-16 lg:col-span-5 lg:pb-16">
 				<a
 					href={`${route.home}#${route.anchors.projects}`}
-					class="inline-block py-1 text-sm underline-offset-4 transition-colors hover:text-accent-text hover:underline"
+					class="inline-flex min-h-11 items-center text-sm underline-offset-4 transition-colors hover:text-accent-text hover:underline"
 				>
 					<span aria-hidden="true">←</span> {t.allProjects}
 				</a>
@@ -104,7 +104,7 @@ const allFacts = [...facts, [t.myRole, data.role.join(' · ')], ...lists];
 											href={link.url}
 											target="_blank"
 											rel="noopener noreferrer"
-											class="inline-flex min-h-6 items-center gap-1 text-accent-text underline underline-offset-4 transition-colors hover:text-ink"
+											class="inline-flex min-h-11 items-center gap-1 text-accent-text underline underline-offset-4 transition-colors hover:text-ink"
 										>
 											{link.label}
 											<span aria-hidden="true">↗</span>
@@ -131,7 +131,7 @@ const allFacts = [...facts, [t.myRole, data.role.join(' · ')], ...lists];
 									<ol class="mt-3 space-y-2 text-sm" data-indice>
 										{sections.map((section) => (
 											<li>
-												<a href={`#${section.slug}`} class="inline-flex min-h-6 items-center underline-offset-4 transition-colors hover:text-accent-text hover:underline aria-[current=true]:text-accent-text aria-[current=true]:underline">
+												<a href={`#${section.slug}`} class="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-accent-text hover:underline aria-[current=true]:text-accent-text aria-[current=true]:underline">
 													{section.text}
 												</a>
 											</li>

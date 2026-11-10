@@ -86,7 +86,11 @@ for (const { route, lang } of ROUTES) {
 		test('no tiene infracciones WCAG A/AA detectables con axe', async ({ page }) => {
 			await page.goto(route);
 			// El contraste se mide con el contenido ya visible: espera a que terminen las entradas
-			await page.waitForFunction(() => document.getAnimations().every((a) => a.playState === 'finished'));
+			await page.waitForFunction(() => {
+			// Las animaciones ligadas al scroll nunca "terminan" mientras no se sale de su rango: se llevan al final para medir el contraste con el contenido ya visible
+			for (const a of document.getAnimations()) if (a.timeline && !(a.timeline instanceof DocumentTimeline)) a.finish();
+			return document.getAnimations().every((a) => a.playState === 'finished');
+		});
 			const { violations } = await new AxeBuilder({ page })
 				.withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
 				.analyze();

@@ -9,6 +9,7 @@
 	/* Pie de página: oscuro con texto claro en los dos temas */
 	--color-footer: oklch(0.22 0.009 351.7);
 	--color-footer-text: oklch(1 0 0);
+	--color-footer-accent: #ec5f80;
 	--color-line: oklch(0.922 0.008 357.8);
 	/* Carmín: formas, texto y enlaces sobre papel (7,2:1) */
 	--color-accent: oklch(0.483 0.19 16.2);
@@ -36,6 +37,7 @@
 		--color-muted-on-ink: #b9b1b4;
 		--color-footer: #151214;
 		--color-footer-text: #f5f3f2;
+		--color-footer-accent: #ec5f80;
 		--color-line: #3a3436;
 		--color-accent: #e24e70;
 		--color-accent-text: #e24e70;
@@ -50,6 +52,7 @@
 		--color-muted-on-ink: #b9b1b4;
 		--color-footer: #151214;
 		--color-footer-text: #f5f3f2;
+		--color-footer-accent: #ec5f80;
 		--color-line: #3a3436;
 		--color-accent: #e24e70;
 		--color-accent-text: #e24e70;
@@ -379,6 +382,15 @@
 		view-transition-name: cabecera;
 	}
 
+	/* La cabecera no se funde entre las dos páginas (daba texto doble y el logo desplazado): se muestra directamente la nueva */
+	::view-transition-group(cabecera),
+	::view-transition-new(cabecera) {
+		animation: none;
+	}
+	::view-transition-old(cabecera) {
+		display: none;
+	}
+
 	/* La página vieja se queda debajo y la nueva aparece encima: sin el hueco de papel vacío entre las dos */
 	::view-transition-old(root),
 	::view-transition-new(root) {
@@ -388,13 +400,13 @@
 		animation: none;
 	}
 	::view-transition-new(root) {
-		animation: 0.5s cubic-bezier(0.25, 0.6, 0.3, 1) both vt-in;
+		animation: 0.3s cubic-bezier(0.25, 0.6, 0.3, 1) both vt-in;
 	}
 
 	@keyframes vt-in {
 		from {
 			opacity: 0;
-			transform: translateY(12px);
+			transform: translateY(8px);
 		}
 	}
 }
@@ -404,9 +416,14 @@
    si no, el contenido se ve directamente */
 @media (prefers-reduced-motion: no-preference) {
 	@supports (animation-timeline: view()) {
+		/* La línea de tiempo va en una variable: si no, el minificador la funde en el atajo `animation`
+		   y Chromium rechaza la declaración entera (la animación no llegaba a ejecutarse) */
 		.reveal {
-			animation: reveal-in linear both;
-			animation-timeline: view();
+			--reveal-timeline: view();
+			animation-name: reveal-in;
+			animation-timing-function: linear;
+			animation-fill-mode: both;
+			animation-timeline: var(--reveal-timeline);
 			animation-range: entry 0% entry 40%;
 		}
 

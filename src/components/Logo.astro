@@ -29,6 +29,9 @@ const lang = getLang(Astro.currentLocale);
 <style>
 	.logo { display: inline-flex; align-items: center; gap: 0.75em; color: inherit; text-decoration: none; }
 	.text { display: flex; flex-direction: column; line-height: 1; gap: 0.35em; }
-	.name { font-family: var(--font-sans); font-weight: 600; font-size: 1.25em; letter-spacing: -0.02em; }
-	.role { font-size: 0.75em; opacity: 0.65; }
+	.name { white-space: nowrap; font-family: var(--font-sans); font-weight: 600; font-size: 1.25em; letter-spacing: -0.02em; }
+	.role { font-size: 0.75em; opacity: 0.65; white-space: nowrap; }
+	/* En pantallas muy estrechas la cabecera lleva solo el nombre, para que los controles de 44 px quepan en una línea */
+	@media (max-width: 379px) { .role { display: none; } }
+	@media (max-width: 339px) { .text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } }
 </style>

@@ -110,7 +110,11 @@ test.describe('Accesibilidad del 404 y del menú en inglés', () => {
 		const button = page.getByRole('button', { name: 'Menu' });
 		test.skip(!(await button.isVisible()), 'Solo en móvil');
 		await button.click();
-		await page.waitForFunction(() => document.getAnimations().every((a) => a.playState === 'finished'));
+		await page.waitForFunction(() => {
+			// Las animaciones ligadas al scroll nunca "terminan" mientras no se sale de su rango: se llevan al final para medir el contraste con el contenido ya visible
+			for (const a of document.getAnimations()) if (a.timeline && !(a.timeline instanceof DocumentTimeline)) a.finish();
+			return document.getAnimations().every((a) => a.playState === 'finished');
+		});
 		const { violations } = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
 		expect(violations.map(({ id }) => id)).toEqual([]);
 	});

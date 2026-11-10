@@ -43,7 +43,7 @@ skills:
       - "ISTQB Certified Tester Foundation Level v4"
 tools: ["Figma", "FigJam", "Storybook", "Maze", "WordPress", "Git", "Claude"]
 contact:
-  intro: "If your team needs someone who understands both design and code, let’s talk."
+  intro: "I design the interface and I build it. If your team needs both, write to me."
   email: "dibanezbal@gmail.com"
   linkedin: "https://www.linkedin.com/in/davidib"
   github: "https://github.com/dibanezbal"
