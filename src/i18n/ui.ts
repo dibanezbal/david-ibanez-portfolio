@@ -134,6 +134,10 @@ export function getAlternatePath(pathname: string): string {
 	if (path === '/en') return '/';
 	if (path === '/sobre-mi') return withSlash('/en/about');
 	if (path === '/en/about') return withSlash('/sobre-mi');
+	if (path === '/motion') return withSlash('/en/motion');
+	if (path === '/en/motion') return withSlash('/motion');
+	if (path === '/card') return withSlash('/en/card');
+	if (path === '/en/card') return withSlash('/card');
 	if (path === '/404') return withSlash('/en/404');
 	if (path === '/en/404') return withSlash('/404');
 	const spanishCase = path.match(/^\/proyectos\/([^/]+)$/);
