@@ -350,19 +350,22 @@
 }
 
 /* Cabecera fija: al desplazarse se compacta (de 88 px a 56 px). Fuera de las capas para vencer al padding de utilidad */
-/* El margen inferior compensa los 2 rem que pierde la cabecera al compactarse: la altura total no cambia,
-   así el contenido no salta al cruzar el umbral del scroll (sobre todo con la inercia del móvil) */
-[data-header] {
-	transition: margin-bottom 200ms ease-out;
-}
-[data-header][data-compact] {
-	margin-bottom: 2rem;
-}
-[data-header] > div {
-	transition: padding-block 200ms ease-out;
-}
-[data-header][data-compact] > div {
-	padding-block: 0.5rem;
+/* Cabecera fija: en móvil mide siempre lo mismo (56 px), así no hay nada que cambie mientras se hace scroll.
+   En escritorio se compacta (de 88 px a 56 px) y el margen inferior compensa los 2 rem que pierde,
+   para que la altura total no cambie. Fuera de las capas para vencer al padding de utilidad */
+@media (min-width: 768px) {
+	[data-header] {
+		transition: margin-bottom 200ms ease-out;
+	}
+	[data-header][data-compact] {
+		margin-bottom: 2rem;
+	}
+	[data-header] > div {
+		transition: padding-block 200ms ease-out;
+	}
+	[data-header][data-compact] > div {
+		padding-block: 0.5rem;
+	}
 }
 
 /* Transición entre páginas: fundido corto del contenido; la cabecera fija se queda quieta.

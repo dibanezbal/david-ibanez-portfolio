@@ -21,7 +21,7 @@ const nav = [
 ---
 
 <header class="sticky top-0 z-40 bg-paper" data-header>
-	<div class="shell relative grid grid-cols-[1fr_auto] items-center gap-x-6 py-6 md:grid-cols-[1fr_auto_1fr]">
+	<div class="shell relative grid grid-cols-[1fr_auto] items-center gap-x-6 py-2 md:grid-cols-[1fr_auto_1fr] md:py-6">
 	<Logo />
 
 	<nav id="menu-principal" aria-label={t.navLabel} class="absolute inset-x-0 top-full z-50 hidden border-b border-ink bg-paper px-5 md:static md:col-span-1 md:block md:justify-self-center md:border-0 md:bg-transparent md:px-0">
@@ -173,7 +173,12 @@ const nav = [
 
 	// Al desplazarse, la cabecera se compacta para ocupar menos pantalla (sobre todo en móvil)
 	const cabecera = document.querySelector('[data-header]');
-	const compactar = () => cabecera?.toggleAttribute('data-compact', window.scrollY > 48);
+	// Histéresis: se compacta pasados 64 px y no se expande hasta volver a menos de 16 px, para que no oscile en el umbral
+	const compactar = () => {
+		const y = window.scrollY;
+		if (y > 64) cabecera?.setAttribute('data-compact', '');
+		else if (y < 16) cabecera?.removeAttribute('data-compact');
+	};
 	window.addEventListener('scroll', compactar, { passive: true });
 	compactar();
 </script>
