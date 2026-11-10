@@ -350,6 +350,14 @@
 }
 
 /* Cabecera fija: al desplazarse se compacta (de 88 px a 56 px). Fuera de las capas para vencer al padding de utilidad */
+/* El margen inferior compensa los 2 rem que pierde la cabecera al compactarse: la altura total no cambia,
+   así el contenido no salta al cruzar el umbral del scroll (sobre todo con la inercia del móvil) */
+[data-header] {
+	transition: margin-bottom 200ms ease-out;
+}
+[data-header][data-compact] {
+	margin-bottom: 2rem;
+}
 [data-header] > div {
 	transition: padding-block 200ms ease-out;
 }
