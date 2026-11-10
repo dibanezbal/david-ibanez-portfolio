@@ -10,11 +10,13 @@ interface Props {
 	image?: string;
 	/** Página equivalente en el otro idioma, si no se deduce de la URL (la 404) */
 	alternate?: string;
+	/** false = respeta siempre el idioma de la URL (p. ej. la tarjeta que abre el QR) */
+	autoLanguage?: boolean;
 }
 
 const lang = getLang(Astro.currentLocale);
 const t = ui[lang];
-const { title, description, image = '/og.png', alternate = getAlternatePath(Astro.url.pathname) } = Astro.props;
+const { title, description, image = '/og.png', alternate = getAlternatePath(Astro.url.pathname), autoLanguage = true } = Astro.props;
 const isNotFound = Astro.url.pathname.replace(/\/$/, '').endsWith('/404');
 
 // Las URL absolutas requieren `site` en astro.config.mjs
@@ -27,6 +29,7 @@ const ogImage = Astro.site && new URL(image, Astro.site);
 	<head>
 		<meta charset="utf-8" />
 		<!-- Idioma: español para el español y las demás lenguas de España, inglés para el resto. Manda la elección guardada. Sin JavaScript, cada URL muestra su idioma -->
+		{autoLanguage && (
 		<script is:inline define:vars={{ alternate, anchorMap }}>
 			(function () {
 				try {
@@ -47,6 +50,7 @@ const ogImage = Astro.site && new URL(image, Astro.site);
 				} catch (e) {}
 			})();
 		</script>
+		)}
 		<script is:inline>
 			try {
 				const tema = localStorage.getItem('tema');

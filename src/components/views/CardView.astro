@@ -1,129 +1,165 @@
 ---
 import { Image } from 'astro:assets';
-import { getLang, ui } from '../../i18n/ui';
+import { getEntry } from 'astro:content';
+import { getAlternatePath, getLang } from '../../i18n/ui';
 import Layout from '../../layouts/Layout.astro';
-import SiteHeader from '../SiteHeader.astro';
-import SiteFooter from '../SiteFooter.astro';
+import Logo from '../Logo.astro';
 import QRCard from '../QRCard.astro';
 import davidFront from '../../assets/img/david-ibanez-front.jpg';
 
 const lang = getLang(Astro.currentLocale);
-const t = ui[lang];
-const cardUrl = `https://davidib.com${lang === 'en' ? '/en' : ''}/card`;
+const en = lang === 'en';
+const home = await getEntry('site', en ? 'home-en' : 'home');
+if (!home) throw new Error('Falta el contenido de la portada');
 
+const cardUrl = `https://davidib.com${en ? '/en' : ''}/card`;
 const contact = {
-	name: 'David Ibáñez',
-	title: 'Design & Development',
 	email: 'dibanezbal@gmail.com',
 	linkedin: 'https://www.linkedin.com/in/davidib',
 	github: 'https://github.com/dibanezbal',
-	website: 'davidib.com'
+	site: 'https://davidib.com',
 };
+const cv = en ? '/cv/David-Ibanez-CV-EN.pdf' : '/cv/David-Ibanez-CV-ES.pdf';
 
-const cvFiles = {
-	es: '/cv/David-Ibanez-CV-ES.pdf',
-	en: '/cv/David-Ibanez-CV-EN.pdf'
-};
+const label = en
+	? {
+			title: 'Digital card',
+			description: 'Digital business card of David Ibáñez, Design Engineer in Barcelona.',
+			role: 'Design Engineer',
+			city: 'Barcelona',
+			save: 'Save contact',
+			saveHint: 'Adds David to your address book',
+			cv: 'Download PDF',
+			terms: { email: 'Email', linkedin: 'LinkedIn', github: 'GitHub', web: 'Web', cv: 'CV' },
+			scan: 'Scan to open this card',
+			qr: `QR code that opens ${cardUrl}`,
+			switchTo: 'ES',
+			switchLabel: 'ES, Spanish version',
+			alt: 'Black-and-white portrait of David Ibáñez, wearing a cap and glasses, smiling.',
+			newTab: ' (opens in a new tab)',
+		}
+	: {
+			title: 'Tarjeta digital',
+			description: 'Tarjeta de visita digital de David Ibáñez, Design Engineer en Barcelona.',
+			role: 'Design Engineer',
+			city: 'Barcelona',
+			save: 'Guardar contacto',
+			saveHint: 'Añade a David a tu agenda',
+			cv: 'Descargar PDF',
+			terms: { email: 'Correo', linkedin: 'LinkedIn', github: 'GitHub', web: 'Web', cv: 'CV' },
+			scan: 'Escanea para abrir esta tarjeta',
+			qr: `Código QR que abre ${cardUrl}`,
+			switchTo: 'EN',
+			switchLabel: 'EN, versión en inglés',
+			alt: 'Retrato en blanco y negro de David Ibáñez, con gorra y gafas, sonriendo.',
+			newTab: ' (se abre en una pestaña nueva)',
+		};
 
-const labels = {
-	es: {
-		title: 'Tarjeta Digital',
-		description: 'Tarjeta de visita digital de David Ibáñez, Design Engineer en Barcelona',
-		title2: 'David Ibáñez',
-		downloadCV: 'Descargar CV',
-		language: 'Idioma:',
-		or: 'o',
-		scanQR: 'Escanea este código QR',
-		shareInfo: 'Comparte esta tarjeta'
-	},
-	en: {
-		title: 'Digital Card',
-		description: 'Digital business card of David Ibáñez, Design Engineer in Barcelona',
-		title2: 'David Ibáñez',
-		downloadCV: 'Download CV',
-		language: 'Language:',
-		or: 'or',
-		scanQR: 'Scan this QR code',
-		shareInfo: 'Share this card'
-	}
-};
-
-const label = labels[lang];
-
-// Iconos de línea en un solo trazo; el texto del enlace siempre es visible
-const icons = {
-	mail: '<rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/>',
-	link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/>',
-	code: '<path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/><path d="m13.5 6-3 12"/>',
-};
-const links = [
-	{ label: contact.email, href: `mailto:${contact.email}`, icon: icons.mail, external: false },
-	{ label: 'LinkedIn', href: contact.linkedin, icon: icons.link, external: true },
-	{ label: 'GitHub', href: contact.github, icon: icons.code, external: true },
+const rows = [
+	{ term: label.terms.email, text: contact.email, href: `mailto:${contact.email}`, external: false },
+	{ term: label.terms.linkedin, text: 'in/davidib', href: contact.linkedin, external: true },
+	{ term: label.terms.github, text: 'dibanezbal', href: contact.github, external: true },
+	{ term: label.terms.web, text: 'davidib.com', href: `${contact.site}${en ? '/en' : ''}/`, external: false },
+	{ term: label.terms.cv, text: label.cv, href: cv, external: false, download: true },
 ];
 ---
 
-<Layout title={`${label.title} · David Ibáñez`} description={label.description}>
-	<SiteHeader />
+<Layout title={`${label.title} · David Ibáñez`} description={label.description} autoLanguage={false}>
+	<main id="contenido" class="mx-auto min-h-dvh max-w-md bg-paper md:my-10 md:min-h-0 md:border md:border-ink">
+		<header class="flex items-center justify-between px-5 pt-4">
+			<Logo size={44} />
+			<a
+				href={getAlternatePath(Astro.url.pathname)}
+				data-idioma={en ? 'es' : 'en'}
+				hreflang={en ? 'es' : 'en'}
+				lang={en ? 'es' : 'en'}
+				aria-label={label.switchLabel}
+				class="inline-flex size-11 items-center justify-center text-sm font-medium transition-colors hover:text-accent-text"
+			>
+				{label.switchTo}
+			</a>
+		</header>
 
-	<main id="contenido" class="shell py-10 md:py-16">
-		<div class="mx-auto max-w-md">
-			<header class="flex items-center gap-5 border-b border-ink pb-8">
-				<Image src={davidFront} alt="" width={160} class="size-20 shrink-0 border border-line object-cover object-top" />
+		<h1 class="sr-only">David Ibáñez</h1>
+
+		<div class="intro-rise mt-4 grid grid-cols-12 border-t border-ink" style="--d: 0ms">
+			<div class="col-span-5 flex flex-col justify-between px-5 pb-5 pt-4">
 				<div>
-					<h1 class="text-3xl font-semibold leading-tight tracking-[-0.02em]">{contact.name}</h1>
-					<p class="mt-1 text-muted">{contact.title}</p>
-					<p class="mt-0.5 text-sm text-muted">{contact.website}</p>
+					<p class="text-3xl font-semibold leading-[1.05] tracking-[-0.02em]">{label.role}</p>
+					<p class="mt-2 text-muted">{label.city}</p>
 				</div>
-			</header>
-
-			<ul class="border-b border-ink">
-				{
-					links.map((item) => (
-						<li class="border-t border-line first:border-t-0">
-							<a
-								href={item.href}
-								{...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-								class="group flex min-h-14 items-center gap-4 transition-colors hover:text-accent-text"
-							>
-								<svg class="size-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={item.icon} />
-								<span class="font-medium underline-offset-4 group-hover:underline">{item.label}</span>
-								{item.external && <span class="ml-auto" aria-hidden="true">↗</span>}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-
-			<div class="mt-8">
-				<p class="text-sm font-medium text-muted">{label.language}</p>
-				<div class="mt-3 flex flex-col gap-3 sm:flex-row">
-					<a
-						href={cvFiles.es}
-						download
-						class="inline-flex min-h-11 flex-1 items-center justify-center border border-accent bg-accent px-5 font-medium text-paper transition-colors hover:border-ink hover:bg-ink focus-visible:outline-ink"
-					>
-						{label.downloadCV} ES
-					</a>
-					<a
-						href={cvFiles.en}
-						download
-						class="inline-flex min-h-11 flex-1 items-center justify-center border border-ink px-5 font-medium transition-colors hover:bg-ink hover:text-paper"
-					>
-						{label.downloadCV} EN
-					</a>
-				</div>
+				<p class="mt-8 text-sm leading-snug text-muted">{home.data.hero.headline}</p>
 			</div>
-
-			<section class="mt-12 border-t border-ink pt-8" aria-labelledby="qr-titulo">
-				<h2 id="qr-titulo" class="text-center text-lg font-semibold">{label.scanQR}</h2>
-				<div class="mt-5 flex justify-center">
-					<QRCard url={cardUrl} size={240} />
-				</div>
-				<p class="mt-4 text-center text-sm text-muted">{label.shareInfo}</p>
-			</section>
+			<div class="col-span-7 overflow-hidden border-l border-ink">
+				<Image
+					src={davidFront}
+					alt={label.alt}
+					width={900}
+					widths={[400, 700, 900]}
+					sizes="(min-width: 448px) 261px, 58vw"
+					priority
+					class="portrait aspect-[4/5] w-full origin-bottom scale-[1.3] object-cover object-bottom mix-blend-multiply brightness-[1.02]"
+				/>
+			</div>
 		</div>
-	</main>
 
-	<SiteFooter />
+		<dl class="border-t border-ink px-5">
+			{
+				rows.map((row) => (
+					<div class="grid grid-cols-[5.5rem_1fr] items-center border-b border-line last:border-b-0">
+						<dt class="text-sm text-muted">{row.term}</dt>
+						<dd>
+							<a
+								href={row.href}
+								{...(row.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+								{...(row.download ? { download: true } : {})}
+								class="inline-flex min-h-12 min-w-0 items-center gap-1.5 break-all font-medium underline decoration-line decoration-2 underline-offset-4 transition-colors hover:text-accent-text hover:decoration-accent"
+							>
+								{row.text}
+								{row.external && (
+									<>
+										<span aria-hidden="true">↗</span>
+										<span class="sr-only">{label.newTab}</span>
+									</>
+								)}
+								{row.download && <span aria-hidden="true">↓</span>}
+							</a>
+						</dd>
+					</div>
+				))
+			}
+		</dl>
+
+		<a
+			href="/contacto/david-ibanez.vcf"
+			download
+			class="group flex min-h-[4.5rem] items-center justify-between border-t border-ink bg-ink px-5 text-paper transition-colors hover:bg-accent focus-visible:outline-offset-[-4px]"
+		>
+			<span>
+				<span class="block text-lg font-semibold leading-tight">{label.save}</span>
+				<span class="block text-sm">{label.saveHint}</span>
+			</span>
+			<span class="text-2xl transition-transform motion-safe:group-hover:translate-y-0.5" aria-hidden="true">↓</span>
+		</a>
+
+		<!-- Cierre en color de marca: el QR sobre una hoja blanca, como un sello -->
+		<section class="flex items-center gap-5 bg-accent px-5 py-6 text-paper" aria-label={label.scan}>
+			<div class="shrink-0 bg-white p-0">
+				<QRCard url={cardUrl} label={label.qr} size={120} />
+			</div>
+			<div class="min-w-0">
+				<p class="text-lg font-semibold leading-snug">{label.scan}</p>
+				<p class="mt-1 break-all text-sm">davidib.com{en ? '/en' : ''}/card</p>
+			</div>
+		</section>
+	</main>
 </Layout>
+
+<script>
+	// Elegir idioma en la tarjeta se recuerda para el resto del sitio
+	document.querySelector<HTMLElement>('[data-idioma]')?.addEventListener('click', (event) => {
+		try {
+			localStorage.setItem('idioma', (event.currentTarget as HTMLElement).dataset.idioma ?? '');
+		} catch {}
+	});
+</script>

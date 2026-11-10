@@ -1,35 +1,62 @@
 ---
+import qrcode from 'qrcode-generator';
+
 interface Props {
 	url: string;
+	/** Texto alternativo del código */
+	label: string;
+	/** Lado en píxeles CSS */
 	size?: number;
 }
 
-const { url, size = 280 } = Astro.props;
+const { url, label, size = 160 } = Astro.props;
 
-// Generar QR usando API de qrserver.com
-// Utiliza error correction level H para permitir logotipo en el centro
-const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(url)}&ecc=H`;
+// El QR se genera en el build: sin servicios externos, sin que la URL salga del sitio y sin imagen que pueda fallar.
+// Corrección de errores H (30 %): admite la D del logo en el centro.
+const qr = qrcode(0, 'H');
+qr.addData(url);
+qr.make();
+const count = qr.getModuleCount();
+const quiet = 4;
+const total = count + quiet * 2;
+
+// Una barra por tramo de módulos oscuros consecutivos, para un SVG compacto
+let path = '';
+for (let row = 0; row < count; row++) {
+	let start = -1;
+	for (let col = 0; col <= count; col++) {
+		const dark = col < count && qr.isDark(row, col);
+		if (dark && start < 0) start = col;
+		if (!dark && start >= 0) {
+			path += `M${start + quiet} ${row + quiet}h${col - start}v1h-${col - start}z`;
+			start = -1;
+		}
+	}
+}
+
+// Hueco blanco central (22 % del lado) con la D encima
+const hole = Math.round(count * 0.22);
+const holeStart = (total - hole) / 2;
 ---
 
-<div class="qr-container">
-	<img src={qrApiUrl} alt="QR Code para {url}" width={size} height={size} class="qr-image" />
-</div>
-
-<style>
-	.qr-container {
-		display: flex;
-		align-items: center;
-		padding: 1rem;
-		background: white;
-		border: 1px solid var(--color-line);
-		width: fit-content;
-	}
-
-	.qr-image {
-		width: 100%;
-		max-width: 280px;
-		height: auto;
-		image-rendering: pixelated;
-		image-rendering: crisp-edges;
-	}
-</style>
+<svg
+	viewBox={`0 0 ${total} ${total}`}
+	width={size}
+	height={size}
+	role="img"
+	aria-label={label}
+	class="block"
+	shape-rendering="crispEdges"
+>
+	<rect width={total} height={total} fill="#fff"></rect>
+	<path d={path} fill="#1e191b"></path>
+	<rect x={holeStart} y={holeStart} width={hole} height={hole} fill="#fff"></rect>
+	<svg x={holeStart + hole * 0.12} y={holeStart + hole * 0.12} width={hole * 0.76} height={hole * 0.76} viewBox="32 20 160 160">
+		<path
+			fill="#1e191b"
+			fill-rule="evenodd"
+			d="M44 62 H88 C136 62 166 90 166 122 C166 154 138 176 98 176 H64 Q44 176 44 156 Z M66 84 H90 C122 84 144 100 144 119 C144 138 124 154 96 154 H66 Z"
+		></path>
+		<path fill="#b00737" d="M44 34 H128 C152 34 170 44 180 60 C165 57 150 56 134 56 H50 Q44 56 44 50 Z"></path>
+	</svg>
+</svg>

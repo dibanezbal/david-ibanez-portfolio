@@ -8,11 +8,13 @@ const ROUTES = [
 	{ route: '/proyectos/joan-pere-jove', lang: 'es' },
 	{ route: '/proyectos/labutxaka', lang: 'es' },
 	{ route: '/proyectos/unpispas', lang: 'es' },
+	{ route: '/card', lang: 'es' },
 	{ route: '/en/', lang: 'en' },
 	{ route: '/en/about', lang: 'en' },
 	{ route: '/en/projects/joan-pere-jove', lang: 'en' },
 	{ route: '/en/projects/labutxaka', lang: 'en' },
 	{ route: '/en/projects/unpispas', lang: 'en' },
+	{ route: '/en/card', lang: 'en' },
 ];
 
 for (const { route, lang } of ROUTES) {
