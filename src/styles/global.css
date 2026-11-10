@@ -356,3 +356,54 @@
 [data-header][data-compact] > div {
 	padding-block: 0.5rem;
 }
+
+/* Transición entre páginas: fundido corto del contenido; la cabecera fija se queda quieta.
+   Solo con movimiento normal y en navegadores que lo soportan; sin él, la navegación es la de siempre */
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
+
+	[data-header] {
+		view-transition-name: cabecera;
+	}
+
+	/* La página vieja se queda debajo y la nueva aparece encima: sin el hueco de papel vacío entre las dos */
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		mix-blend-mode: normal;
+	}
+	::view-transition-old(root) {
+		animation: none;
+	}
+	::view-transition-new(root) {
+		animation: 0.5s cubic-bezier(0.25, 0.6, 0.3, 1) both vt-in;
+	}
+
+	@keyframes vt-in {
+		from {
+			opacity: 0;
+			transform: translateY(12px);
+		}
+	}
+}
+
+/* Aparición al hacer scroll: cada bloque entra con un fundido mientras sube a la vista.
+   Va ligado al scroll (sin JavaScript) y solo donde el navegador lo soporta y con movimiento normal;
+   si no, el contenido se ve directamente */
+@media (prefers-reduced-motion: no-preference) {
+	@supports (animation-timeline: view()) {
+		.reveal {
+			animation: reveal-in linear both;
+			animation-timeline: view();
+			animation-range: entry 0% entry 40%;
+		}
+
+		@keyframes reveal-in {
+			from {
+				opacity: 0;
+				transform: translateY(24px);
+			}
+		}
+	}
+}
