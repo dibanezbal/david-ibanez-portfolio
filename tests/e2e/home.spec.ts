@@ -59,7 +59,7 @@ test('las portadas cargan y tienen texto alternativo', async ({ page }) => {
 
 test('cada puesto se despliega con el teclado', async ({ page }) => {
 	const jobs = page.locator('details');
-	await expect(jobs).toHaveCount(6);
+	await expect(jobs).toHaveCount(7);
 
 	const second = jobs.nth(1);
 	await expect(second).not.toHaveAttribute('open', '');

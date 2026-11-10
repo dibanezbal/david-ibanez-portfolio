@@ -68,7 +68,7 @@ test('covers load and have alt text', async ({ page }) => {
 
 test('each role opens with the keyboard', async ({ page }) => {
 	const jobs = page.locator('details');
-	await expect(jobs).toHaveCount(6);
+	await expect(jobs).toHaveCount(7);
 
 	const second = jobs.nth(1);
 	await expect(second).not.toHaveAttribute('open', '');
