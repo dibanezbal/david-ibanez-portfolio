@@ -116,11 +116,11 @@ const links = [
 			</div>
 
 			<section class="mt-12 border-t border-ink pt-8" aria-labelledby="qr-titulo">
-				<h2 id="qr-titulo" class="text-lg font-semibold">{label.scanQR}</h2>
-				<div class="mt-5">
+				<h2 id="qr-titulo" class="text-center text-lg font-semibold">{label.scanQR}</h2>
+				<div class="mt-5 flex justify-center">
 					<QRCard url={cardUrl} size={240} />
 				</div>
-				<p class="mt-4 text-sm text-muted">{label.shareInfo}</p>
+				<p class="mt-4 text-center text-sm text-muted">{label.shareInfo}</p>
 			</section>
 		</div>
 	</main>
