@@ -41,9 +41,9 @@ contact:
 
 Bilbao, 1990.
 
-I've loved music and technology since I was a kid. I started playing guitar at 5. Because of that, I later studied Telecommunications and Audiovisual Production in vocational school, and I tasted life as a radio technician in Italy, Peru and Hungary. In Budapest I worked in digital marketing for a travel search engine, and that's where I first heard about things like *user experience*, *landing pages* and user testing.
+I've loved music and technology since I was a child. I started playing guitar when I was 5. Later I studied Telecommunications and Audiovisual Production in vocational school, and I did my bit as a radio technician in Italy, Peru and Hungary. While in Budapest I worked in digital marketing for a travel search engine, and that's where I first heard about things like *user experience*, *landing pages* and user testing.
 
-Years later, in Barcelona, while I was working as a web editor and then in frontend for Zurich Insurance, I decided to get a degree in Digital Interaction and Multimedia Techniques at UOC to bring together what I knew. I wanted to find out how UX/UI design decisions get made. And that's where I reconnected with my creativity.
+Years later, in Barcelona, while I was working as a web editor and then in frontend for Zurich Insurance, I decided to get a degree in Digital Interaction and Multimedia Techniques at UOC to bring together what I knew. But I also wanted to find out how UX/UI design decisions are taken. And that's where I reconnected with my creativity.
 
 In 2026 I work as Test and Quality Lead on the same Zurich Insurance team where I used to be a web editor and Frontend Developer. That experience taught me how an interface gets built, how it gets tested and where it tends to break.
 
