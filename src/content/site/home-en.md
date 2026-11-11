@@ -16,27 +16,17 @@ experience_intro: "Six years on web teams: first publishing pages, then in front
 about_intro:
   - "I started out in digital marketing. At Zurich Insurance I’ve moved through web editing, frontend and now quality, as Test and Quality Lead, and along the way I earned a degree in Digital Interaction and Multimedia at UOC. I’m a good fit for roles like Design Engineer, UX Engineer, UI Developer, Web Designer or Product Builder."
 skills:
-  - title: "Design"
+  - title: "Design and motion"
     items:
-      - "Interface design in Figma: wireframes, flows and interactive prototypes"
-      - "Design Systems, design tokens and accessibility (WCAG)"
-      - "Visual identity, brand guidelines and design systems"
-  - title: "Motion & Audiovisual"
-    items:
-      - "Motion graphics, animation and video editing"
-      - "Adobe Creative Suite: After Effects, Premiere Pro, Illustrator, InDesign"
-      - "Dynamic prototyping and audiovisual experiences"
-  - title: "Visual implementation"
+      - "Interfaces in Figma: wireframes, flows and interactive prototypes"
+      - "Design Systems, visual identity and accessibility (WCAG)"
+      - "Motion graphics with After Effects, Illustrator and Premiere Pro"
+  - title: "Implementation"
     items:
       - "HTML, CSS/Sass, JavaScript and responsive design"
-      - "Translating designs into reusable and scalable components"
-      - "Functional prototyping to validate ideas before production"
-  - title: "Frameworks and tools"
-    items:
+      - "Designs translated into reusable components, documented in Storybook"
       - "Familiar with React, Next.js, TypeScript and Astro"
-      - "Storybook for documenting and managing components"
-      - "AI as a working tool, with the judgment to review what it suggests"
-  - title: "Accessibility and validation"
+  - title: "Quality and accessibility"
     items:
       - "WCAG, accessibility audits and automated testing"
       - "Playwright and visual regression with Percy"

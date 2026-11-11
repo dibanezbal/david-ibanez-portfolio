@@ -16,27 +16,17 @@ experience_intro: "Seis años en equipos web: primero publicando páginas, luego
 about_intro:
   - "Vengo del marketing digital. En Zurich Insurance he pasado por la edición web, el frontend y ahora la calidad, como Test and Quality Lead, y en paralelo me gradué en Técnicas de Interacción Digital y Multimedia en la UOC. Encajo en puestos como Design Engineer, UX Engineer, UI Developer, Web Designer o Product Builder."
 skills:
-  - title: "Diseño"
+  - title: "Diseño y motion"
     items:
-      - "Diseño de interfaces en Figma: wireframes, flujos y prototipos interactivos"
-      - "Design Systems, design tokens y accesibilidad (WCAG)"
-      - "Identidad visual, manuales de marca y guías de estilos"
-  - title: "Motion & Audiovisual"
-    items:
-      - "Motion graphics, animación y edición de vídeo"
-      - "Adobe Creative Suite: After Effects, Premiere Pro, Illustrator, InDesign"
-      - "Prototipado dinámico y experiencias audiovisuales"
-  - title: "Implementación visual"
+      - "Interfaces en Figma: wireframes, flujos y prototipos interactivos"
+      - "Design Systems, identidad visual y accesibilidad (WCAG)"
+      - "Motion graphics con After Effects, Illustrator y Premiere Pro"
+  - title: "Implementación"
     items:
       - "HTML, CSS/Sass, JavaScript y diseño responsive"
-      - "Traducir diseños en componentes reutilizables y escalables"
-      - "Prototipado funcional para validar ideas antes de producción"
-  - title: "Frameworks y herramientas"
-    items:
+      - "Diseños traducidos a componentes reutilizables, documentados en Storybook"
       - "Familiarizado con React, Next.js, TypeScript y Astro"
-      - "Storybook para documentar y gestionar componentes"
-      - "IA como herramienta de trabajo, con criterio para revisar lo que propone"
-  - title: "Accesibilidad y validación"
+  - title: "Calidad y accesibilidad"
     items:
       - "WCAG, auditorías de accesibilidad y testing automatizado"
       - "Playwright y regresión visual con Percy"

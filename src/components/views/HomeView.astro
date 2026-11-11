@@ -18,7 +18,6 @@ const motionUrl = lang === 'en' ? '/en/motion' : '/motion';
 const home = await getEntry('site', lang === 'en' ? 'home-en' : 'home');
 if (!home) throw new Error('Falta el contenido de la portada');
 const { hero, skills } = home.data;
-const [leadSkills, ...otherSkills] = skills;
 // Destaca las cifras de cada logro sin tocar el texto del CV
 const figures = /(\+\d+M?|\d+\+|\d+M\b|\d+(?:,\d+)?\s?%)/;
 
@@ -114,18 +113,12 @@ const jobs = await getExperience(lang);
 
 		<section class="shell border-t border-line py-16 md:py-24" aria-labelledby={route.anchors.bring}>
 			<SectionHeading id={route.anchors.bring} title={t.bring} />
-			<div class="reveal mt-12 border-t border-ink pt-4">
-				<h3 class="text-sm font-medium">{leadSkills.title}</h3>
-				<ul class="mt-4 grid gap-6 text-xl leading-snug md:grid-cols-3 md:gap-8">
-					{leadSkills.items.map((item) => <li>{item}</li>)}
-				</ul>
-			</div>
-			<div class="mt-12 grid gap-10 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
+			<div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
 				{
-					otherSkills.map((group) => (
+					skills.map((group) => (
 						<div class="reveal">
 							<h3 class="border-t border-ink pt-4 text-sm font-medium">{group.title}</h3>
-							<ul class="mt-4 space-y-2.5 leading-relaxed text-muted">
+							<ul class="mt-4 space-y-3 text-lg leading-snug">
 								{group.items.map((item) => <li>{item}</li>)}
 							</ul>
 						</div>
