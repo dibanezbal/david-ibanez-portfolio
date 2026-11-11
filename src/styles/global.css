@@ -435,3 +435,23 @@
 		}
 	}
 }
+
+/* Subrayado de la navegación: se dibuja de izquierda a derecha al pasar el ratón o enfocar, y queda fijo en la sección actual.
+   Va como fondo del texto (no del enlace, que mide 44 px) para quedar pegado a las letras */
+.nav-link-text {
+	background-image: linear-gradient(currentColor, currentColor);
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	background-size: 0 1px;
+	padding-bottom: 2px;
+}
+.nav-link:hover > .nav-link-text,
+.nav-link:focus-visible > .nav-link-text,
+.nav-link[aria-current="true"] > .nav-link-text {
+	background-size: 100% 1px;
+}
+@media (prefers-reduced-motion: no-preference) {
+	.nav-link-text {
+		transition: background-size 0.28s cubic-bezier(0.25, 0.6, 0.3, 1);
+	}
+}

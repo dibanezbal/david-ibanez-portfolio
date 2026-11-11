@@ -34,10 +34,12 @@ const nav = [
 							download={item.download}
 							aria-label={item.download ? t.cvDownloadLabel : undefined}
 								data-contacto={item.contact ? '' : undefined}
-							class="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-accent-text hover:underline aria-[current=true]:text-accent-text aria-[current=true]:underline"
+							class="nav-link inline-flex min-h-11 items-center transition-colors hover:text-accent-text aria-[current=true]:text-accent-text"
 						>
-							{item.label}
-							{item.download && <span aria-hidden="true"> ↓</span>}
+							<span class="nav-link-text">
+								{item.label}
+								{item.download && <span aria-hidden="true"> ↓</span>}
+							</span>
 						</a>
 					</li>
 				))
