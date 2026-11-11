@@ -35,6 +35,8 @@ const projectSchema = ({ image }: SchemaContext) =>
 			hook: z.string(),
 			detail: z.string(),
 			metrics: z.array(metric).default([]),
+			// Nota al pie de las métricas: de dónde salen y qué parte es mía
+			metricsNote: z.string().optional(),
 			cover: z.object({ src: image(), alt: z.string(), label: z.string().optional() }).optional(),
 			mobile: z.object({ src: image(), alt: z.string(), label: z.string().optional() }).optional(),
 			links: z.array(projectLink).default([]),

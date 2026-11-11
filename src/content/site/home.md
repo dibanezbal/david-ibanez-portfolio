@@ -43,7 +43,7 @@ skills:
       - "ISTQB Certified Tester Foundation Level v4"
 tools: ["Figma", "FigJam", "Storybook", "Maze", "WordPress", "Git", "Claude"]
 contact:
-  intro: "Diseño la interfaz y la construyo. Si tu equipo necesita las dos cosas, escríbeme."
+  intro: "Diseño la interfaz y la construyo con criterio. Si tu equipo necesita las dos cosas, escríbeme."
   email: "dibanezbal@gmail.com"
   linkedin: "https://www.linkedin.com/in/davidib"
   github: "https://github.com/dibanezbal"

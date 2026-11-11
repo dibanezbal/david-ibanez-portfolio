@@ -113,7 +113,8 @@ test('en móvil el caso empieza pronto: una captura y la ficha plegada', async (
 	await expect(page.locator('dt:visible', { hasText: 'Mi papel' })).toHaveCount(1);
 	await expect(page.locator('dt:visible', { hasText: 'Herramientas' })).toHaveCount(0);
 	const top = await page.getByRole('heading', { level: 2 }).first().evaluate((h) => h.getBoundingClientRect().top + scrollY);
-	expect(top).toBeLessThan(1400);
+	// Con la barra de métricas (hasta 4 cifras y su nota) el primer apartado queda más abajo; sin ellas, por debajo de 1400
+	expect(top).toBeLessThan(1700);
 });
 
 test('el índice marca cada apartado al hacer scroll, también los que llevan acentos', async ({ page }) => {

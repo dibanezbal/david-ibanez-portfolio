@@ -30,6 +30,16 @@ links:
   - label: "Manual de identidad"
     url: "https://www.behance.net/gallery/251970149/Manual-de-identidad-visual-de-compositor-de-musica"
     kind: "document"
+metrics:
+  - value: "6"
+    label: "participantes en el test de usabilidad con Maze"
+  - value: "6/6"
+    label: "llegaron al formulario de contacto"
+  - value: "5/6"
+    label: "encontraron la filmografía sin dificultad"
+  - value: "9,3"
+    label: "nota final del TFG, con Matrícula de Honor"
+metricsNote: "Test asíncrono con Maze sobre el prototipo de escritorio, con cuatro tareas. Participaron una diseñadora UX/UI sénior, un productor audiovisual, tres voluntarios y el cliente; la sexta persona respondió «neutral» al buscar la filmografía. La tarea de escuchar música no es concluyente: Maze no mostraba el reproductor, que sí estaba en el prototipo."
 featured: true
 order: 1
 ---

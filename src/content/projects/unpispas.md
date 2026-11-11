@@ -26,6 +26,16 @@ links:
   - label: "Demo compartida con el cliente"
     url: "https://unpispas-test.netlify.app/"
     kind: "prototype"
+metrics:
+  - value: "99 · 98"
+    label: "Rendimiento en Lighthouse, escritorio · móvil"
+  - value: "96"
+    label: "Accesibilidad en Lighthouse, escritorio y móvil"
+  - value: "100"
+    label: "Buenas prácticas en Lighthouse, escritorio y móvil"
+  - value: "100"
+    label: "SEO en Lighthouse, escritorio y móvil"
+metricsNote: "Lighthouse de Chrome DevTools sobre la web publicada, medido el 11 de noviembre de 2026. La puntuación es de toda la web; mi parte es el frontend."
 featured: true
 order: 3
 ---

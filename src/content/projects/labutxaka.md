@@ -28,6 +28,14 @@ links:
   - label: "Tutorial interactivo"
     url: "https://view.genially.com/69595024e2e30838a607ee26"
     kind: "document"
+metrics:
+  - value: "4"
+    label: "aplicaciones analizadas en el benchmarking"
+  - value: "2"
+    label: "flujos de usuario diseñados en Figma e implementados"
+  - value: "3"
+    label: "operaciones sobre los movimientos en producción: añadir, editar y eliminar"
+metricsNote: "Proyecto académico (UOC, enero de 2026). Maqueté la versión de escritorio y añadí media queries para tablet y móvil. Quedan pendientes los filtros, las transferencias y los formularios de cuentas y categorías."
 featured: true
 order: 2
 ---

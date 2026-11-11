@@ -30,6 +30,16 @@ links:
   - label: "Brand guidelines"
     url: "https://www.behance.net/gallery/251970149/Manual-de-identidad-visual-de-compositor-de-musica"
     kind: "document"
+metrics:
+  - value: "6"
+    label: "participants in the Maze usability test"
+  - value: "6/6"
+    label: "reached the contact form"
+  - value: "5/6"
+    label: "found the filmography without difficulty"
+  - value: "9.3"
+    label: "final grade of the thesis, with Matrícula de Honor"
+metricsNote: "Asynchronous Maze test on the desktop prototype, with four tasks. Participants were a senior UX/UI designer, an audiovisual producer, three volunteers and the client; the sixth person answered “neutral” when looking for the filmography. The “listen to music” task is inconclusive: Maze did not show the player, which was in the prototype."
 featured: true
 order: 1
 ---

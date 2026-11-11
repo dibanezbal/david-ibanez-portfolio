@@ -28,6 +28,14 @@ links:
   - label: "Interactive tutorial"
     url: "https://view.genially.com/69595024e2e30838a607ee26"
     kind: "document"
+metrics:
+  - value: "4"
+    label: "apps analysed in the benchmarking"
+  - value: "2"
+    label: "user flows designed in Figma and implemented"
+  - value: "3"
+    label: "operations on transactions in production: add, edit and delete"
+metricsNote: "Academic project (UOC, January 2026). I built the desktop version and added media queries for tablet and mobile. Filters, transfers and the forms for accounts and categories are still pending."
 featured: true
 order: 2
 ---
