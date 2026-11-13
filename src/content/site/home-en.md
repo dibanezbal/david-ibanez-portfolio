@@ -49,4 +49,4 @@ In 2026 I work as Test and Quality Lead on the same Zurich Insurance team where 
 
 Now I want to bring all of that to product design: exploring solutions with the team, designing the interfaces and building prototypes to test them before they reach production.
 
-I'd describe myself as curious and committed. I care about social justice, especially LGBTQ+ rights. I often overthink things, but when something needs solving, I go for the most pragmatic option. I love traveling, going to concerts, a good movie and an afternoon on a terrace with friends.
+I'd describe myself as curious and committed. I care about social justice, especially LGBTIQ+ rights. I often overthink things, but when something needs solving, I go for the most pragmatic option. I love traveling, going to concerts, a good movie and an afternoon on a terrace with friends.

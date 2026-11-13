@@ -49,4 +49,4 @@ En 2026 trabajo como Test and Quality Lead en el mismo equipo de Zurich Insuranc
 
 Ahora quiero llevar todo eso al diseño de producto: explorar soluciones con el equipo, diseñar las interfaces y construir prototipos para probarlas antes de que lleguen a producción.
 
-Me considero una persona curiosa y comprometida. Me preocupa la justicia social, en especial el colectivo LGBTQ+. Le doy muchas vueltas a las cosas, pero cuando hay que resolver algo, voy a lo más pragmático. Me encanta viajar, ir a conciertos, una buena película y una tarde de terraza con amistades.
+Me considero una persona curiosa y comprometida. Me preocupa la justicia social, en especial el colectivo LGBTIQ+. Le doy muchas vueltas a las cosas, pero cuando hay que resolver algo, voy a lo más pragmático. Me encanta viajar, ir a conciertos, una buena película y una tarde de terraza con amistades.
