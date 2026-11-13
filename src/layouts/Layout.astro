@@ -16,7 +16,9 @@ interface Props {
 
 const lang = getLang(Astro.currentLocale);
 const t = ui[lang];
-const { title, description, image = '/og.png', alternate = getAlternatePath(Astro.url.pathname), autoLanguage = true } = Astro.props;
+// WhatsApp y LinkedIn guardan la vista previa por URL: cambia `v` cada vez que cambie og.png
+const DEFAULT_OG = '/og.png?v=2';
+const { title, description, image = DEFAULT_OG, alternate = getAlternatePath(Astro.url.pathname), autoLanguage = true } = Astro.props;
 const isNotFound = Astro.url.pathname.replace(/\/$/, '').endsWith('/404');
 
 // Las URL absolutas requieren `site` en astro.config.mjs
@@ -81,6 +83,13 @@ const ogImage = Astro.site && new URL(image, Astro.site);
 		<meta property="og:description" content={description} />
 		{canonical && <meta property="og:url" content={canonical} />}
 		{ogImage && <meta property="og:image" content={ogImage} />}
+		{image === DEFAULT_OG && (
+			<>
+				<meta property="og:image:type" content="image/png" />
+				<meta property="og:image:width" content="1200" />
+				<meta property="og:image:height" content="630" />
+			</>
+		)}
 
 		<meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
 		<meta name="twitter:title" content={title} />
