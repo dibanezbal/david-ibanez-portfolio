@@ -59,7 +59,7 @@ test('the contact link works inside the case', async ({ page }) => {
 	await openNavigation(page);
 	await page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Contact' }).click();
 	await expect(page).toHaveURL(/\/en\/projects\/labutxaka#contact$/);
-	await expect(page.getByRole('link', { name: 'dibanezbal@gmail.com' })).toBeInViewport();
+	await expect(page.getByRole('link', { name: 'hola@davidib.com' })).toBeInViewport();
 });
 
 test('the About page has the full text and the portrait', async ({ page }) => {

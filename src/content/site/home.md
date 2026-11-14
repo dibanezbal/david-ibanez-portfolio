@@ -34,7 +34,7 @@ skills:
 tools: ["Figma", "FigJam", "Storybook", "Maze", "WordPress", "Git", "Claude"]
 contact:
   intro: "¿Tu equipo necesita interfaces diseñadas y construidas con criterio? Hablemos."
-  email: "dibanezbal@gmail.com"
+  email: "hola@davidib.com"
   linkedin: "https://www.linkedin.com/in/davidib"
   github: "https://github.com/dibanezbal"
 ---
