@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { getEntry } from 'astro:content';
-import { getAlternatePath, getLang } from '../../i18n/ui';
+import { getAlternatePath, getLang, ui } from '../../i18n/ui';
 import Layout from '../../layouts/Layout.astro';
 import Logo from '../Logo.astro';
 import QRCard from '../QRCard.astro';
@@ -9,6 +9,7 @@ import davidFront from '../../assets/img/david-ibanez-front.jpg';
 
 const lang = getLang(Astro.currentLocale);
 const en = lang === 'en';
+const t = ui[lang];
 const home = await getEntry('site', en ? 'home-en' : 'home');
 if (!home) throw new Error('Falta el contenido de la portada');
 
@@ -68,16 +69,34 @@ const rows = [
 	<main id="contenido" class="mx-auto min-h-dvh max-w-md bg-paper md:my-10 md:min-h-0 md:border md:border-ink">
 		<header class="flex items-center justify-between px-5 pt-4">
 			<Logo size={44} />
-			<a
-				href={getAlternatePath(Astro.url.pathname)}
-				data-idioma={en ? 'es' : 'en'}
-				hreflang={en ? 'es' : 'en'}
-				lang={en ? 'es' : 'en'}
-				aria-label={label.switchLabel}
-				class="inline-flex size-11 items-center justify-center text-sm font-medium transition-colors hover:text-accent-text"
-			>
-				{label.switchTo}
-			</a>
+			<div class="flex items-center">
+				<a
+					href={getAlternatePath(Astro.url.pathname)}
+					data-idioma={en ? 'es' : 'en'}
+					hreflang={en ? 'es' : 'en'}
+					lang={en ? 'es' : 'en'}
+					aria-label={label.switchLabel}
+					class="inline-flex size-11 items-center justify-center text-sm font-medium transition-colors hover:text-accent-text"
+				>
+					{label.switchTo}
+				</a>
+				<button
+					type="button"
+					id="cambiar-tema"
+					data-label-dark={t.themeDark}
+					data-label-light={t.themeLight}
+					aria-label={t.themeDark}
+					class="grid size-11 cursor-pointer place-items-center transition-colors hover:text-accent-text"
+				>
+					<svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icono="luna">
+						<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+					</svg>
+					<svg class="size-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true" data-icono="sol">
+						<circle cx="12" cy="12" r="4" />
+						<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+					</svg>
+				</button>
+			</div>
 		</header>
 
 		<h1 class="sr-only">David Ibáñez</h1>
@@ -156,6 +175,28 @@ const rows = [
 </Layout>
 
 <script>
+	// Modo claro u oscuro: se puede cambiar a mano y se recuerda, igual que en el resto del sitio
+	const themeButton = document.getElementById('cambiar-tema');
+	const isDark = () =>
+		document.documentElement.dataset.theme === 'dark' ||
+		(document.documentElement.dataset.theme !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+	const renderTheme = () => {
+		if (!themeButton) return;
+		const dark = isDark();
+		themeButton.setAttribute('aria-label', (dark ? themeButton.dataset.labelLight : themeButton.dataset.labelDark) ?? '');
+		themeButton.querySelector('[data-icono="luna"]')?.classList.toggle('hidden', dark);
+		themeButton.querySelector('[data-icono="sol"]')?.classList.toggle('hidden', !dark);
+	};
+	themeButton?.addEventListener('click', () => {
+		const next = isDark() ? 'light' : 'dark';
+		document.documentElement.dataset.theme = next;
+		try {
+			localStorage.setItem('tema', next);
+		} catch {}
+		renderTheme();
+	});
+	renderTheme();
+
 	// Elegir idioma en la tarjeta se recuerda para el resto del sitio
 	document.querySelector<HTMLElement>('[data-idioma]')?.addEventListener('click', (event) => {
 		try {
