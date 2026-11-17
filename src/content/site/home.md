@@ -41,11 +41,11 @@ contact:
 
 Bilbao, 1990.
 
-Desde pequeño me ha apasionado la música y la tecnología. Con 5 años empecé a tocar la guitarra. A raíz de eso estudié FP de Telecomunicaciones y Audiovisuales, e hice mis pinitos como técnico de radio en Italia, Perú y Hungría. En Budapest, trabajé en marketing digital para un buscador de viajes, y ahí empecé a oír hablar de conceptos como *user experience*, *landing pages* o test con usuarios.
+Desde pequeño me ha apasionado la música y la tecnología. Con 5 años empecé a tocar la guitarra, con 16 tenía un programa de radio en el colegio. A raíz de eso decidí estudiar FP de Telecomunicaciones y Audiovisuales, e hice mis pinitos como técnico de radio en Italia, Perú y Hungría. En Budapest, di un giro y trabajé en marketing digital para un buscador de viajes, y ahí empecé a oír hablar de conceptos como *user experience*, *landing pages* o test con usuarios.
 
-Años después, ya en Barcelona y mientras trabajaba como editor web y luego frontend para Zurich Insurance, decidí graduarme en Técnicas de Interacción Digital y Multimedia en la UOC para agrupar mis conocimientos. Quería descubrir cómo se tomaban las decisiones de diseño UX/UI. Y ahí volví a conectarme con mi creatividad.
+Años después, ya en Barcelona y mientras trabajaba como editor web y luego frontend para Zurich Insurance, decidí graduarme en Técnicas de Interacción Digital y Multimedia en la UOC para agrupar y ampliar mis conocimientos. Quería descubrir cómo se tomaban las decisiones de diseño UX/UI. Y ahí volví a conectarme con mi creatividad.
 
-En 2026 trabajo como Test and Quality Lead en el mismo equipo de Zurich Insurance, donde antes fui editor web y Frontend Developer. Esa experiencia me enseñó a entender cómo se construye una interfaz, cómo se prueba y dónde suele romperse.
+En la actualidad trabajo como Test and Quality Lead en el mismo equipo de Zurich Insurance, donde antes fui editor web y Frontend Developer. Esa experiencia me enseñó a entender cómo se construye una interfaz, cómo se prueba y dónde suele romperse.
 
 Ahora quiero llevar todo eso al diseño de producto: explorar soluciones con el equipo, diseñar las interfaces y construir prototipos para probarlas antes de que lleguen a producción.
 
