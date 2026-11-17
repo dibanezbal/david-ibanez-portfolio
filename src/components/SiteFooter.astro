@@ -8,6 +8,8 @@ const t = ui[lang];
 const home = await getEntry('site', lang === 'en' ? 'home-en' : 'home');
 if (!home) throw new Error('Falta el contenido de la portada');
 const { contact } = home.data;
+const makingUrl = lang === 'en' ? '/en/how-i-built-my-portfolio' : '/como-hice-portfolio';
+const onMaking = Astro.url.pathname.replace(/\/$/, '') === makingUrl;
 
 // Sobre el fondo oscuro del footer se usa el rosa claro, no el carmín (no llegaría a contraste)
 const link =
@@ -51,6 +53,12 @@ const link =
 				</ul>
 			</div>
 		</div>
-		<p class="mt-16 text-sm text-muted-on-ink">David Ibáñez · Barcelona</p>
+		<!-- Colofón: en todas las páginas, con el peso del pie -->
+		<p class="mt-16 text-sm text-muted-on-ink">
+			David Ibáñez · Barcelona ·{' '}
+			<a href={makingUrl} aria-current={onMaking ? 'page' : undefined} class="inline-flex min-h-11 items-center underline underline-offset-4 transition-colors hover:text-footer-accent active:text-footer-accent">
+				{lang === 'en' ? 'How I built this portfolio' : 'Cómo hice este portfolio'}
+			</a>
+		</p>
 	</div>
 </footer>

@@ -1,23 +1,27 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
-// Añade aquí cada página nueva
+// Añade aquí cada página nueva. visual: tiene captura de referencia aquí (la portada y los casos la tienen en sus propios archivos)
 const ROUTES = [
 	{ route: '/', lang: 'es' },
-	{ route: '/sobre-mi', lang: 'es' },
+	{ route: '/sobre-mi', lang: 'es', visual: true },
 	{ route: '/proyectos/joan-pere-jove', lang: 'es' },
 	{ route: '/proyectos/labutxaka', lang: 'es' },
 	{ route: '/proyectos/unpispas', lang: 'es' },
-	{ route: '/card', lang: 'es' },
+	{ route: '/motion', lang: 'es', visual: true },
+	{ route: '/card', lang: 'es', visual: true },
+	{ route: '/como-hice-portfolio', lang: 'es', visual: true },
 	{ route: '/en/', lang: 'en' },
-	{ route: '/en/about', lang: 'en' },
+	{ route: '/en/about', lang: 'en', visual: true },
 	{ route: '/en/projects/joan-pere-jove', lang: 'en' },
 	{ route: '/en/projects/labutxaka', lang: 'en' },
 	{ route: '/en/projects/unpispas', lang: 'en' },
-	{ route: '/en/card', lang: 'en' },
+	{ route: '/en/motion', lang: 'en', visual: true },
+	{ route: '/en/card', lang: 'en', visual: true },
+	{ route: '/en/how-i-built-my-portfolio', lang: 'en', visual: true },
 ];
 
-for (const { route, lang } of ROUTES) {
+for (const { route, lang, visual } of ROUTES) {
 	test.describe(`Página ${route}`, () => {
 		test.use({ locale: lang === 'en' ? 'en-US' : 'es-ES' });
 
@@ -100,6 +104,21 @@ for (const { route, lang } of ROUTES) {
 			const summary = violations.map(({ id, impact, nodes }) => `${id} (${impact}): ${nodes.length}`);
 			expect(summary).toEqual([]);
 		});
+
+		if (visual) {
+			test('se mantiene igual visualmente', async ({ page }) => {
+				await page.goto(route);
+				await page.evaluate(async () => {
+					await document.fonts.ready;
+					for (const image of document.images) {
+						image.loading = 'eager';
+						await image.decode();
+					}
+				});
+				const name = route.replace(/^\/|\/$/g, '').replace(/\//g, '-');
+				await expect(page).toHaveScreenshot(`${name}.png`, { fullPage: true, maxDiffPixelRatio: 0.01 });
+			});
+		}
 	});
 }
 

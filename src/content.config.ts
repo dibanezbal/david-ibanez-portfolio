@@ -37,8 +37,8 @@ const projectSchema = ({ image }: SchemaContext) =>
 			metrics: z.array(metric).default([]),
 			// Nota al pie de las métricas: de dónde salen y qué parte es mía
 			metricsNote: z.string().optional(),
-			cover: z.object({ src: image(), alt: z.string(), label: z.string().optional() }).optional(),
-			mobile: z.object({ src: image(), alt: z.string(), label: z.string().optional() }).optional(),
+			cover: z.object({ src: image(), alt: z.string().min(1), label: z.string().optional() }).optional(),
+			mobile: z.object({ src: image(), alt: z.string().min(1), label: z.string().optional() }).optional(),
 			links: z.array(projectLink).default([]),
 			featured: z.boolean().default(false),
 			order: z.number(),

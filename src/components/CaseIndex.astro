@@ -1,0 +1,81 @@
+---
+// Índice de un caso largo: fijo en la columna lateral en escritorio y plegado en móvil. Lo usan los casos y «Cómo hice este portfolio»
+import PlusIcon from './PlusIcon.astro';
+import { getLang, ui } from '../i18n/ui';
+
+interface Props {
+	sections: { slug: string; text: string }[];
+}
+
+const { sections } = Astro.props;
+const t = ui[getLang(Astro.currentLocale)];
+---
+
+{
+	sections.length > 1 && (
+		<>
+			<nav aria-label={t.sectionsLabel} class="mt-10 hidden border-t border-line pt-6 lg:sticky lg:top-24 lg:block">
+				<p class="text-sm text-muted">{t.inThisCase}</p>
+				<ol class="mt-3 space-y-2 text-sm" data-indice>
+					{sections.map((section) => (
+						<li>
+							<a href={`#${section.slug}`} class="inline-flex min-h-11 items-center underline-offset-4 transition-colors hover:text-accent-text hover:underline aria-[current=true]:text-accent-text aria-[current=true]:underline">
+								{section.text}
+							</a>
+						</li>
+					))}
+				</ol>
+			</nav>
+			<!-- En móvil el índice se pliega para no alejar el contenido, y se cierra al elegir un apartado -->
+			<nav aria-label={t.sectionsLabel} class="border-y border-ink lg:hidden">
+				<details class="group" data-indice-movil>
+					<summary class="flex cursor-pointer list-none items-center justify-between py-4 font-medium transition-colors hover:text-accent-text [&::-webkit-details-marker]:hidden">
+						{t.inThisCase}
+						<PlusIcon />
+					</summary>
+					<ol class="space-y-1 pb-4" data-indice>
+						{sections.map((section) => (
+							<li>
+								<a href={`#${section.slug}`} class="inline-flex min-h-11 items-center underline-offset-4 aria-[current=true]:text-accent-text aria-[current=true]:underline">
+									{section.text}
+								</a>
+							</li>
+						))}
+					</ol>
+				</details>
+			</nav>
+		</>
+	)
+}
+
+<script>
+	// Marca en el índice el apartado que se está leyendo
+	const indexLinks = [...document.querySelectorAll<HTMLAnchorElement>('[data-indice] a')];
+	const headings = [...document.querySelectorAll<HTMLElement>('.case-prose h2[id]')];
+	let ticking = false;
+	// Cuenta como actual el último apartado cuyo título ha pasado del primer tercio de la pantalla
+	const markSection = () => {
+		ticking = false;
+		const line = window.innerHeight / 3;
+		const current = headings.filter((heading) => heading.getBoundingClientRect().top <= line).at(-1);
+		for (const link of indexLinks) {
+			// href y no hash: hash codifica los acentos y no coincidiría con el id
+			if (current && link.getAttribute('href') === `#${current.id}`) link.setAttribute('aria-current', 'true');
+			else link.removeAttribute('aria-current');
+		}
+	};
+	const requestMark = () => {
+		if (ticking) return;
+		ticking = true;
+		requestAnimationFrame(markSection);
+	};
+	window.addEventListener('scroll', requestMark, { passive: true });
+	window.addEventListener('resize', requestMark);
+	markSection();
+
+	const mobileIndex = document.querySelector<HTMLDetailsElement>('[data-indice-movil]');
+	mobileIndex?.addEventListener('toggle', requestMark);
+	mobileIndex?.addEventListener('click', (event) => {
+		if ((event.target as HTMLElement).closest('a')) mobileIndex.open = false;
+	});
+</script>

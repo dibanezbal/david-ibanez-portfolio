@@ -108,6 +108,23 @@ const jobs = await getExperience(lang);
 					</span>
 				</p>
 			</div>
+
+			<!-- Tercer nivel: fila compacta, por debajo de los proyectos (tarjetas con capturas) y de Motion (fila con título grande) -->
+			<div class="reveal group relative grid gap-3 border-t border-line py-8 lg:grid-cols-12 lg:items-baseline lg:gap-12">
+				<h3 class="text-xl font-semibold leading-snug tracking-tight lg:col-span-4">
+					<a href={lang === 'en' ? '/en/how-i-built-my-portfolio' : '/como-hice-portfolio'} class="underline-offset-4 after:absolute after:inset-0 group-hover:underline">
+						{lang === 'en' ? 'How I built this portfolio' : 'Cómo hice este portfolio'}
+					</a>
+				</h3>
+				<p class="leading-relaxed text-muted lg:col-span-5">
+					{lang === 'en' ? 'The brand, the wireframe, the code, the tests and the deployment of this site.' : 'La marca, el wireframe, el código, las pruebas y el despliegue de esta web.'}
+				</p>
+				<p class="lg:col-span-3">
+					<span class="inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent-text underline underline-offset-4 transition-colors group-hover:text-ink">
+						{lang === 'en' ? 'See the process' : 'Ver el proceso'}<span aria-hidden="true">→</span>
+					</span>
+				</p>
+			</div>
 		</section>
 
 

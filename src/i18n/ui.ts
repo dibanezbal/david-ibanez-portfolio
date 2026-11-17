@@ -136,6 +136,8 @@ export function getAlternatePath(pathname: string): string {
 	if (path === '/en/about') return withSlash('/sobre-mi');
 	if (path === '/motion') return withSlash('/en/motion');
 	if (path === '/en/motion') return withSlash('/motion');
+	if (path === '/como-hice-portfolio') return withSlash('/en/how-i-built-my-portfolio');
+	if (path === '/en/how-i-built-my-portfolio') return withSlash('/como-hice-portfolio');
 	if (path === '/card') return withSlash('/en/card');
 	if (path === '/en/card') return withSlash('/card');
 	if (path === '/404') return withSlash('/en/404');
