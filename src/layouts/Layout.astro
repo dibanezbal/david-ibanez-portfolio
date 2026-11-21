@@ -54,6 +54,31 @@ const ogImage = Astro.site && new URL(image, Astro.site);
 		</script>
 		)}
 		<script is:inline>
+			// Entrada "wireframe que se construye" en la portada, con movimiento normal.
+			// Completa (2,9 s) si hace más de una semana que no la ves; si no, versión corta (1 s). Un gesto la salta.
+			// data-wf pasa de "run" a "done" y se queda: así el hero no vuelve a animarse al terminar
+			try {
+				var ruta = location.pathname.replace(/\/$/, '');
+				if ((ruta === '' || ruta === '/en') && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+					var raiz = document.documentElement, corta = false;
+					try {
+						var visto = Number(localStorage.getItem('wfVisto') || 0);
+						corta = Date.now() - visto < 7 * 24 * 3600 * 1000;
+						if (!corta) localStorage.setItem('wfVisto', String(Date.now()));
+					} catch (e) {}
+					if (corta) raiz.dataset.wfShort = '';
+					raiz.dataset.wf = 'run';
+					var tipos = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
+					var fin = function () {
+						raiz.dataset.wf = 'done';
+						tipos.forEach(function (t) { removeEventListener(t, fin); });
+					};
+					tipos.forEach(function (t) { addEventListener(t, fin, { passive: true }); });
+					setTimeout(fin, corta ? 1500 : 3500);
+				}
+			} catch (e) {}
+		</script>
+		<script is:inline>
 			try {
 				const tema = localStorage.getItem('tema');
 				if (tema === 'dark' || tema === 'light') document.documentElement.dataset.theme = tema;
