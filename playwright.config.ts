@@ -14,6 +14,8 @@ export default defineConfig({
 		trace: 'retain-on-failure',
 		// El idioma del navegador decide la versión de la web: por defecto se prueba la española
 		locale: 'es-ES',
+		// Las entradas animadas se prueban aparte (tests/e2e/intro.spec.ts); el resto de pruebas va con movimiento reducido para ser estable
+		reducedMotion: 'reduce',
 	},
 	// En CI el build ya está hecho (el mismo dist que se publica), así no se construye dos veces
 	// Se prueba la salida de producción, no el servidor de desarrollo

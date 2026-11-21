@@ -54,6 +54,18 @@ const ogImage = Astro.site && new URL(image, Astro.site);
 		</script>
 		)}
 		<script is:inline>
+			// Entrada "wireframe que se construye": solo en la portada, una vez por sesión y con movimiento normal
+			try {
+				var ruta = location.pathname.replace(/\/$/, '');
+				if ((ruta === '' || ruta === '/en') && !sessionStorage.getItem('wf') && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+					document.documentElement.dataset.wf = '';
+					sessionStorage.setItem('wf', '1');
+					// Terminada la entrada se retira la marca: así los estados normales (hover de la D) no se pisan con ella
+					setTimeout(function () { delete document.documentElement.dataset.wf; }, 3500);
+				}
+			} catch (e) {}
+		</script>
+		<script is:inline>
 			try {
 				const tema = localStorage.getItem('tema');
 				if (tema === 'dark' || tema === 'light') document.documentElement.dataset.theme = tema;
